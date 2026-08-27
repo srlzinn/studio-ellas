@@ -201,26 +201,211 @@
   .apresentacao-feature span { font-size: 0.85rem; color: var(--text-secondary); }
   .apresentacao-imagem { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
   .apresentacao-imagem img { width: 100%; height: 400px; object-fit: cover; }
+/* ============================================
+   12. PROFISSIONAIS
+   ============================================ */
 
+   .profissionais {
+      padding: 90px 0;
+      background: var(--background);
+  }
+  
+  .profissionais-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+      align-items: stretch;
+  }
+  
+  .profissional-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-light);
+      transition:
+          transform var(--transition),
+          box-shadow var(--transition),
+          border-color var(--transition);
+  }
+  
+  .profissional-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--gold);
+  }
+  
+  /* FOTO */
+  .profissional-imagem {
+      position: relative;
+      width: 100%;
+      height: 310px;
+      overflow: hidden;
+      background: var(--primary-darker);
+  }
+  
+  .profissional-imagem img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 20%;
+      transition:
+          transform var(--transition-slow),
+          filter var(--transition);
+  }
+  
+  .profissional-card:hover .profissional-imagem img {
+      transform: scale(1.04);
+  }
+  
+  /* Overlay elegante sobre a parte inferior da foto */
+  .profissional-overlay {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 55px 18px 16px;
+      background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          rgba(31, 5, 5, 0.15) 25%,
+          rgba(31, 5, 5, 0.75) 75%,
+          rgba(31, 5, 5, 0.95) 100%
+      );
+      pointer-events: none;
+  }
+  
+  /* ÁREA / ESPECIALIDADE */
+  .profissional-area {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      background: var(--gold);
+      color: var(--text-dark);
+      padding: 5px 13px;
+      border-radius: 50px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+  }
+  
+  /* CONTEÚDO */
+  .profissional-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 22px 24px 24px;
+  }
+  
+  .profissional-content h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      line-height: 1.25;
+      margin: 0 0 3px;
+      color: var(--gold);
+  }
+  
+  .profissional-titulo {
+      display: block;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      color: var(--gold-light);
+      font-weight: 500;
+      margin-bottom: 10px;
+  }
+  
+  .profissional-content p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin: 0 0 14px;
+  }
+  
+  /* SERVIÇOS */
+  .profissional-servicos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+  }
+  
+  .servico-tag {
+      font-size: 0.68rem;
+      line-height: 1;
+      color: var(--text-secondary);
+      background: rgba(74, 14, 14, 0.35);
+      padding: 7px 11px;
+      border-radius: 50px;
+      border: 1px solid var(--border-lighter);
+      transition:
+          background var(--transition),
+          border-color var(--transition),
+          color var(--transition);
+  }
+  
+  .profissional-card:hover .servico-tag {
+      border-color: rgba(212, 175, 55, 0.35);
+  }
+  
+  /* BOTÃO */
+  .profissional-content .btn {
+      width: 100%;
+      justify-content: center;
+      margin-top: auto;
+  }
+  
   /* ============================================
-     12. PROFISSIONAIS
+     RESPONSIVIDADE
      ============================================ */
-  .profissionais { padding: 80px 0; background: var(--background); }
-  .profissionais-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  .profissional-card { background: var(--surface); backdrop-filter: blur(8px); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--border-light); transition: all var(--transition); }
-  .profissional-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: var(--gold); }
-  .profissional-imagem { position: relative; height: 240px; overflow: hidden; }
-  .profissional-imagem img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); }
-  .profissional-card:hover .profissional-imagem img { transform: scale(1.05); }
-  .profissional-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(transparent, rgba(0,0,0,0.7)); }
-  .profissional-area { background: var(--gold); color: var(--text-dark); padding: 4px 14px; border-radius: 50px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-  .profissional-content { padding: 20px 24px 24px; }
-  .profissional-content h3 { font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 2px; color: var(--gold); }
-  .profissional-titulo { font-size: 0.8rem; color: var(--gold-light); font-weight: 500; display: block; margin-bottom: 8px; }
-  .profissional-content p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px; }
-  .profissional-servicos { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-  .servico-tag { font-size: 0.7rem; color: var(--text-secondary); background: var(--surface); padding: 4px 12px; border-radius: 50px; border: 1px solid var(--border-lighter); }
-  .profissional-content .btn { width: 100%; justify-content: center; }
+  
+  @media (max-width: 900px) {
+  
+      .profissionais {
+          padding: 70px 0;
+      }
+  
+      .profissionais-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 20px;
+      }
+  
+      .profissional-imagem {
+          height: 290px;
+      }
+  }
+  
+  @media (max-width: 600px) {
+  
+      .profissionais {
+          padding: 60px 0;
+      }
+  
+      .profissionais-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+      }
+  
+      .profissional-imagem {
+          height: 360px;
+      }
+  
+      .profissional-content {
+          padding: 20px;
+      }
+  
+      .profissional-content h3 {
+          font-size: 1.15rem;
+      }
+  
+      .profissional-content p {
+          font-size: 0.86rem;
+      }
+  }
 
   /* ============================================
      13. SERVIÇOS EM DESTAQUE
