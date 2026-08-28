@@ -1,6 +1,5 @@
 /* ============================================
-   style.css - Studio Ellas
-   Estilos Completos - Versão Premium
+   style.css - Centro Odontológico e Estético
    Cores: Vinho Escuro, Dourado Claro e Branco
    ============================================ */
 
@@ -201,211 +200,26 @@
   .apresentacao-feature span { font-size: 0.85rem; color: var(--text-secondary); }
   .apresentacao-imagem { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
   .apresentacao-imagem img { width: 100%; height: 400px; object-fit: cover; }
-/* ============================================
-   12. PROFISSIONAIS
-   ============================================ */
 
-   .profissionais {
-      padding: 90px 0;
-      background: var(--background);
-  }
-  
-  .profissionais-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 28px;
-      align-items: stretch;
-  }
-  
-  .profissional-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      background: var(--surface);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--border-light);
-      transition:
-          transform var(--transition),
-          box-shadow var(--transition),
-          border-color var(--transition);
-  }
-  
-  .profissional-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-hover);
-      border-color: var(--gold);
-  }
-  
-  /* FOTO */
-  .profissional-imagem {
-      position: relative;
-      width: 100%;
-      height: 310px;
-      overflow: hidden;
-      background: var(--primary-darker);
-  }
-  
-  .profissional-imagem img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      object-position: center 20%;
-      transition:
-          transform var(--transition-slow),
-          filter var(--transition);
-  }
-  
-  .profissional-card:hover .profissional-imagem img {
-      transform: scale(1.04);
-  }
-  
-  /* Overlay elegante sobre a parte inferior da foto */
-  .profissional-overlay {
-      position: absolute;
-      inset: auto 0 0;
-      padding: 55px 18px 16px;
-      background: linear-gradient(
-          to bottom,
-          transparent 0%,
-          rgba(31, 5, 5, 0.15) 25%,
-          rgba(31, 5, 5, 0.75) 75%,
-          rgba(31, 5, 5, 0.95) 100%
-      );
-      pointer-events: none;
-  }
-  
-  /* ÁREA / ESPECIALIDADE */
-  .profissional-area {
-      display: inline-flex;
-      align-items: center;
-      width: fit-content;
-      background: var(--gold);
-      color: var(--text-dark);
-      padding: 5px 13px;
-      border-radius: 50px;
-      font-size: 0.68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-  }
-  
-  /* CONTEÚDO */
-  .profissional-content {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      padding: 22px 24px 24px;
-  }
-  
-  .profissional-content h3 {
-      font-family: var(--font-serif);
-      font-size: 1.2rem;
-      line-height: 1.25;
-      margin: 0 0 3px;
-      color: var(--gold);
-  }
-  
-  .profissional-titulo {
-      display: block;
-      font-size: 0.8rem;
-      line-height: 1.4;
-      color: var(--gold-light);
-      font-weight: 500;
-      margin-bottom: 10px;
-  }
-  
-  .profissional-content p {
-      font-size: 0.88rem;
-      line-height: 1.6;
-      color: var(--text-secondary);
-      margin: 0 0 14px;
-  }
-  
-  /* SERVIÇOS */
-  .profissional-servicos {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 20px;
-  }
-  
-  .servico-tag {
-      font-size: 0.68rem;
-      line-height: 1;
-      color: var(--text-secondary);
-      background: rgba(74, 14, 14, 0.35);
-      padding: 7px 11px;
-      border-radius: 50px;
-      border: 1px solid var(--border-lighter);
-      transition:
-          background var(--transition),
-          border-color var(--transition),
-          color var(--transition);
-  }
-  
-  .profissional-card:hover .servico-tag {
-      border-color: rgba(212, 175, 55, 0.35);
-  }
-  
-  /* BOTÃO */
-  .profissional-content .btn {
-      width: 100%;
-      justify-content: center;
-      margin-top: auto;
-  }
-  
   /* ============================================
-     RESPONSIVIDADE
+     12. PROFISSIONAIS
      ============================================ */
-  
-  @media (max-width: 900px) {
-  
-      .profissionais {
-          padding: 70px 0;
-      }
-  
-      .profissionais-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 20px;
-      }
-  
-      .profissional-imagem {
-          height: 290px;
-      }
-  }
-  
-  @media (max-width: 600px) {
-  
-      .profissionais {
-          padding: 60px 0;
-      }
-  
-      .profissionais-grid {
-          grid-template-columns: 1fr;
-          gap: 20px;
-      }
-  
-      .profissional-imagem {
-          height: 360px;
-      }
-  
-      .profissional-content {
-          padding: 20px;
-      }
-  
-      .profissional-content h3 {
-          font-size: 1.15rem;
-      }
-  
-      .profissional-content p {
-          font-size: 0.86rem;
-      }
-  }
+  .profissionais { padding: 80px 0; background: var(--background); }
+  .profissionais-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .profissional-card { background: var(--surface); backdrop-filter: blur(8px); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--border-light); transition: all var(--transition); }
+  .profissional-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: var(--gold); }
+  .profissional-imagem { position: relative; height: 240px; overflow: hidden; }
+  .profissional-imagem img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); }
+  .profissional-card:hover .profissional-imagem img { transform: scale(1.05); }
+  .profissional-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(transparent, rgba(0,0,0,0.7)); }
+  .profissional-area { background: var(--gold); color: var(--text-dark); padding: 4px 14px; border-radius: 50px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .profissional-content { padding: 20px 24px 24px; }
+  .profissional-content h3 { font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 2px; color: var(--gold); }
+  .profissional-titulo { font-size: 0.8rem; color: var(--gold-light); font-weight: 500; display: block; margin-bottom: 8px; }
+  .profissional-content p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px; }
+  .profissional-servicos { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .servico-tag { font-size: 0.7rem; color: var(--text-secondary); background: var(--surface); padding: 4px 12px; border-radius: 50px; border: 1px solid var(--border-lighter); }
+  .profissional-content .btn { width: 100%; justify-content: center; }
 
   /* ============================================
      13. SERVIÇOS EM DESTAQUE
@@ -428,45 +242,20 @@
   .servicos-cta { text-align: center; margin-top: 32px; }
 
   /* ============================================
-     14. DEPOIMENTOS
+     14. DIFERENCIAIS
      ============================================ */
-  .depoimentos { padding: 80px 0; background: var(--background); }
-  .depoimentos-slider { position: relative; overflow: hidden; max-width: 900px; margin: 0 auto; }
-  .depoimentos-track { display: flex; transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); gap: 24px; }
-  .depoimento-card { flex: 0 0 calc(33.333% - 16px); background: var(--surface); backdrop-filter: blur(8px); padding: 28px 24px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid var(--border-light); transition: all var(--transition); }
-  .depoimento-card:hover { border-color: var(--gold); }
-  .depoimento-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 3px; margin-bottom: 12px; }
-  .depoimento-card p { font-size: 0.95rem; font-style: italic; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.7; max-width: 100%; }
-  .depoimento-author { display: flex; flex-direction: column; gap: 2px; padding-top: 12px; border-top: 1px solid var(--border-light); }
-  .author-name { font-weight: 600; color: var(--gold); font-size: 0.9rem; }
-  .author-verified { font-size: 0.7rem; color: var(--gold-light); letter-spacing: 0.3px; }
-  .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: var(--surface); backdrop-filter: blur(8px); border: 1px solid var(--gold); width: 44px; height: 44px; border-radius: 50%; font-size: 1.4rem; cursor: pointer; box-shadow: var(--shadow-sm); transition: all var(--transition); color: var(--gold); z-index: 10; display: flex; align-items: center; justify-content: center; }
-  .slider-btn:hover { background: var(--gold); color: var(--text-dark); border-color: var(--gold); }
-  .slider-prev { left: -22px; }
-  .slider-next { right: -22px; }
-  .slider-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
-  .slider-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border-light); border: none; cursor: pointer; transition: all var(--transition); padding: 0; }
-  .slider-dot.active { background: var(--gold); transform: scale(1.25); }
+  .diferenciais { padding: 80px 0; background: var(--background); border-top: 1px solid var(--border-light); }
+  .diferenciais-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+  .diferencial-card { background: var(--surface); backdrop-filter: blur(8px); padding: 32px 24px; border-radius: var(--radius-md); border: 1px solid var(--border-light); text-align: center; transition: all var(--transition); }
+  .diferencial-card:hover { transform: translateY(-6px); border-color: var(--gold); box-shadow: var(--shadow-hover); }
+  .diferencial-icon { font-size: 2.4rem; margin-bottom: 16px; display: block; }
+  .diferencial-card h3 { font-family: var(--font-serif); font-size: 1rem; margin-bottom: 8px; color: var(--gold); }
+  .diferencial-card p { font-size: 0.85rem; color: var(--text-secondary); max-width: 100%; }
 
   /* ============================================
-     15. FAQ
+     15. AGENDAMENTO
      ============================================ */
-  .faq { padding: 80px 0; background: var(--background-alt); border-top: 1px solid var(--border-light); }
-  .faq-list { max-width: 700px; margin: 0 auto; }
-  .faq-item { background: var(--surface); backdrop-filter: blur(8px); border: 1px solid var(--border-light); border-radius: var(--radius-md); margin-bottom: 12px; overflow: hidden; transition: all var(--transition); }
-  .faq-item:hover { border-color: var(--gold); }
-  .faq-question { width: 100%; padding: 18px 24px; background: none; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: var(--font-sans); font-size: 1rem; font-weight: 500; color: var(--text-white); text-align: left; transition: all var(--transition); gap: 16px; }
-  .faq-question:hover { color: var(--gold); }
-  .faq-icon { font-size: 1.2rem; color: var(--gold); transition: transform var(--transition); flex-shrink: 0; }
-  .faq-item.open .faq-icon { transform: rotate(45deg); }
-  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
-  .faq-item.open .faq-answer { max-height: 200px; padding: 0 24px 18px; }
-  .faq-answer p { font-size: 0.95rem; color: var(--text-secondary); max-width: 100%; }
-
-  /* ============================================
-     16. AGENDAMENTO
-     ============================================ */
-  .agendamento { padding: 80px 0; background: var(--background); }
+  .agendamento { padding: 80px 0; background: var(--background-alt); border-top: 1px solid var(--border-light); }
   .agendamento-container { max-width: 700px; margin: 0 auto; background: var(--surface); backdrop-filter: blur(8px); border-radius: var(--radius-lg); padding: 40px 36px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
   .form-row:last-child { margin-bottom: 0; }
@@ -480,9 +269,9 @@
   .btn-agendamento { width: 100%; justify-content: center; margin-top: 8px; padding: 16px; font-size: 0.95rem; }
 
   /* ============================================
-     17. CONTATO
+     16. CONTATO
      ============================================ */
-  .contato { padding: 80px 0; background: var(--background-alt); border-top: 1px solid var(--border-light); }
+  .contato { padding: 80px 0; background: var(--background); border-top: 1px solid var(--border-light); }
   .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
   .contato-card { background: var(--surface); backdrop-filter: blur(8px); padding: 32px 28px; border-radius: var(--radius-md); border: 1px solid var(--border-light); }
   .contato-card h3 { font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 20px; color: var(--gold); }
@@ -504,7 +293,7 @@
   .btn-form { width: 100%; justify-content: center; margin-top: 4px; }
 
   /* ============================================
-     18. CTA FINAL
+     17. CTA FINAL
      ============================================ */
   .cta-final { padding: 80px 0; background: var(--primary-darker); color: var(--text-white); text-align: center; position: relative; overflow: hidden; border-top: 1px solid var(--border-light); }
   .cta-inner { position: relative; z-index: 2; }
@@ -516,7 +305,7 @@
   .cta-final .btn-primary:hover { background: var(--gold-light); box-shadow: 0 8px 36px rgba(240, 208, 96, 0.35); }
 
   /* ============================================
-     19. FOOTER
+     18. FOOTER
      ============================================ */
   .footer { background: var(--primary-darker); color: var(--text-secondary); padding: 56px 0 24px; border-top: 1px solid var(--border-light); }
   .footer-inner { display: grid; grid-template-columns: 2fr 1.5fr 1.5fr; gap: 40px; align-items: start; }
@@ -538,13 +327,13 @@
   .footer-credit { font-size: 0.7rem; color: var(--text-light); }
 
   /* ============================================
-     20. WHATSAPP FLOAT
+     19. WHATSAPP FLOAT
      ============================================ */
   .whatsapp-float { position: fixed; bottom: 28px; right: 28px; background: #25d366; color: white; width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 24px rgba(37,211,102,0.35); z-index: 900; transition: all var(--transition); border: none; }
   .whatsapp-float:hover { transform: scale(1.08) translateY(-3px); box-shadow: 0 8px 36px rgba(37,211,102,0.45); }
 
   /* ============================================
-     21. MOBILE BOTTOM BAR
+     20. MOBILE BOTTOM BAR
      ============================================ */
   .mobile-bottom-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--background); padding: 12px 16px; gap: 12px; box-shadow: 0 -4px 20px rgba(0,0,0,0.3); z-index: 800; border-top: 1px solid var(--border-light); }
   .mobile-bottom-bar .btn { flex: 1; justify-content: center; font-size: 0.75rem; padding: 12px 16px; min-height: 44px; }
@@ -554,7 +343,7 @@
   .btn-bottom-agendar:hover { background: var(--gold-light); }
 
   /* ============================================
-     22. MODAL
+     21. MODAL
      ============================================ */
   .modal { position: fixed; inset: 0; z-index: 3000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
   .modal.open { opacity: 1; visibility: visible; }
@@ -572,7 +361,7 @@
   .btn-modal-agendar { width: 100%; justify-content: center; }
 
   /* ============================================
-     23. PÁGINA DA PROFISSIONAL
+     22. PÁGINA DA PROFISSIONAL
      ============================================ */
   .hero-profissional { padding: 140px 0 80px; min-height: 100vh; display: flex; align-items: center; background: linear-gradient(165deg, var(--background) 0%, var(--background-alt) 100%); position: relative; overflow: hidden; }
   .hero-profissional .hero-profissional-content { display: flex; flex-direction: column; gap: 20px; }
@@ -606,9 +395,6 @@
   .servico-preco { font-size: 0.95rem; font-weight: 600; color: var(--gold); margin-bottom: 12px; }
   .servico-actions .btn { width: 100%; justify-content: center; }
 
-  .agendamento-profissional { padding: 80px 0; background: var(--background-alt); }
-  .agendamento-profissional .agendamento-container { max-width: 700px; margin: 0 auto; background: var(--surface); backdrop-filter: blur(8px); border-radius: var(--radius-lg); padding: 40px 36px; box-shadow: var(--shadow-md); border: 1px solid var(--border-light); }
-
   .cta-profissional { padding: 80px 0; background: var(--primary-darker); color: var(--text-white); text-align: center; position: relative; overflow: hidden; border-top: 1px solid var(--border-light); }
   .cta-profissional .cta-tag { color: var(--gold); }
   .cta-profissional h2 { color: var(--text-white); }
@@ -616,6 +402,312 @@
   .cta-profissional p { color: var(--text-secondary); max-width: 520px; margin: 0 auto 32px; }
   .cta-profissional .btn-primary { background: var(--gold); color: var(--text-dark); }
   .cta-profissional .btn-primary:hover { background: var(--gold-light); }
+
+  /* ============================================
+     23. ESTILOS DO COMPROVANTE
+     ============================================ */
+  .recibo-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+  }
+  
+  .recibo-modal .recibo-content {
+    background: var(--background-alt);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    max-width: 700px;
+    width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 1px solid var(--gold);
+    position: relative;
+  }
+  
+  .recibo-modal .recibo-close {
+    position: sticky;
+    top: 0;
+    float: right;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all var(--transition);
+    padding: 4px;
+    z-index: 10;
+  }
+  
+  .recibo-modal .recibo-close:hover {
+    color: var(--gold);
+    transform: rotate(90deg);
+  }
+  
+  .recibo-container {
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    padding: 32px;
+    border: 1px solid var(--border-light);
+  }
+  
+  .recibo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .recibo-logo-nome {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+  }
+  
+  .recibo-logo-sub {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .recibo-numero {
+    text-align: right;
+  }
+  
+  .recibo-label {
+    display: block;
+    font-size: 0.6rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .recibo-numero-valor {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  
+  .recibo-titulo {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  .recibo-titulo h2 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  
+  .recibo-titulo p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    max-width: 100%;
+  }
+  
+  .recibo-corpo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .recibo-corpo h3 {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-lighter);
+    padding-bottom: 6px;
+  }
+  
+  .recibo-info-linha {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border-lighter);
+  }
+  
+  .recibo-info-linha:last-child {
+    border-bottom: none;
+  }
+  
+  .recibo-info-label {
+    color: var(--text-light);
+  }
+  
+  .recibo-info-valor {
+    color: var(--text-white);
+    font-weight: 500;
+    text-align: right;
+  }
+  
+  .recibo-valor-destaque {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  
+  .recibo-detalhes-servico {
+    grid-column: 1 / -1;
+  }
+  
+  .recibo-detalhes-servico h3 {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--border-lighter);
+    padding-bottom: 6px;
+  }
+  
+  .recibo-detalhes-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  
+  .recibo-detalhes-lista li {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    background: rgba(255,255,255,0.04);
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: 1px solid var(--border-lighter);
+    list-style: none;
+  }
+  
+  .recibo-rodape {
+    border-top: 2px solid var(--gold);
+    padding-top: 20px;
+    margin-top: 4px;
+  }
+  
+  .recibo-info-contato {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  
+  .recibo-info-contato p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    max-width: 100%;
+    margin: 2px 0;
+  }
+  
+  .recibo-info-contato strong {
+    color: var(--gold);
+  }
+  
+  .recibo-assinatura {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 16px 0;
+  }
+  
+  .recibo-linha-assinatura {
+    text-align: center;
+  }
+  
+  .recibo-linha-assinatura span {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-light);
+  }
+  
+  .recibo-linha-assinatura span:first-child {
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  
+  .recibo-data-emissao {
+    text-align: center;
+    margin-top: 12px;
+  }
+  
+  .recibo-data-emissao p {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    max-width: 100%;
+  }
+  
+  .recibo-aviso {
+    font-size: 0.65rem !important;
+    color: var(--text-light) !important;
+    margin-top: 4px;
+    font-style: italic;
+  }
+  
+  .recibo-acoes {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+    flex-wrap: wrap;
+  }
+  
+  .recibo-acoes .btn {
+    flex: 1;
+    min-width: 140px;
+    justify-content: center;
+  }
+  
+  @media (max-width: 600px) {
+    .recibo-corpo {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    
+    .recibo-assinatura {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    
+    .recibo-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .recibo-numero {
+      text-align: center;
+      margin-top: 8px;
+    }
+    
+    .recibo-container {
+      padding: 16px;
+    }
+    
+    .recibo-modal .recibo-content {
+      padding: 20px;
+    }
+    
+    .recibo-info-linha {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .recibo-info-valor {
+      text-align: left;
+    }
+  }
 
   /* ============================================
      24. ANIMAÇÕES
@@ -635,7 +727,7 @@
     .profissionais-grid { grid-template-columns: repeat(2, 1fr); }
     .servicos-grid { grid-template-columns: repeat(2, 1fr); }
     .servicos-profissional-grid { grid-template-columns: repeat(2, 1fr); }
-    .depoimento-card { flex: 0 0 calc(50% - 12px); }
+    .diferenciais-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-profissional .hero-image-wrap img { height: 400px; }
   }
 
@@ -667,10 +759,7 @@
     .profissionais-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
     .servicos-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
     .servicos-profissional-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-    .depoimento-card { flex: 0 0 calc(100% - 8px); }
-    .slider-prev { left: 4px; }
-    .slider-next { right: 4px; }
-    .slider-btn { width: 36px; height: 36px; font-size: 1.2rem; }
+    .diferenciais-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
     .agendamento-container { padding: 24px 20px; }
     .form-row { grid-template-columns: 1fr; gap: 0; }
     .whatsapp-float { width: 52px; height: 52px; bottom: 80px; right: 16px; }
@@ -678,7 +767,6 @@
     .modal-content { padding: 28px 20px; max-width: 95%; }
     .hero-profissional .hero-image-wrap img { height: 240px; }
     .hero-profissional-meta { flex-direction: column; gap: 4px; }
-    .agendamento-profissional .agendamento-container { padding: 24px 20px; }
   }
 
   @media (max-width: 480px) {
@@ -691,16 +779,16 @@
     .profissionais-grid { grid-template-columns: 1fr; }
     .servicos-grid { grid-template-columns: 1fr; }
     .servicos-profissional-grid { grid-template-columns: 1fr; }
+    .diferenciais-grid { grid-template-columns: 1fr; }
     .section-header { margin-bottom: 32px; }
     .section-header h2 { font-size: clamp(1.6rem, 6vw, 2rem); }
     .apresentacao { padding: 60px 0; }
     .profissionais { padding: 60px 0; }
     .servicos-destaque { padding: 60px 0; }
-    .depoimentos { padding: 60px 0; }
-    .faq { padding: 60px 0; }
+    .diferenciais { padding: 60px 0; }
     .agendamento { padding: 60px 0; }
-    .contato { padding: 60px 0; }
     .cta-final { padding: 60px 0; }
+    .contato { padding: 60px 0; }
     .agendamento-container { padding: 20px 16px; }
     .contato-card { padding: 20px; }
     .form-card { padding: 20px; }
@@ -712,7 +800,6 @@
     .hero-profissional { padding-top: 110px; padding-bottom: 60px; }
     .sobre-profissional { padding: 60px 0; }
     .servicos-profissional { padding: 60px 0; }
-    .agendamento-profissional { padding: 60px 0; }
     .cta-profissional { padding: 60px 0; }
     .citacao-box { padding: 16px 18px; }
     .citacao-box p { font-size: 0.95rem; }
@@ -733,64 +820,3 @@
   .keyboard-navigation *:focus { outline: 2px solid var(--gold) !important; outline-offset: 2px !important; }
   @media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
   .no-scroll { overflow: hidden !important; }
-  /* ============================================
-   DIFERENCIAIS
-   ============================================ */
-.diferenciais {
-   padding: 80px 0;
-   background: var(--background);
-   border-top: 1px solid var(--border-light);
- }
- 
- .diferenciais-grid {
-   display: grid;
-   grid-template-columns: repeat(4, 1fr);
-   gap: 28px;
- }
- 
- .diferencial-card {
-   background: var(--surface);
-   backdrop-filter: blur(8px);
-   padding: 32px 24px;
-   border-radius: var(--radius-md);
-   border: 1px solid var(--border-light);
-   text-align: center;
-   transition: all var(--transition);
- }
- 
- .diferencial-card:hover {
-   transform: translateY(-6px);
-   border-color: var(--gold);
-   box-shadow: var(--shadow-hover);
- }
- 
- .diferencial-icon {
-   font-size: 2.4rem;
-   margin-bottom: 16px;
-   display: block;
- }
- 
- .diferencial-card h3 {
-   font-family: var(--font-serif);
-   font-size: 1rem;
-   margin-bottom: 8px;
-   color: var(--gold);
- }
- 
- .diferencial-card p {
-   font-size: 0.85rem;
-   color: var(--text-secondary);
-   max-width: 100%;
- }
- 
- @media (max-width: 1024px) {
-   .diferenciais-grid {
-     grid-template-columns: repeat(2, 1fr);
-   }
- }
- 
- @media (max-width: 480px) {
-   .diferenciais-grid {
-     grid-template-columns: 1fr;
-   }
- }

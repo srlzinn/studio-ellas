@@ -1,6 +1,6 @@
 /**
  * script.js - Centro Odontológico e Estético
- * Dados baseados no Instagram @centroodontologicoeestetico
+ * Sistema de Agendamento com Comprovante e WhatsApp
  * =====================================================
  */
 
@@ -9,7 +9,7 @@
 // ============================================
 const CONFIG = {
   nome: "Centro Odontológico e Estético",
-  whatsapp: "5586993177410", // (86) 99317-7410
+  whatsapp: "5586993177410",
   telefone: "(86) 99317-7410",
   endereco: "Parnaíba - PI",
   instagram: "https://www.instagram.com/centroodontologicoeestetico/",
@@ -33,13 +33,13 @@ const PROFISSIONAIS = [
     experiencia: "8 anos de experiência",
     citacao: "Cada paciente é único e merece um tratamento que valorize sua história, suas necessidades e seu sorriso.",
     diferenciais: ["Atendimento personalizado", "Tecnologia de ponta", "Ambiente acolhedor"],
-    whatsapp: "5586993177410",
+    whatsapp: "558699317410",
     disponibilidade: {
-      segunda: ["08:00", "09:00", "10:00", "14:00", "15:00", "16:00"],
-      terca: ["08:00", "09:00", "14:00", "15:00", "16:00"],
-      quarta: ["08:00", "09:00", "10:00", "14:00", "15:00"],
-      quinta: ["08:00", "09:00", "15:00", "16:00"],
-      sexta: ["08:00", "09:00", "10:00", "14:00", "15:00"]
+      segunda: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
+      terca: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
+      quarta: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
+      quinta: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
+      sexta: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]
     },
     servicos: [
       { id: "prevencao", nome: "Prevenção", categoria: "Odontologia", descricao: "Cuidados preventivos para manter a saúde bucal em dia.", detalhes: ["Avaliação completa", "Profilaxia (limpeza)", "Aplicação de flúor", "Orientação de higiene"], preco: 150, tipoPreco: "fixo", imagem: "img/servicos/prevencao.jpg", duracao: 60 },
@@ -61,13 +61,13 @@ const PROFISSIONAIS = [
     experiencia: "6 anos de experiência",
     citacao: "A beleza está em realçar o que você já tem de melhor, com segurança e naturalidade.",
     diferenciais: ["Tecnologia avançada", "Resultados naturais", "Atendimento personalizado"],
-    whatsapp: "5586993177410",
+    whatsapp: "556193226041",
     disponibilidade: {
-      segunda: ["09:00", "10:00", "14:00", "15:00", "16:00"],
-      terca: ["09:00", "10:00", "14:00", "15:00"],
-      quarta: ["09:00", "14:00", "15:00", "16:00"],
-      quinta: ["09:00", "10:00", "14:00", "15:00"],
-      sexta: ["09:00", "10:00", "14:00", "15:00", "16:00"]
+      segunda: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
+      terca: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
+      quarta: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
+      quinta: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
+      sexta: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]
     },
     servicos: [
       { id: "botox", nome: "Botox", categoria: "Estética Facial", descricao: "Tratamento para suavizar rugas e linhas de expressão.", detalhes: ["Procedimento seguro", "Resultados naturais", "Efeito duradouro"], preco: 450, tipoPreco: "a_partir_de", imagem: "img/servicos/botox.jpg", duracao: 60 },
@@ -75,39 +75,11 @@ const PROFISSIONAIS = [
       { id: "enzimas-emagrecedoras", nome: "Enzimas Emagrecedoras", categoria: "Estética Corporal", descricao: "Tratamento para redução de gordura localizada.", detalhes: ["Redução de medidas", "Resultados progressivos"], preco: 250, tipoPreco: "a_partir_de", imagem: "", duracao: 90 },
       { id: "terapia-ortomolecular", nome: "Terapia Ortomolecular", categoria: "Estética", descricao: "Tratamento com vitaminas e minerais para a saúde e beleza.", detalhes: ["Suplementação personalizada", "Bem-estar geral"], preco: 180, tipoPreco: "fixo", imagem: "", duracao: 60 }
     ]
-  },
-  {
-    id: "beatriz-menezes",
-    nome: "Beatriz Menezes",
-    area: "Massoterapia / Beleza",
-    titulo: "Massoterapeuta",
-    foto: "img/profissionais/doutorasabrina.jpeg",
-    descricao: "Especialista em massoterapia e tratamentos de beleza para bem-estar.",
-    formacao: ["Massoterapia pela UFPI", "Especialização em Beleza e Estética"],
-    especializacoes: ["Massoterapia", "Beleza", "Bem-estar"],
-    experiencia: "5 anos de experiência",
-    citacao: "Cuidar de si mesmo é o primeiro passo para uma vida mais leve e feliz.",
-    diferenciais: ["Atendimento personalizado", "Técnicas avançadas", "Ambiente acolhedor"],
-    whatsapp: "5586993177410",
-    disponibilidade: {
-      segunda: ["09:00", "10:00", "14:00", "15:00", "16:00"],
-      terca: ["09:00", "10:00", "14:00", "15:00"],
-      quarta: ["09:00", "14:00", "15:00", "16:00"],
-      quinta: ["09:00", "10:00", "14:00", "15:00"],
-      sexta: ["09:00", "10:00", "14:00", "15:00", "16:00"]
-    },
-    servicos: [
-      { id: "limpeza-pele", nome: "Limpeza de Pele", categoria: "Beleza", descricao: "Procedimento completo para limpeza e renovação da pele.", detalhes: ["Higienização", "Esfoliação", "Emoliência", "Vapor de ozônio", "Extração", "Tonificação", "Aromaterapia", "Massagem facial", "LED terapia"], preco: 200, tipoPreco: "fixo", imagem: "img/servicos/limpeza-pele.jpg", duracao: 90 },
-      { id: "massagem-relaxante", nome: "Massagem Relaxante", categoria: "Massoterapia", descricao: "Massagem para alívio de tensões e bem-estar.", detalhes: ["Aromaterapia", "Cromoterapia", "Sons binaurais"], preco: 160, tipoPreco: "fixo", imagem: "", duracao: 60 },
-      { id: "ventosaterapia", nome: "Ventosaterapia", categoria: "Massoterapia", descricao: "Terapia com ventosas para alívio de dores e relaxamento.", detalhes: ["Massagem", "Aromaterapia", "Cromoterapia"], preco: 180, tipoPreco: "fixo", imagem: "", duracao: 60 },
-      { id: "dermaplaning", nome: "Dermaplaning", categoria: "Beleza", descricao: "Procedimento para remoção de pele morta e renovação celular.", detalhes: ["Limpeza de pele", "Remoção de pele morta", "Renovação celular", "Remove pelinhos finos", "Glow imediato"], preco: 220, tipoPreco: "fixo", imagem: "", duracao: 60 },
-      { id: "microagulhamento", nome: "Microagulhamento", categoria: "Beleza", descricao: "Procedimento para rejuvenescimento e redução de rugas.", detalhes: ["Limpeza de pele", "GHK-Cu e Exossomos", "Rejuvenescimento e redução de rugas"], preco: 300, tipoPreco: "a_partir_de", imagem: "", duracao: 90 }
-    ]
   }
 ];
 
 // ============================================
-// 3. FUNÇÕES AUXILIARES (mantidas do script original)
+// 3. FUNÇÕES AUXILIARES
 // ============================================
 function getProfissional(id) {
   return PROFISSIONAIS.find(p => p.id === id);
@@ -128,14 +100,276 @@ function formatPreco(preco, tipoPreco) {
   }
 }
 
-function abrirWhatsApp(mensagem) {
-  const numero = CONFIG.whatsapp.replace(/\D/g, '');
+function getHorariosDisponiveis(profissionalId, data) {
+  const prof = getProfissional(profissionalId);
+  if (!prof) return [];
+  
+  const dias = ['domingo', 'segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sabado'];
+  const dataObj = new Date(data);
+  const diaSemana = dias[dataObj.getDay()];
+  
+  console.log('Data:', data, 'Dia da semana:', diaSemana);
+  console.log('Disponibilidade:', prof.disponibilidade);
+  
+  return prof.disponibilidade[diaSemana] || [];
+}
+
+function abrirWhatsApp(numero, mensagem) {
+  if (!numero) {
+    console.error('Número de WhatsApp não configurado.');
+    alert('⚠️ Número de WhatsApp não configurado.');
+    return;
+  }
+  const numeroLimpo = numero.replace(/\D/g, '');
   const texto = encodeURIComponent(mensagem || CONFIG.mensagemPadrao);
-  window.open(`https://wa.me/${numero}?text=${texto}`, '_blank');
+  window.open(`https://wa.me/${numeroLimpo}?text=${texto}`, '_blank');
+}
+
+function gerarNumeroRecibo() {
+  const agora = new Date();
+  const ano = agora.getFullYear().toString().slice(-2);
+  const mes = String(agora.getMonth() + 1).padStart(2, '0');
+  const dia = String(agora.getDate()).padStart(2, '0');
+  const hora = String(agora.getHours()).padStart(2, '0');
+  const minuto = String(agora.getMinutes()).padStart(2, '0');
+  const aleatorio = String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+  return `COE-${ano}${mes}${dia}-${hora}${minuto}-${aleatorio}`;
+}
+
+function formatarData(data) {
+  return new Date(data).toLocaleDateString('pt-BR', {
+    weekday: 'long',
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+  });
 }
 
 // ============================================
-// 4. RENDERIZAÇÃO
+// 4. GERADOR DE COMPROVANTE
+// ============================================
+function gerarComprovanteHTML(dados) {
+  const { profissional, servico, data, horario, nome, whatsapp, observacao, numeroRecibo } = dados;
+  const dataFormatada = formatarData(data);
+  const precoFormatado = formatPreco(servico.preco, servico.tipoPreco);
+  
+  return `
+    <div class="recibo-container">
+      <div class="recibo-header">
+        <div>
+          <span class="recibo-logo-nome">${CONFIG.nome}</span>
+          <span class="recibo-logo-sub">${CONFIG.endereco}</span>
+        </div>
+        <div class="recibo-numero">
+          <span class="recibo-label">Nº do Recibo</span>
+          <span class="recibo-numero-valor">${numeroRecibo}</span>
+        </div>
+      </div>
+      
+      <div class="recibo-titulo">
+        <h2>✅ COMPROVANTE DE AGENDAMENTO</h2>
+        <p>Este documento confirma o agendamento do seu atendimento</p>
+      </div>
+      
+      <div class="recibo-corpo">
+        <div>
+          <h3>👤 Dados do Cliente</h3>
+          <div class="recibo-info-linha">
+            <span class="recibo-info-label">Nome:</span>
+            <span class="recibo-info-valor">${nome}</span>
+          </div>
+          <div class="recibo-info-linha">
+            <span class="recibo-info-label">WhatsApp:</span>
+            <span class="recibo-info-valor">${whatsapp}</span>
+          </div>
+          <div class="recibo-info-linha">
+            <span class="recibo-info-label">Data de emissão:</span>
+            <span class="recibo-info-valor">${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'})}</span>
+          </div>
+        </div>
+        
+        <div>
+          <h3>💆 Dados do Atendimento</h3>
+          <div class="recibo-info-linha">
+            <span class="recibo-info-label">Profissional:</span>
+            <span class="recibo-info-valor">${profissional.nome}</span>
+          </div>
+          <div class="recibo-info-linha">
+            <span class="recibo-info-label">Especialidade:</span>
+            <span class="recibo-info-valor">${profissional.area}</span>
+          </div>
+          <div class="recibo-info-linha">
+            <span class="recibo-info-label">Serviço:</span>
+            <span class="recibo-info-valor">${servico.nome}</span>
+          </div>
+          <div class="recibo-info-linha">
+            <span class="recibo-info-label">Categoria:</span>
+            <span class="recibo-info-valor">${servico.categoria}</span>
+          </div>
+          <div class="recibo-info-linha">
+            <span class="recibo-info-label">Data:</span>
+            <span class="recibo-info-valor">${dataFormatada}</span>
+          </div>
+          <div class="recibo-info-linha">
+            <span class="recibo-info-label">Horário:</span>
+            <span class="recibo-info-valor">${horario}</span>
+          </div>
+          <div class="recibo-info-linha">
+            <span class="recibo-info-label">Duração:</span>
+            <span class="recibo-info-valor">${servico.duracao} minutos</span>
+          </div>
+          <div class="recibo-info-linha">
+            <span class="recibo-info-label">Valor:</span>
+            <span class="recibo-info-valor recibo-valor-destaque">${precoFormatado}</span>
+          </div>
+        </div>
+        
+        <div class="recibo-detalhes-servico">
+          <h3>📋 Detalhes do Serviço</h3>
+          <ul class="recibo-detalhes-lista">
+            ${servico.detalhes.map(d => `<li>✓ ${d}</li>`).join('')}
+          </ul>
+          ${observacao ? `<p style="margin-top:10px;font-size:0.85rem;color:var(--text-secondary);"><strong>Observação:</strong> ${observacao}</p>` : ''}
+        </div>
+      </div>
+      
+      <div class="recibo-rodape">
+        <div class="recibo-info-contato">
+          <p><strong>${CONFIG.nome}</strong></p>
+          <p>📍 ${CONFIG.endereco}</p>
+          <p>📱 ${CONFIG.telefone}</p>
+          <p>📧 ${CONFIG.email}</p>
+          <p>📷 @centroodontologicoeestetico</p>
+        </div>
+        
+        <div class="recibo-assinatura">
+          <div class="recibo-linha-assinatura">
+            <span>______________________________</span>
+            <span>Assinatura do Cliente</span>
+          </div>
+          <div class="recibo-linha-assinatura">
+            <span>______________________________</span>
+            <span>Assinatura do Profissional</span>
+          </div>
+        </div>
+        
+        <div class="recibo-data-emissao">
+          <p class="recibo-aviso">* Este documento é um comprovante de agendamento. O valor pode ser ajustado conforme avaliação presencial.</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function exibirComprovante(dados) {
+  const html = gerarComprovanteHTML(dados);
+  
+  const modal = document.createElement('div');
+  modal.className = 'recibo-modal';
+  modal.id = 'reciboModal';
+  
+  modal.innerHTML = `
+    <div class="recibo-content">
+      <button class="recibo-close" onclick="document.getElementById('reciboModal').remove();document.body.classList.remove('no-scroll');">✕</button>
+      ${html}
+      <div class="recibo-acoes">
+        <button onclick="window.print()" class="btn btn-primary">
+          <span class="btn-icon">🖨️</span> Imprimir
+        </button>
+        <button onclick="document.getElementById('reciboModal').remove();document.body.classList.remove('no-scroll');" class="btn btn-outline">
+          Fechar
+        </button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  document.body.classList.add('no-scroll');
+  
+  modal.addEventListener('click', function(e) {
+    if (e.target === this) {
+      modal.remove();
+      document.body.classList.remove('no-scroll');
+    }
+  });
+  
+  document.addEventListener('keydown', function closeRecibo(e) {
+    if (e.key === 'Escape') {
+      const reciboModal = document.getElementById('reciboModal');
+      if (reciboModal) {
+        reciboModal.remove();
+        document.body.classList.remove('no-scroll');
+      }
+      document.removeEventListener('keydown', closeRecibo);
+    }
+  });
+}
+
+// ============================================
+// 5. PROCESSAR AGENDAMENTO
+// ============================================
+function processarAgendamento(dados) {
+  const { profissionalId, servicoId, data, horario, nome, whatsapp, observacao } = dados;
+
+  const profissional = getProfissional(profissionalId);
+  const servico = getServico(profissionalId, servicoId);
+  
+  if (!profissional || !servico) {
+    alert('Erro: Profissional ou serviço não encontrado.');
+    return;
+  }
+
+  if (!nome || !whatsapp || !data || !horario) {
+    alert('Por favor, preencha todos os campos obrigatórios.');
+    return;
+  }
+
+  const numeroRecibo = gerarNumeroRecibo();
+  const dataFormatada = formatarData(data);
+  const precoFormatado = formatPreco(servico.preco, servico.tipoPreco);
+  const numeroWhatsApp = profissional.whatsapp || CONFIG.whatsapp;
+
+  const dadosAgendamento = { profissional, servico, data, horario, nome, whatsapp, observacao, numeroRecibo };
+
+  // Exibir comprovante
+  exibirComprovante(dadosAgendamento);
+
+  // Enviar WhatsApp
+  const mensagem = `✅ *CONFIRMAÇÃO DE AGENDAMENTO - ${CONFIG.nome}*
+
+📋 *Nº do Recibo:* ${numeroRecibo}
+
+👤 *Cliente:* ${nome}
+📱 *WhatsApp:* ${whatsapp}
+
+👩‍⚕️ *Profissional:* ${profissional.nome}
+📌 *Especialidade:* ${profissional.area}
+💆 *Serviço:* ${servico.nome}
+📂 *Categoria:* ${servico.categoria}
+⏱ *Duração:* ${servico.duracao} minutos
+💰 *Valor:* ${precoFormatado}
+
+📅 *Data:* ${dataFormatada}
+🕐 *Horário:* ${horario}
+
+${observacao ? `📝 *Observação:* ${observacao}` : ''}
+
+---
+📍 ${CONFIG.endereco}
+📱 ${CONFIG.telefone}
+📷 @centroodontologicoeestetico
+
+*Por favor, confirme seu agendamento respondendo esta mensagem.*
+
+*${CONFIG.nome}* ✨`;
+
+  setTimeout(() => {
+    abrirWhatsApp(numeroWhatsApp, mensagem);
+  }, 500);
+}
+
+// ============================================
+// 6. RENDERIZAÇÃO DA PÁGINA INICIAL
 // ============================================
 function renderizarProfissionais() {
   const container = document.getElementById('profissionaisGrid');
@@ -189,7 +423,7 @@ function renderizarServicosDestaque() {
         <div class="servico-preco">${formatPreco(s.preco, s.tipoPreco)}</div>
         <div class="servico-actions">
           <button class="btn btn-small btn-outline btn-detalhes" data-profissional="${s.profissionalId}" data-servico="${s.id}">Detalhes</button>
-          <a href="https://wa.me/${CONFIG.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Olá! Gostaria de agendar o serviço: ' + s.nome)}" target="_blank" class="btn btn-small btn-primary">Agendar</a>
+          <a href="profissional.html?id=${s.profissionalId}" class="btn btn-small btn-primary">Agendar</a>
         </div>
       </div>
     </div>
@@ -202,6 +436,9 @@ function renderizarServicosDestaque() {
   });
 }
 
+// ============================================
+// 7. PÁGINA DA PROFISSIONAL
+// ============================================
 function renderizarPaginaProfissional() {
   const params = new URLSearchParams(window.location.search);
   const profId = params.get('id');
@@ -230,7 +467,7 @@ function renderizarPaginaProfissional() {
             ${prof.diferenciais.map(d => `<span class="meta-item">✦ ${d}</span>`).join('')}
           </div>
           <div class="hero-buttons">
-            <a href="https://wa.me/${CONFIG.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Olá! Gostaria de agendar com ' + prof.nome)}" target="_blank" class="btn btn-primary btn-hero-cta">
+            <a href="#agendamento" class="btn btn-primary btn-hero-cta">
               <span class="btn-icon">✦</span> Agendar com ${prof.nome.split(' ')[0]}
             </a>
             <a href="#servicos" class="btn btn-outline btn-hero-secondary">
@@ -300,17 +537,135 @@ function renderizarPaginaProfissional() {
         </div>
         <div class="servico-preco">${formatPreco(s.preco, s.tipoPreco)}</div>
         <div class="servico-actions">
-          <a href="https://wa.me/${CONFIG.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Olá! Gostaria de agendar o serviço: ' + s.nome + ' com ' + prof.nome)}" target="_blank" class="btn btn-small btn-primary">
+          <button class="btn btn-small btn-primary btn-agendar-servico-profissional" data-servico="${s.id}">
             <span class="btn-icon">✦</span> Agendar
-          </a>
+          </button>
         </div>
       </div>
     `).join('');
+    
+    servicosContainer.querySelectorAll('.btn-agendar-servico-profissional').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const servId = btn.getAttribute('data-servico');
+        const serv = getServico(prof.id, servId);
+        if (serv) {
+          const select = document.getElementById('agendaServico');
+          if (select) {
+            select.value = servId;
+            const event = new Event('change');
+            select.dispatchEvent(event);
+          }
+          document.getElementById('agendamento').scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
   }
+  
+  configurarAgendamentoProfissional(prof);
 }
 
 // ============================================
-// 5. MODAL
+// 8. CONFIGURAR AGENDAMENTO
+// ============================================
+function configurarAgendamentoProfissional(prof) {
+  const form = document.getElementById('formAgendamento');
+  const servSelect = document.getElementById('agendaServico');
+  const dataInput = document.getElementById('agendaData');
+  const horarioSelect = document.getElementById('agendaHorario');
+  const nomeInput = document.getElementById('agendaNome');
+  const whatsappInput = document.getElementById('agendaWhatsapp');
+  const obsInput = document.getElementById('agendaObs');
+  
+  if (!form) return;
+  
+  servSelect.innerHTML = '<option value="">Selecione um serviço</option>';
+  prof.servicos.forEach(s => {
+    const option = document.createElement('option');
+    option.value = s.id;
+    option.textContent = `${s.nome} - ${formatPreco(s.preco, s.tipoPreco)}`;
+    servSelect.appendChild(option);
+  });
+  
+  servSelect.addEventListener('change', function() {
+    const servId = this.value;
+    const serv = getServico(prof.id, servId);
+    const detalhesDiv = document.getElementById('agendaServicoDetalhes');
+    if (detalhesDiv && serv) {
+      detalhesDiv.innerHTML = `
+        <div class="servico-preview" style="background:rgba(240,208,96,0.05);padding:16px;border-radius:8px;border:1px solid rgba(240,208,96,0.15);margin-bottom:16px;">
+          <p><strong>Duração:</strong> ${serv.duracao} minutos</p>
+          <p><strong>Valor:</strong> ${formatPreco(serv.preco, serv.tipoPreco)}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+            ${serv.detalhes.map(d => `<span style="font-size:0.8rem;color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.04);padding:4px 12px;border-radius:50px;border:1px solid rgba(240,208,96,0.08);">✓ ${d}</span>`).join('')}
+          </div>
+        </div>
+      `;
+    } else if (detalhesDiv) {
+      detalhesDiv.innerHTML = '';
+    }
+  });
+  
+  // CORREÇÃO: Evento de data para carregar horários
+  dataInput.addEventListener('change', function() {
+    const data = this.value;
+    horarioSelect.innerHTML = '<option value="">Selecione um horário</option>';
+    if (!data) {
+      console.log('Data não selecionada');
+      return;
+    }
+    
+    console.log('Profissional ID:', prof.id);
+    console.log('Data selecionada:', data);
+    
+    const horarios = getHorariosDisponiveis(prof.id, data);
+    console.log('Horários encontrados:', horarios);
+    
+    if (horarios && horarios.length > 0) {
+      horarios.forEach(h => {
+        const option = document.createElement('option');
+        option.value = h;
+        option.textContent = h;
+        horarioSelect.appendChild(option);
+      });
+    } else {
+      console.log('Nenhum horário disponível para esta data');
+      const option = document.createElement('option');
+      option.value = '';
+      option.textContent = 'Nenhum horário disponível';
+      horarioSelect.appendChild(option);
+    }
+  });
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const servicoId = servSelect.value;
+    const data = dataInput.value;
+    const horario = horarioSelect.value;
+    const nome = nomeInput.value.trim();
+    const whatsapp = whatsappInput.value.trim();
+    const observacao = obsInput ? obsInput.value.trim() : '';
+    
+    if (!servicoId) { alert('Por favor, selecione um serviço.'); return; }
+    if (!data) { alert('Por favor, selecione uma data.'); return; }
+    if (!horario) { alert('Por favor, selecione um horário.'); return; }
+    if (!nome) { alert('Por favor, informe seu nome completo.'); return; }
+    if (!whatsapp) { alert('Por favor, informe seu WhatsApp.'); return; }
+    
+    processarAgendamento({
+      profissionalId: prof.id,
+      servicoId: servicoId,
+      data: data,
+      horario: horario,
+      nome: nome,
+      whatsapp: whatsapp,
+      observacao: observacao
+    });
+  });
+}
+
+// ============================================
+// 9. MODAL DE SERVIÇO
 // ============================================
 function abrirModalServico(profissionalId, servicoId) {
   const servico = getServico(profissionalId, servicoId);
@@ -325,26 +680,27 @@ function abrirModalServico(profissionalId, servicoId) {
   document.getElementById('modalProfissionalNome').textContent = profissional.nome;
   
   const agendarBtn = document.querySelector('.btn-modal-agendar');
-  agendarBtn.href = `https://wa.me/${CONFIG.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Olá! Gostaria de agendar o serviço: ' + servico.nome + ' com ' + profissional.nome)}`;
+  agendarBtn.setAttribute('data-profissional', profissionalId);
+  agendarBtn.setAttribute('data-servico', servicoId);
+  
+  agendarBtn.onclick = function(e) {
+    e.preventDefault();
+    const profId = this.getAttribute('data-profissional');
+    const prof = getProfissional(profId);
+    if (prof) {
+      modal.classList.remove('open');
+      document.body.classList.remove('no-scroll');
+      window.location.href = `profissional.html?id=${profId}`;
+    }
+  };
   
   modal.classList.add('open');
   document.body.classList.add('no-scroll');
 }
 
 // ============================================
-// 6. INTERAÇÕES GERAIS
+// 10. INTERAÇÕES GERAIS
 // ============================================
-function configurarFaq() {
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const question = item.querySelector('.faq-question');
-    question.addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    });
-  });
-}
-
 function configurarFormularioContato() {
   const form = document.getElementById('formContato');
   if (!form) return;
@@ -355,12 +711,8 @@ function configurarFormularioContato() {
     const mensagem = document.getElementById('contatoMensagem').value.trim();
     if (!nome || !whatsapp) { alert('Preencha os campos obrigatórios.'); return; }
     const texto = `Olá! Meu nome é ${nome}.%0A%0AWhatsApp: ${whatsapp}%0A%0AMensagem: ${mensagem || 'Gostaria de agendar um atendimento.'}`;
-    abrirWhatsApp(texto);
+    abrirWhatsApp(CONFIG.whatsapp, texto);
   });
-}
-
-function sliderDepoimentos() {
-  // Função mantida para compatibilidade
 }
 
 function headerScroll() {
@@ -451,6 +803,7 @@ function adicionarClassesAnimacao() {
     { selector: '.apresentacao-inner', class: 'fade-up' },
     { selector: '.profissionais-grid', class: 'fade-up' },
     { selector: '.servicos-grid', class: 'fade-up' },
+    { selector: '.diferenciais-grid', class: 'fade-up' },
     { selector: '.contato-grid', class: 'fade-up' },
     { selector: '.cta-inner', class: 'fade-up' }
   ];
@@ -458,7 +811,7 @@ function adicionarClassesAnimacao() {
     const el = document.querySelector(selector);
     if (el && !el.classList.contains(className)) el.classList.add(className);
   });
-  document.querySelectorAll('.profissional-card, .servico-card, .diferencial-card, .faq-item').forEach((el, i) => {
+  document.querySelectorAll('.profissional-card, .servico-card, .diferencial-card').forEach((el, i) => {
     if (!el.classList.contains('fade-up')) { el.classList.add('fade-up'); el.style.transitionDelay = `${Math.min(i * 60, 400)}ms`; }
   });
 }
@@ -466,10 +819,6 @@ function adicionarClassesAnimacao() {
 function animarNumeros() {
   const numbers = document.querySelectorAll('.trust-number');
   if (!numbers.length) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    numbers.forEach(num => num.textContent = num.getAttribute('data-target') || num.textContent);
-    return;
-  }
   let animated = false;
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -508,13 +857,17 @@ function acessibilidadeFoco() {
   document.addEventListener('mousedown', () => document.body.classList.remove('keyboard-navigation'));
 }
 
-// Fechar modais com ESC
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     document.querySelectorAll('.modal.open').forEach(modal => {
       modal.classList.remove('open');
       document.body.classList.remove('no-scroll');
     });
+    const reciboModal = document.getElementById('reciboModal');
+    if (reciboModal) {
+      reciboModal.remove();
+      document.body.classList.remove('no-scroll');
+    }
   }
 });
 
@@ -526,7 +879,7 @@ document.querySelectorAll('.modal-overlay').forEach(overlay => {
 });
 
 // ============================================
-// 7. INICIALIZAÇÃO
+// 11. INICIALIZAÇÃO
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
   preloader();
@@ -536,9 +889,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     renderizarProfissionais();
     renderizarServicosDestaque();
-    configurarFaq();
     configurarFormularioContato();
-    sliderDepoimentos();
     adicionarClassesAnimacao();
     animacoesScroll();
     animarNumeros();
@@ -551,7 +902,9 @@ document.addEventListener('DOMContentLoaded', () => {
   acessibilidadeFoco();
   
   console.log('🦷 Centro Odontológico e Estético - Site inicializado');
-  console.log('📱 WhatsApp: (86) 99317-7410');
+  console.log('📱 WhatsApp Dra. Erica Lima: (86) 99317-7410');
+  console.log('📱 WhatsApp Sabrina Ribeiro: (61) 93226-6041');
+  console.log('📋 Sistema de Comprovante ativo');
 });
 
 // EXPORTAÇÕES
@@ -562,3 +915,6 @@ window.getServico = getServico;
 window.formatPreco = formatPreco;
 window.abrirWhatsApp = abrirWhatsApp;
 window.abrirModalServico = abrirModalServico;
+window.processarAgendamento = processarAgendamento;
+window.exibirComprovante = exibirComprovante;
+window.gerarComprovanteHTML = gerarComprovanteHTML;
