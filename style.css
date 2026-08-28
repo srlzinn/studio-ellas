@@ -202,14 +202,28 @@
   .apresentacao-imagem img { width: 100%; height: 400px; object-fit: cover; }
 
   /* ============================================
-     12. PROFISSIONAIS
+     12. PROFISSIONAIS - CORREÇÃO DA POSIÇÃO DA FOTO
      ============================================ */
   .profissionais { padding: 80px 0; background: var(--background); }
   .profissionais-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
   .profissional-card { background: var(--surface); backdrop-filter: blur(8px); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--border-light); transition: all var(--transition); }
   .profissional-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: var(--gold); }
-  .profissional-imagem { position: relative; height: 240px; overflow: hidden; }
-  .profissional-imagem img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); }
+  .profissional-imagem { position: relative; height: 260px; overflow: hidden; background: var(--primary-darker); }
+  .profissional-imagem img { 
+    width: 100%; 
+    height: 100%; 
+    display: block;
+    object-fit: cover;
+    object-position: center 20%;
+    transition: transform var(--transition-slow); 
+  }
+  /* CORREÇÃO: Posição específica para cada profissional via JS */
+  .profissional-imagem.img-sabrina img {
+    object-position: center 15%;
+  }
+  .profissional-imagem.img-erica img {
+    object-position: center 25%;
+  }
   .profissional-card:hover .profissional-imagem img { transform: scale(1.05); }
   .profissional-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(transparent, rgba(0,0,0,0.7)); }
   .profissional-area { background: var(--gold); color: var(--text-dark); padding: 4px 14px; border-radius: 50px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -366,7 +380,9 @@
   .hero-profissional { padding: 140px 0 80px; min-height: 100vh; display: flex; align-items: center; background: linear-gradient(165deg, var(--background) 0%, var(--background-alt) 100%); position: relative; overflow: hidden; }
   .hero-profissional .hero-profissional-content { display: flex; flex-direction: column; gap: 20px; }
   .hero-profissional .hero-profissional-image { position: relative; border-radius: var(--radius-lg); overflow: visible; }
-  .hero-profissional .hero-image-wrap img { height: 480px; border: 2px solid var(--gold); }
+  .hero-profissional .hero-image-wrap img { height: 480px; border: 2px solid var(--gold); object-fit: cover; object-position: center 20%; }
+  .hero-profissional .hero-image-wrap.img-sabrina img { object-position: center 15%; }
+  .hero-profissional .hero-image-wrap.img-erica img { object-position: center 25%; }
   .hero-profissional-meta { display: flex; flex-wrap: wrap; gap: 8px 16px; }
   .meta-item { font-size: 0.85rem; color: var(--text-secondary); background: var(--surface); padding: 4px 14px; border-radius: 50px; border: 1px solid var(--border-light); }
 
