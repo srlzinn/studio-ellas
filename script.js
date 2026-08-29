@@ -18,7 +18,7 @@ const CONFIG = {
 };
 
 // ============================================
-// 2. PROFISSIONAIS E SERVIÇOS
+// 2. PROFISSIONAIS E SERVIÇOS - SEM PREÇOS
 // ============================================
 const PROFISSIONAIS = [
   {
@@ -26,7 +26,7 @@ const PROFISSIONAIS = [
     nome: "Dra. Erica Lima",
     area: "Odontologia",
     titulo: "Cirurgiã-Dentista",
-    foto: "img/profissionais/doutora-sabrina.jpeg",
+    foto: "img/profissionais/erica.jpeg",
     descricao: "Especialista em odontologia com foco em estética dental, prevenção e atendimento humanizado.",
     formacao: ["Odontologia pela UFPI", "Especialização em Estética Dental"],
     especializacoes: ["Estética Dental", "Prevenção", "Atendimento Infantil"],
@@ -34,6 +34,7 @@ const PROFISSIONAIS = [
     citacao: "Cada paciente é único e merece um tratamento que valorize sua história, suas necessidades e seu sorriso.",
     diferenciais: ["Atendimento personalizado", "Tecnologia de ponta", "Ambiente acolhedor"],
     whatsapp: "558699317410",
+    fotoClass: "img-erica",
     disponibilidade: {
       segunda: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
       terca: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
@@ -42,11 +43,11 @@ const PROFISSIONAIS = [
       sexta: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]
     },
     servicos: [
-      { id: "prevencao", nome: "Prevenção", categoria: "Odontologia", descricao: "Cuidados preventivos para manter a saúde bucal em dia.", detalhes: ["Avaliação completa", "Profilaxia (limpeza)", "Aplicação de flúor", "Orientação de higiene"], preco: 150, tipoPreco: "fixo", imagem: "img/servicos/prevencao.jpg", duracao: 60 },
-      { id: "estetica-dental", nome: "Estética Dental", categoria: "Odontologia", descricao: "Procedimentos estéticos para transformar seu sorriso.", detalhes: ["Clareamento dental", "Restaurações estéticas em resina", "Facetas"], preco: 350, tipoPreco: "a_partir_de", imagem: "img/servicos/estetica-dental.jpg", duracao: 90 },
-      { id: "restauracoes", nome: "Restaurações", categoria: "Odontologia", descricao: "Restauração de dentes danificados por cáries ou traumas.", detalhes: ["Restauração de cáries", "Reconstrução dentária"], preco: 250, tipoPreco: "a_partir_de", imagem: "", duracao: 60 },
-      { id: "cirurgia", nome: "Cirurgia", categoria: "Odontologia", descricao: "Procedimentos cirúrgicos com segurança e precisão.", detalhes: ["Extrações dentárias", "Extração de siso", "Remoção de raízes residuais"], preco: 400, tipoPreco: "a_partir_de", imagem: "", duracao: 90 },
-      { id: "ortodontia", nome: "Ortodontia", categoria: "Odontologia", descricao: "Correção da posição dos dentes para um sorriso alinhado.", detalhes: ["Avaliação", "Aparelho fixo", "Manutenções", "Contenção"], preco: 500, tipoPreco: "a_partir_de", imagem: "", duracao: 60 }
+      { id: "prevencao", nome: "Prevenção", categoria: "Odontologia", descricao: "Cuidados preventivos para manter a saúde bucal em dia.", detalhes: ["Avaliação completa", "Profilaxia (limpeza)", "Aplicação de flúor", "Orientação de higiene"], imagem: "img/servicos/prevencao.jpg", duracao: 60 },
+      { id: "estetica-dental", nome: "Estética Dental", categoria: "Odontologia", descricao: "Procedimentos estéticos para transformar seu sorriso.", detalhes: ["Clareamento dental", "Restaurações estéticas em resina", "Facetas"], imagem: "img/servicos/estetica-dental.jpg", duracao: 90 },
+      { id: "restauracoes", nome: "Restaurações", categoria: "Odontologia", descricao: "Restauração de dentes danificados por cáries ou traumas.", detalhes: ["Restauração de cáries", "Reconstrução dentária"], imagem: "", duracao: 60 },
+      { id: "cirurgia", nome: "Cirurgia", categoria: "Odontologia", descricao: "Procedimentos cirúrgicos com segurança e precisão.", detalhes: ["Extrações dentárias", "Extração de siso", "Remoção de raízes residuais"], imagem: "", duracao: 90 },
+      { id: "ortodontia", nome: "Ortodontia", categoria: "Odontologia", descricao: "Correção da posição dos dentes para um sorriso alinhado.", detalhes: ["Avaliação", "Aparelho fixo", "Manutenções", "Contenção"], imagem: "", duracao: 60 }
     ]
   },
   {
@@ -62,6 +63,7 @@ const PROFISSIONAIS = [
     citacao: "A beleza está em realçar o que você já tem de melhor, com segurança e naturalidade.",
     diferenciais: ["Tecnologia avançada", "Resultados naturais", "Atendimento personalizado"],
     whatsapp: "556193226041",
+    fotoClass: "img-sabrina",
     disponibilidade: {
       segunda: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
       terca: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
@@ -70,10 +72,42 @@ const PROFISSIONAIS = [
       sexta: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]
     },
     servicos: [
-      { id: "botox", nome: "Botox", categoria: "Estética Facial", descricao: "Tratamento para suavizar rugas e linhas de expressão.", detalhes: ["Procedimento seguro", "Resultados naturais", "Efeito duradouro"], preco: 450, tipoPreco: "a_partir_de", imagem: "img/servicos/botox.jpg", duracao: 60 },
-      { id: "skinbooster", nome: "Skinbooster", categoria: "Estética Facial", descricao: "Tratamento para hidratação e rejuvenescimento da pele.", detalhes: ["Hidratação profunda", "Rejuvenescimento"], preco: 350, tipoPreco: "a_partir_de", imagem: "", duracao: 60 },
-      { id: "enzimas-emagrecedoras", nome: "Enzimas Emagrecedoras", categoria: "Estética Corporal", descricao: "Tratamento para redução de gordura localizada.", detalhes: ["Redução de medidas", "Resultados progressivos"], preco: 250, tipoPreco: "a_partir_de", imagem: "", duracao: 90 },
-      { id: "terapia-ortomolecular", nome: "Terapia Ortomolecular", categoria: "Estética", descricao: "Tratamento com vitaminas e minerais para a saúde e beleza.", detalhes: ["Suplementação personalizada", "Bem-estar geral"], preco: 180, tipoPreco: "fixo", imagem: "", duracao: 60 }
+      { id: "botox", nome: "Botox", categoria: "Estética Facial", descricao: "Tratamento para suavizar rugas e linhas de expressão.", detalhes: ["Procedimento seguro", "Resultados naturais", "Efeito duradouro"], imagem: "img/servicos/botox.jpg", duracao: 60 },
+      { id: "skinbooster", nome: "Skinbooster", categoria: "Estética Facial", descricao: "Tratamento para hidratação e rejuvenescimento da pele.", detalhes: ["Hidratação profunda", "Rejuvenescimento"], imagem: "", duracao: 60 },
+      { id: "enzimas-emagrecedoras", nome: "Enzimas Emagrecedoras", categoria: "Estética Corporal", descricao: "Tratamento para redução de gordura localizada.", detalhes: ["Redução de medidas", "Resultados progressivos"], imagem: "", duracao: 90 },
+      { id: "terapia-ortomolecular", nome: "Terapia Ortomolecular", categoria: "Estética", descricao: "Tratamento com vitaminas e minerais para a saúde e beleza.", detalhes: ["Suplementação personalizada", "Bem-estar geral"], imagem: "", duracao: 60 }
+    ]
+  },
+  {
+    id: "adriana",
+    nome: "Adriana",
+    area: "Beleza e Estética",
+    titulo: "Especialista em Beleza",
+    foto: "img/profissionais/adriana.png",
+    descricao: "Especialista em cuidados capilares e estética das unhas, com técnicas modernas para realçar sua beleza.",
+    formacao: ["Curso de Especialização em Beleza", "Técnicas Avançadas em Cabelos e Unhas"],
+    especializacoes: ["Alongamento de Cílios", "Manicure e Pedicure", "Cuidados Capilares"],
+    experiencia: "7 anos de experiência",
+    citacao: "A verdadeira beleza está em realçar o que você já tem, com técnicas que valorizam sua essência.",
+    diferenciais: ["Atendimento personalizado", "Técnicas modernas", "Resultados naturais"],
+    whatsapp: "5586993177410",
+    fotoClass: "img-adriana",
+    disponibilidade: {
+      segunda: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
+      terca: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
+      quarta: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
+      quinta: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
+      sexta: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]
+    },
+    servicos: [
+      { id: "alongamento", nome: "Alongamento", categoria: "Beleza", descricao: "Alongamento de unhas com técnicas modernas e naturais.", detalhes: ["Preparação das unhas", "Aplicação de gel", "Modelagem", "Finalização e brilho"], imagem: "", duracao: 90 },
+      { id: "banho-gel", nome: "Banho em Gel", categoria: "Beleza", descricao: "Banho de gel para hidratação e fortalecimento dos cabelos.", detalhes: ["Lavagem", "Aplicação de gel", "Massagem capilar", "Finalização"], imagem: "", duracao: 60 },
+      { id: "esmaltacao-gel", nome: "Esmaltação em Gel", categoria: "Beleza", descricao: "Esmaltação em gel de longa duração para unhas perfeitas.", detalhes: ["Preparação das unhas", "Aplicação de base", "Esmaltação em gel", "Finalização"], imagem: "", duracao: 60 },
+      { id: "manicure-pedicure", nome: "Manicure e Pedicure", categoria: "Beleza", descricao: "Cuidados completos para mãos e pés.", detalhes: ["Limpeza", "Corte e lixamento", "Hidratação", "Esmaltação"], imagem: "", duracao: 90 },
+      { id: "selagem-organica", nome: "Selagem Orgânica", categoria: "Beleza", descricao: "Selagem orgânica para cabelos lisos e saudáveis.", detalhes: ["Lavagem", "Aplicação do produto", "Pré-secagem", "Selagem com prancha", "Finalização"], imagem: "", duracao: 120 },
+      { id: "botox-capilar", nome: "Botox Capilar", categoria: "Beleza", descricao: "Tratamento de botox para cabelos danificados.", detalhes: ["Lavagem", "Aplicação do botox", "Massagem capilar", "Finalização"], imagem: "", duracao: 90 },
+      { id: "mechas-luzes", nome: "Mechas ou Luzes", categoria: "Beleza", descricao: "Mechas e luzes para iluminar seu cabelo.", detalhes: ["Avaliação", "Aplicação das mechas", "Tempo de pausa", "Lavagem e finalização"], imagem: "", duracao: 120 },
+      { id: "cortes-cabelo", nome: "Cortes de Cabelo", categoria: "Beleza", descricao: "Cortes modernos e personalizados para todos os estilos.", detalhes: ["Avaliação do rosto", "Corte personalizado", "Finalização"], imagem: "", duracao: 60 }
     ]
   }
 ];
@@ -90,14 +124,9 @@ function getServico(profissionalId, servicoId) {
   return prof ? prof.servicos.find(s => s.id === servicoId) : null;
 }
 
-function formatPreco(preco, tipoPreco) {
-  if (preco && tipoPreco === 'fixo') {
-    return `R$ ${preco.toFixed(2).replace('.', ',')}`;
-  } else if (preco && tipoPreco === 'a_partir_de') {
-    return `A partir de R$ ${preco.toFixed(2).replace('.', ',')}`;
-  } else {
-    return 'Consultar valor';
-  }
+// FUNÇÃO SEM PREÇOS - sempre retorna "Consultar valor"
+function formatPreco() {
+  return 'Consultar valor';
 }
 
 function getHorariosDisponiveis(profissionalId, data) {
@@ -107,9 +136,6 @@ function getHorariosDisponiveis(profissionalId, data) {
   const dias = ['domingo', 'segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sabado'];
   const dataObj = new Date(data);
   const diaSemana = dias[dataObj.getDay()];
-  
-  console.log('Data:', data, 'Dia da semana:', diaSemana);
-  console.log('Disponibilidade:', prof.disponibilidade);
   
   return prof.disponibilidade[diaSemana] || [];
 }
@@ -146,12 +172,11 @@ function formatarData(data) {
 }
 
 // ============================================
-// 4. GERADOR DE COMPROVANTE
+// 4. GERADOR DE COMPROVANTE (sem preços)
 // ============================================
 function gerarComprovanteHTML(dados) {
   const { profissional, servico, data, horario, nome, whatsapp, observacao, numeroRecibo } = dados;
   const dataFormatada = formatarData(data);
-  const precoFormatado = formatPreco(servico.preco, servico.tipoPreco);
   
   return `
     <div class="recibo-container">
@@ -218,10 +243,6 @@ function gerarComprovanteHTML(dados) {
             <span class="recibo-info-label">Duração:</span>
             <span class="recibo-info-valor">${servico.duracao} minutos</span>
           </div>
-          <div class="recibo-info-linha">
-            <span class="recibo-info-label">Valor:</span>
-            <span class="recibo-info-valor recibo-valor-destaque">${precoFormatado}</span>
-          </div>
         </div>
         
         <div class="recibo-detalhes-servico">
@@ -254,7 +275,7 @@ function gerarComprovanteHTML(dados) {
         </div>
         
         <div class="recibo-data-emissao">
-          <p class="recibo-aviso">* Este documento é um comprovante de agendamento. O valor pode ser ajustado conforme avaliação presencial.</p>
+          <p class="recibo-aviso">* Este documento é um comprovante de agendamento.</p>
         </div>
       </div>
     </div>
@@ -306,7 +327,7 @@ function exibirComprovante(dados) {
 }
 
 // ============================================
-// 5. PROCESSAR AGENDAMENTO
+// 5. PROCESSAR AGENDAMENTO (sem preços)
 // ============================================
 function processarAgendamento(dados) {
   const { profissionalId, servicoId, data, horario, nome, whatsapp, observacao } = dados;
@@ -326,15 +347,12 @@ function processarAgendamento(dados) {
 
   const numeroRecibo = gerarNumeroRecibo();
   const dataFormatada = formatarData(data);
-  const precoFormatado = formatPreco(servico.preco, servico.tipoPreco);
   const numeroWhatsApp = profissional.whatsapp || CONFIG.whatsapp;
 
   const dadosAgendamento = { profissional, servico, data, horario, nome, whatsapp, observacao, numeroRecibo };
 
-  // Exibir comprovante
   exibirComprovante(dadosAgendamento);
 
-  // Enviar WhatsApp
   const mensagem = `✅ *CONFIRMAÇÃO DE AGENDAMENTO - ${CONFIG.nome}*
 
 📋 *Nº do Recibo:* ${numeroRecibo}
@@ -347,7 +365,6 @@ function processarAgendamento(dados) {
 💆 *Serviço:* ${servico.nome}
 📂 *Categoria:* ${servico.categoria}
 ⏱ *Duração:* ${servico.duracao} minutos
-💰 *Valor:* ${precoFormatado}
 
 📅 *Data:* ${dataFormatada}
 🕐 *Horário:* ${horario}
@@ -369,15 +386,17 @@ ${observacao ? `📝 *Observação:* ${observacao}` : ''}
 }
 
 // ============================================
-// 6. RENDERIZAÇÃO DA PÁGINA INICIAL
+// 6. RENDERIZAÇÃO DA PÁGINA INICIAL (sem preços)
 // ============================================
 function renderizarProfissionais() {
   const container = document.getElementById('profissionaisGrid');
   if (!container) return;
   
-  container.innerHTML = PROFISSIONAIS.map(prof => `
+  container.innerHTML = PROFISSIONAIS.map(prof => {
+    const fotoClass = prof.fotoClass || '';
+    return `
     <div class="profissional-card">
-      <div class="profissional-imagem">
+      <div class="profissional-imagem ${fotoClass}">
         <img src="${prof.foto || 'img/profissionais/default.jpg'}" alt="${prof.nome}" loading="lazy" />
         <div class="profissional-overlay">
           <span class="profissional-area">${prof.area}</span>
@@ -396,7 +415,7 @@ function renderizarProfissionais() {
         </a>
       </div>
     </div>
-  `).join('');
+  `}).join('');
 }
 
 function renderizarServicosDestaque() {
@@ -420,7 +439,6 @@ function renderizarServicosDestaque() {
         <h3>${s.nome}</h3>
         <p>${s.descricao}</p>
         <div class="servico-profissional-nome">Com ${s.profissionalNome}</div>
-        <div class="servico-preco">${formatPreco(s.preco, s.tipoPreco)}</div>
         <div class="servico-actions">
           <button class="btn btn-small btn-outline btn-detalhes" data-profissional="${s.profissionalId}" data-servico="${s.id}">Detalhes</button>
           <a href="profissional.html?id=${s.profissionalId}" class="btn btn-small btn-primary">Agendar</a>
@@ -437,7 +455,7 @@ function renderizarServicosDestaque() {
 }
 
 // ============================================
-// 7. PÁGINA DA PROFISSIONAL
+// 7. PÁGINA DA PROFISSIONAL (sem preços)
 // ============================================
 function renderizarPaginaProfissional() {
   const params = new URLSearchParams(window.location.search);
@@ -450,6 +468,8 @@ function renderizarPaginaProfissional() {
   }
   
   document.title = `${prof.nome} | Centro Odontológico e Estético`;
+  
+  const fotoClass = prof.fotoClass || '';
   
   // Hero
   const hero = document.getElementById('heroProfissional');
@@ -476,7 +496,7 @@ function renderizarPaginaProfissional() {
           </div>
         </div>
         <div class="hero-profissional-image">
-          <div class="hero-image-wrap">
+          <div class="hero-image-wrap ${fotoClass}">
             <img src="${prof.foto || 'img/profissionais/default.jpg'}" alt="${prof.nome}" loading="eager" />
             <div class="hero-image-overlay"></div>
           </div>
@@ -535,7 +555,6 @@ function renderizarPaginaProfissional() {
         <div class="servico-detalhes">
           ${s.detalhes.map(d => `<span>✓ ${d}</span>`).join('')}
         </div>
-        <div class="servico-preco">${formatPreco(s.preco, s.tipoPreco)}</div>
         <div class="servico-actions">
           <button class="btn btn-small btn-primary btn-agendar-servico-profissional" data-servico="${s.id}">
             <span class="btn-icon">✦</span> Agendar
@@ -565,7 +584,7 @@ function renderizarPaginaProfissional() {
 }
 
 // ============================================
-// 8. CONFIGURAR AGENDAMENTO
+// 8. CONFIGURAR AGENDAMENTO (sem preços)
 // ============================================
 function configurarAgendamentoProfissional(prof) {
   const form = document.getElementById('formAgendamento');
@@ -582,7 +601,7 @@ function configurarAgendamentoProfissional(prof) {
   prof.servicos.forEach(s => {
     const option = document.createElement('option');
     option.value = s.id;
-    option.textContent = `${s.nome} - ${formatPreco(s.preco, s.tipoPreco)}`;
+    option.textContent = s.nome;
     servSelect.appendChild(option);
   });
   
@@ -594,7 +613,6 @@ function configurarAgendamentoProfissional(prof) {
       detalhesDiv.innerHTML = `
         <div class="servico-preview" style="background:rgba(240,208,96,0.05);padding:16px;border-radius:8px;border:1px solid rgba(240,208,96,0.15);margin-bottom:16px;">
           <p><strong>Duração:</strong> ${serv.duracao} minutos</p>
-          <p><strong>Valor:</strong> ${formatPreco(serv.preco, serv.tipoPreco)}</p>
           <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
             ${serv.detalhes.map(d => `<span style="font-size:0.8rem;color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.04);padding:4px 12px;border-radius:50px;border:1px solid rgba(240,208,96,0.08);">✓ ${d}</span>`).join('')}
           </div>
@@ -605,21 +623,11 @@ function configurarAgendamentoProfissional(prof) {
     }
   });
   
-  // CORREÇÃO: Evento de data para carregar horários
   dataInput.addEventListener('change', function() {
     const data = this.value;
     horarioSelect.innerHTML = '<option value="">Selecione um horário</option>';
-    if (!data) {
-      console.log('Data não selecionada');
-      return;
-    }
-    
-    console.log('Profissional ID:', prof.id);
-    console.log('Data selecionada:', data);
-    
+    if (!data) return;
     const horarios = getHorariosDisponiveis(prof.id, data);
-    console.log('Horários encontrados:', horarios);
-    
     if (horarios && horarios.length > 0) {
       horarios.forEach(h => {
         const option = document.createElement('option');
@@ -628,7 +636,6 @@ function configurarAgendamentoProfissional(prof) {
         horarioSelect.appendChild(option);
       });
     } else {
-      console.log('Nenhum horário disponível para esta data');
       const option = document.createElement('option');
       option.value = '';
       option.textContent = 'Nenhum horário disponível';
@@ -665,7 +672,7 @@ function configurarAgendamentoProfissional(prof) {
 }
 
 // ============================================
-// 9. MODAL DE SERVIÇO
+// 9. MODAL DE SERVIÇO (sem preços)
 // ============================================
 function abrirModalServico(profissionalId, servicoId) {
   const servico = getServico(profissionalId, servicoId);
@@ -676,7 +683,7 @@ function abrirModalServico(profissionalId, servicoId) {
   document.getElementById('modalTitle').textContent = servico.nome;
   document.getElementById('modalDesc').textContent = servico.descricao;
   document.getElementById('modalDetalhes').innerHTML = servico.detalhes.map(d => `<span>✓ ${d}</span>`).join('');
-  document.getElementById('modalPreco').textContent = formatPreco(servico.preco, servico.tipoPreco);
+  document.getElementById('modalPreco').textContent = 'Consultar valor';
   document.getElementById('modalProfissionalNome').textContent = profissional.nome;
   
   const agendarBtn = document.querySelector('.btn-modal-agendar');
@@ -904,7 +911,8 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('🦷 Centro Odontológico e Estético - Site inicializado');
   console.log('📱 WhatsApp Dra. Erica Lima: (86) 99317-7410');
   console.log('📱 WhatsApp Sabrina Ribeiro: (61) 93226-6041');
-  console.log('📋 Sistema de Comprovante ativo');
+  console.log('📱 WhatsApp Adriana: (86) 99317-7410');
+  console.log('📋 Sistema de Comprovante ativo - Sem preços');
 });
 
 // EXPORTAÇÕES
