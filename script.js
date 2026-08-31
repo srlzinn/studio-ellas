@@ -55,7 +55,7 @@ const PROFISSIONAIS = [
     nome: "Sabrina Ribeiro",
     area: "Farmacêutica Esteta",
     titulo: "Farmacêutica Esteta",
-    foto: "img/profissionais/doutorasab.png",
+    foto: "img/profissionais/doutorasabrina.jpeg",
     descricao: "Especialista em estética facial e corporal com tratamentos avançados.",
     formacao: ["Farmácia pela UFPI", "Especialização em Estética Avançada"],
     especializacoes: ["Estética Facial", "Estética Corporal", "Harmonização"],
