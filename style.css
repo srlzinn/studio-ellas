@@ -1063,7 +1063,7 @@
   }
   
   /* ============================================
-     13. SERVIÇOS EM DESTAQUE
+     13. SERVIÇOS EM DESTAQUE - SEM IMAGENS
      ============================================ */
   .servicos-destaque {
     padding: 100px 0;
@@ -1080,65 +1080,82 @@
   .servico-card {
     background: var(--surface);
     border-radius: var(--radius-lg);
-    overflow: hidden;
+    padding: 32px 28px 28px;
     border: 1px solid var(--border-light);
     transition: all var(--transition);
+    text-align: center;
+    position: relative;
   }
   
   .servico-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
     border-color: var(--border);
     box-shadow: var(--shadow-hover);
+    background: var(--surface-hover);
   }
   
-  .servico-image {
-    position: relative;
-    height: 200px;
-    overflow: hidden;
-    background: var(--surface-alt);
+  /* Ícone decorativo no lugar da imagem */
+  .servico-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--gold-subtle);
+    border: 1px solid var(--border-light);
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    transition: all var(--transition);
+  }
+  
+  .servico-card:hover .servico-icon {
+    background: var(--gold);
+    color: var(--text-dark);
+    border-color: var(--gold);
+    transform: scale(1.05);
   }
   
   .servico-tag-categoria {
-    position: absolute;
-    top: 14px;
-    right: 14px;
+    display: inline-block;
     background: var(--gold);
     color: var(--text-dark);
-    padding: 4px 14px;
+    padding: 4px 16px;
     font-size: 0.55rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-  }
-  
-  .servico-content {
-    padding: 24px 24px 28px;
+    margin-bottom: 12px;
   }
   
   .servico-content h3 {
     font-family: var(--font-serif);
-    font-size: 1.05rem;
-    margin-bottom: 4px;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
     color: var(--gold);
   }
   
   .servico-content p {
     font-size: 0.85rem;
     color: var(--text-secondary);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-weight: 300;
+    text-align: center;
+    max-width: 100%;
   }
   
   .servico-profissional-nome {
     font-size: 0.75rem;
     color: var(--text-tertiary);
     font-weight: 300;
-    margin-bottom: 6px;
+    margin-bottom: 16px;
   }
   
   .servico-actions {
     display: flex;
     gap: 10px;
+    justify-content: center;
   }
   
   .servico-actions .btn {
@@ -1147,6 +1164,7 @@
     font-size: 0.65rem;
     padding: 10px 12px;
     min-height: 38px;
+    max-width: 160px;
   }
   
   .servicos-cta {
@@ -2633,7 +2651,6 @@
       min-height: auto;
     }
   
-    /* Na página da profissional, a foto fica primeiro */
     .hero-profissional-image {
       order: 1;
     }
@@ -2754,7 +2771,6 @@
       padding: 20px;
     }
   
-    /* Na página da profissional, foto primeiro em mobile também */
     .hero-profissional-image {
       order: 1;
     }
@@ -2899,6 +2915,12 @@
   
     .servico-actions {
       flex-direction: column;
+      align-items: center;
+    }
+  
+    .servico-actions .btn {
+      max-width: 100%;
+      width: 100%;
     }
   
     .recibo-foto {
