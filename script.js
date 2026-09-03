@@ -18,7 +18,7 @@ const CONFIG = {
 };
 
 // ============================================
-// 2. PROFISSIONAIS E SERVIÇOS - SEM PREÇOS
+// 2. PROFISSIONAIS E SERVIÇOS - SEM IMAGENS
 // ============================================
 const PROFISSIONAIS = [
   {
@@ -27,14 +27,14 @@ const PROFISSIONAIS = [
     area: "Odontologia",
     titulo: "Cirurgiã-Dentista",
     foto: "img/profissionais/erica.jpeg",
-    descricao: "Especialista em odontologia com foco em estética dental, prevenção e atendimento humanizado.",
-    formacao: ["Odontologia pela UFPI", "Especialização em Estética Dental"],
-    especializacoes: ["Estética Dental", "Prevenção", "Atendimento Infantil"],
-    experiencia: "8 anos de experiência",
-    citacao: "Cada paciente é único e merece um tratamento que valorize sua história, suas necessidades e seu sorriso.",
-    diferenciais: ["Atendimento personalizado", "Tecnologia de ponta", "Ambiente acolhedor"],
+    descricao: "Especialista em odontologia com foco em estética dental, ortodontia e cirurgias orais menores.",
+    formacao: [
+      "Odontologia pela Unifacid",
+      "Especialização em Ortodontia",
+      "Aperfeiçoamento em Cirurgia Oral Menor",
+      "Aperfeiçoamento em Facetas em Resina"
+    ],
     whatsapp: "558699317410",
-    fotoClass: "img-erica",
     disponibilidade: {
       segunda: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
       terca: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
@@ -43,27 +43,29 @@ const PROFISSIONAIS = [
       sexta: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]
     },
     servicos: [
-      { id: "prevencao", nome: "Prevenção", categoria: "Odontologia", descricao: "Cuidados preventivos para manter a saúde bucal em dia.", detalhes: ["Avaliação completa", "Profilaxia (limpeza)", "Aplicação de flúor", "Orientação de higiene"], imagem: "img/servicos/prevencao.jpg", duracao: 60 },
-      { id: "estetica-dental", nome: "Estética Dental", categoria: "Odontologia", descricao: "Procedimentos estéticos para transformar seu sorriso.", detalhes: ["Clareamento dental", "Restaurações estéticas em resina", "Facetas"], imagem: "img/servicos/estetica-dental.jpg", duracao: 90 },
-      { id: "restauracoes", nome: "Restaurações", categoria: "Odontologia", descricao: "Restauração de dentes danificados por cáries ou traumas.", detalhes: ["Restauração de cáries", "Reconstrução dentária"], imagem: "", duracao: 60 },
-      { id: "cirurgia", nome: "Cirurgia", categoria: "Odontologia", descricao: "Procedimentos cirúrgicos com segurança e precisão.", detalhes: ["Extrações dentárias", "Extração de siso", "Remoção de raízes residuais"], imagem: "", duracao: 90 },
-      { id: "ortodontia", nome: "Ortodontia", categoria: "Odontologia", descricao: "Correção da posição dos dentes para um sorriso alinhado.", detalhes: ["Avaliação", "Aparelho fixo", "Manutenções", "Contenção"], imagem: "", duracao: 60 }
+      { id: "prevencao", nome: "Prevenção", categoria: "Odontologia", descricao: "Cuidados preventivos para manter a saúde bucal em dia.", detalhes: ["Avaliação completa", "Profilaxia (limpeza)", "Aplicação de flúor", "Orientação de higiene"], duracao: 60 },
+      { id: "estetica-dental", nome: "Estética Dental", categoria: "Odontologia", descricao: "Procedimentos estéticos para transformar seu sorriso.", detalhes: ["Clareamento dental", "Restaurações estéticas em resina", "Facetas"], duracao: 90 },
+      { id: "restauracoes", nome: "Restaurações", categoria: "Odontologia", descricao: "Restauração de dentes danificados por cáries ou traumas.", detalhes: ["Restauração de cáries", "Reconstrução dentária"], duracao: 60 },
+      { id: "cirurgia", nome: "Cirurgia Oral Menor", categoria: "Odontologia", descricao: "Procedimentos cirúrgicos com segurança e precisão.", detalhes: ["Extrações dentárias", "Extração de siso", "Remoção de raízes residuais"], duracao: 90 },
+      { id: "ortodontia", nome: "Ortodontia", categoria: "Odontologia", descricao: "Correção da posição dos dentes para um sorriso alinhado.", detalhes: ["Avaliação ortodôntica", "Aparelho fixo", "Aparelho removível", "Manutenções", "Contenção"], duracao: 60 },
+      { id: "facetas-resina", nome: "Facetas em Resina", categoria: "Odontologia", descricao: "Facetas em resina para transformar seu sorriso.", detalhes: ["Avaliação estética", "Preparação", "Aplicação de resina", "Finalização e polimento"], duracao: 90 }
     ]
   },
   {
     id: "sabrina-ribeiro",
-    nome: "Sabrina Ribeiro",
+    nome: "Dra. Sabrina Ribeiro",
     area: "Farmacêutica Esteta",
     titulo: "Farmacêutica Esteta",
     foto: "img/profissionais/doutorasabrina.jpeg",
-    descricao: "Especialista em estética facial e corporal com tratamentos avançados.",
-    formacao: ["Farmácia pela UFPI", "Especialização em Estética Avançada"],
-    especializacoes: ["Estética Facial", "Estética Corporal", "Harmonização"],
-    experiencia: "6 anos de experiência",
-    citacao: "A beleza está em realçar o que você já tem de melhor, com segurança e naturalidade.",
-    diferenciais: ["Tecnologia avançada", "Resultados naturais", "Atendimento personalizado"],
+    descricao: "Especialista em estética facial e corporal com tratamentos avançados e abordagem integrativa.",
+    formacao: [
+      "Farmácia pelo UNIFSA",
+      "Pós-graduada em Estética Avançada",
+      "Pós-graduada em Saúde Integrativa",
+      "Residência em Harmonização Corporal",
+      "Pós-graduada em Farmácia Clínica e Hospitalar"
+    ],
     whatsapp: "556193226041",
-    fotoClass: "img-sabrina",
     disponibilidade: {
       segunda: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
       terca: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
@@ -72,26 +74,22 @@ const PROFISSIONAIS = [
       sexta: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]
     },
     servicos: [
-      { id: "botox", nome: "Botox", categoria: "Estética Facial", descricao: "Tratamento para suavizar rugas e linhas de expressão.", detalhes: ["Procedimento seguro", "Resultados naturais", "Efeito duradouro"], imagem: "img/servicos/botox.jpg", duracao: 60 },
-      { id: "skinbooster", nome: "Skinbooster", categoria: "Estética Facial", descricao: "Tratamento para hidratação e rejuvenescimento da pele.", detalhes: ["Hidratação profunda", "Rejuvenescimento"], imagem: "", duracao: 60 },
-      { id: "enzimas-emagrecedoras", nome: "Enzimas Emagrecedoras", categoria: "Estética Corporal", descricao: "Tratamento para redução de gordura localizada.", detalhes: ["Redução de medidas", "Resultados progressivos"], imagem: "", duracao: 90 },
-      { id: "terapia-ortomolecular", nome: "Terapia Ortomolecular", categoria: "Estética", descricao: "Tratamento com vitaminas e minerais para a saúde e beleza.", detalhes: ["Suplementação personalizada", "Bem-estar geral"], imagem: "", duracao: 60 }
+      { id: "botox", nome: "Botox", categoria: "Estética Facial", descricao: "Tratamento para suavizar rugas e linhas de expressão.", detalhes: ["Procedimento seguro", "Resultados naturais", "Efeito duradouro"], duracao: 60 },
+      { id: "skinbooster", nome: "Skinbooster", categoria: "Estética Facial", descricao: "Tratamento para hidratação e rejuvenescimento da pele.", detalhes: ["Hidratação profunda", "Rejuvenescimento"], duracao: 60 },
+      { id: "enzimas-emagrecedoras", nome: "Enzimas Emagrecedoras", categoria: "Estética Corporal", descricao: "Tratamento para redução de gordura localizada.", detalhes: ["Redução de medidas", "Resultados progressivos"], duracao: 90 },
+      { id: "terapia-ortomolecular", nome: "Terapia Ortomolecular", categoria: "Estética", descricao: "Tratamento com vitaminas e minerais para a saúde e beleza.", detalhes: ["Suplementação personalizada", "Bem-estar geral"], duracao: 60 },
+      { id: "harmonizacao-corporal", nome: "Harmonização Corporal", categoria: "Estética Corporal", descricao: "Procedimentos para harmonização e modelagem corporal.", detalhes: ["Avaliação corporal", "Tratamento personalizado", "Resultados naturais"], duracao: 90 }
     ]
   },
   {
     id: "adriana",
-    nome: "Adriana",
+    nome: "Adriana Mariah",
     area: "Beleza e Estética",
     titulo: "Especialista em Beleza",
     foto: "img/profissionais/adriana.png",
     descricao: "Especialista em cuidados capilares e estética das unhas, com técnicas modernas para realçar sua beleza.",
     formacao: ["Curso de Especialização em Beleza", "Técnicas Avançadas em Cabelos e Unhas"],
-    especializacoes: ["Alongamento de Cílios", "Manicure e Pedicure", "Cuidados Capilares"],
-    experiencia: "7 anos de experiência",
-    citacao: "A verdadeira beleza está em realçar o que você já tem, com técnicas que valorizam sua essência.",
-    diferenciais: ["Atendimento personalizado", "Técnicas modernas", "Resultados naturais"],
     whatsapp: "5586993177410",
-    fotoClass: "img-adriana",
     disponibilidade: {
       segunda: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
       terca: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
@@ -100,14 +98,14 @@ const PROFISSIONAIS = [
       sexta: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]
     },
     servicos: [
-      { id: "alongamento", nome: "Alongamento", categoria: "Beleza", descricao: "Alongamento de unhas com técnicas modernas e naturais.", detalhes: ["Preparação das unhas", "Aplicação de gel", "Modelagem", "Finalização e brilho"], imagem: "", duracao: 90 },
-      { id: "banho-gel", nome: "Banho em Gel", categoria: "Beleza", descricao: "Banho de gel para hidratação e fortalecimento dos cabelos.", detalhes: ["Lavagem", "Aplicação de gel", "Massagem capilar", "Finalização"], imagem: "", duracao: 60 },
-      { id: "esmaltacao-gel", nome: "Esmaltação em Gel", categoria: "Beleza", descricao: "Esmaltação em gel de longa duração para unhas perfeitas.", detalhes: ["Preparação das unhas", "Aplicação de base", "Esmaltação em gel", "Finalização"], imagem: "", duracao: 60 },
-      { id: "manicure-pedicure", nome: "Manicure e Pedicure", categoria: "Beleza", descricao: "Cuidados completos para mãos e pés.", detalhes: ["Limpeza", "Corte e lixamento", "Hidratação", "Esmaltação"], imagem: "", duracao: 90 },
-      { id: "selagem-organica", nome: "Selagem Orgânica", categoria: "Beleza", descricao: "Selagem orgânica para cabelos lisos e saudáveis.", detalhes: ["Lavagem", "Aplicação do produto", "Pré-secagem", "Selagem com prancha", "Finalização"], imagem: "", duracao: 120 },
-      { id: "botox-capilar", nome: "Botox Capilar", categoria: "Beleza", descricao: "Tratamento de botox para cabelos danificados.", detalhes: ["Lavagem", "Aplicação do botox", "Massagem capilar", "Finalização"], imagem: "", duracao: 90 },
-      { id: "mechas-luzes", nome: "Mechas ou Luzes", categoria: "Beleza", descricao: "Mechas e luzes para iluminar seu cabelo.", detalhes: ["Avaliação", "Aplicação das mechas", "Tempo de pausa", "Lavagem e finalização"], imagem: "", duracao: 120 },
-      { id: "cortes-cabelo", nome: "Cortes de Cabelo", categoria: "Beleza", descricao: "Cortes modernos e personalizados para todos os estilos.", detalhes: ["Avaliação do rosto", "Corte personalizado", "Finalização"], imagem: "", duracao: 60 }
+      { id: "alongamento-unhas", nome: "Alongamento de Unhas", categoria: "Beleza", descricao: "Alongamento de unhas com técnicas modernas e naturais.", detalhes: ["Preparação das unhas", "Aplicação de gel", "Modelagem", "Finalização e brilho"], duracao: 90 },
+      { id: "banho-gel", nome: "Banho em Gel", categoria: "Beleza", descricao: "Banho de gel para hidratação e fortalecimento dos cabelos.", detalhes: ["Lavagem", "Aplicação de gel", "Massagem capilar", "Finalização"], duracao: 60 },
+      { id: "esmaltacao-gel", nome: "Esmaltação em Gel", categoria: "Beleza", descricao: "Esmaltação em gel de longa duração para unhas perfeitas.", detalhes: ["Preparação das unhas", "Aplicação de base", "Esmaltação em gel", "Finalização"], duracao: 60 },
+      { id: "manicure-pedicure", nome: "Manicure e Pedicure", categoria: "Beleza", descricao: "Cuidados completos para mãos e pés.", detalhes: ["Limpeza", "Corte e lixamento", "Hidratação", "Esmaltação"], duracao: 90 },
+      { id: "selagem-organica", nome: "Selagem Orgânica", categoria: "Beleza", descricao: "Selagem orgânica para cabelos lisos e saudáveis.", detalhes: ["Lavagem", "Aplicação do produto", "Pré-secagem", "Selagem com prancha", "Finalização"], duracao: 120 },
+      { id: "botox-capilar", nome: "Botox Capilar", categoria: "Beleza", descricao: "Tratamento de botox para cabelos danificados.", detalhes: ["Lavagem", "Aplicação do botox", "Massagem capilar", "Finalização"], duracao: 90 },
+      { id: "mechas-luzes", nome: "Mechas ou Luzes", categoria: "Beleza", descricao: "Mechas e luzes para iluminar seu cabelo.", detalhes: ["Avaliação", "Aplicação das mechas", "Tempo de pausa", "Lavagem e finalização"], duracao: 120 },
+      { id: "cortes-cabelo", nome: "Cortes de Cabelo", categoria: "Beleza", descricao: "Cortes modernos e personalizados para todos os estilos.", detalhes: ["Avaliação do rosto", "Corte personalizado", "Finalização"], duracao: 60 }
     ]
   }
 ];
@@ -124,7 +122,6 @@ function getServico(profissionalId, servicoId) {
   return prof ? prof.servicos.find(s => s.id === servicoId) : null;
 }
 
-// FUNÇÃO SEM PREÇOS - sempre retorna "Consultar valor"
 function formatPreco() {
   return 'Consultar valor';
 }
@@ -172,7 +169,7 @@ function formatarData(data) {
 }
 
 // ============================================
-// 4. GERADOR DE COMPROVANTE (sem preços)
+// 4. GERADOR DE COMPROVANTE
 // ============================================
 function gerarComprovanteHTML(dados) {
   const { profissional, servico, data, horario, nome, whatsapp, observacao, numeroRecibo } = dados;
@@ -197,7 +194,13 @@ function gerarComprovanteHTML(dados) {
       </div>
       
       <div class="recibo-corpo">
-        <div>
+        <!-- FOTO DA PROFISSIONAL - PRIMEIRO -->
+        <div class="recibo-foto">
+          <img src="${profissional.foto || 'img/profissionais/default.jpg'}" alt="${profissional.nome}" />
+        </div>
+        
+        <!-- DADOS DO CLIENTE - SEGUNDO -->
+        <div class="recibo-dados-cliente">
           <h3>👤 Dados do Cliente</h3>
           <div class="recibo-info-linha">
             <span class="recibo-info-label">Nome:</span>
@@ -213,7 +216,8 @@ function gerarComprovanteHTML(dados) {
           </div>
         </div>
         
-        <div>
+        <!-- DADOS DO ATENDIMENTO - TERCEIRO -->
+        <div class="recibo-dados-atendimento">
           <h3>💆 Dados do Atendimento</h3>
           <div class="recibo-info-linha">
             <span class="recibo-info-label">Profissional:</span>
@@ -245,13 +249,20 @@ function gerarComprovanteHTML(dados) {
           </div>
         </div>
         
+        <!-- DETALHES DO SERVIÇO -->
         <div class="recibo-detalhes-servico">
           <h3>📋 Detalhes do Serviço</h3>
           <ul class="recibo-detalhes-lista">
             ${servico.detalhes.map(d => `<li>✓ ${d}</li>`).join('')}
           </ul>
-          ${observacao ? `<p style="margin-top:10px;font-size:0.85rem;color:var(--text-secondary);"><strong>Observação:</strong> ${observacao}</p>` : ''}
         </div>
+        
+        <!-- OBSERVAÇÃO -->
+        ${observacao ? `
+        <div class="recibo-observacao">
+          <p><strong>📝 Observação:</strong> ${observacao}</p>
+        </div>
+        ` : ''}
       </div>
       
       <div class="recibo-rodape">
@@ -285,19 +296,25 @@ function gerarComprovanteHTML(dados) {
 function exibirComprovante(dados) {
   const html = gerarComprovanteHTML(dados);
   
+  const existingModal = document.getElementById('reciboModal');
+  if (existingModal) {
+    existingModal.remove();
+    document.body.classList.remove('no-scroll');
+  }
+  
   const modal = document.createElement('div');
   modal.className = 'recibo-modal';
   modal.id = 'reciboModal';
   
   modal.innerHTML = `
     <div class="recibo-content">
-      <button class="recibo-close" onclick="document.getElementById('reciboModal').remove();document.body.classList.remove('no-scroll');">✕</button>
+      <button class="recibo-close" aria-label="Fechar comprovante">✕</button>
       ${html}
       <div class="recibo-acoes">
         <button onclick="window.print()" class="btn btn-primary">
           <span class="btn-icon">🖨️</span> Imprimir
         </button>
-        <button onclick="document.getElementById('reciboModal').remove();document.body.classList.remove('no-scroll');" class="btn btn-outline">
+        <button onclick="fecharComprovante()" class="btn btn-outline">
           Fechar
         </button>
       </div>
@@ -309,25 +326,33 @@ function exibirComprovante(dados) {
   
   modal.addEventListener('click', function(e) {
     if (e.target === this) {
-      modal.remove();
-      document.body.classList.remove('no-scroll');
+      fecharComprovante();
     }
   });
   
   document.addEventListener('keydown', function closeRecibo(e) {
     if (e.key === 'Escape') {
-      const reciboModal = document.getElementById('reciboModal');
-      if (reciboModal) {
-        reciboModal.remove();
-        document.body.classList.remove('no-scroll');
-      }
+      fecharComprovante();
       document.removeEventListener('keydown', closeRecibo);
     }
   });
+  
+  const closeBtn = modal.querySelector('.recibo-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', fecharComprovante);
+  }
 }
 
+window.fecharComprovante = function() {
+  const modal = document.getElementById('reciboModal');
+  if (modal) {
+    modal.remove();
+    document.body.classList.remove('no-scroll');
+  }
+};
+
 // ============================================
-// 5. PROCESSAR AGENDAMENTO (sem preços)
+// 5. PROCESSAR AGENDAMENTO
 // ============================================
 function processarAgendamento(dados) {
   const { profissionalId, servicoId, data, horario, nome, whatsapp, observacao } = dados;
@@ -342,6 +367,12 @@ function processarAgendamento(dados) {
 
   if (!nome || !whatsapp || !data || !horario) {
     alert('Por favor, preencha todos os campos obrigatórios.');
+    return;
+  }
+
+  const whatsappLimpo = whatsapp.replace(/\D/g, '');
+  if (whatsappLimpo.length < 10) {
+    alert('Por favor, informe um número de WhatsApp válido (com DDD).');
     return;
   }
 
@@ -386,17 +417,16 @@ ${observacao ? `📝 *Observação:* ${observacao}` : ''}
 }
 
 // ============================================
-// 6. RENDERIZAÇÃO DA PÁGINA INICIAL (sem preços)
+// 6. RENDERIZAÇÃO DA PÁGINA INICIAL
 // ============================================
 function renderizarProfissionais() {
   const container = document.getElementById('profissionaisGrid');
   if (!container) return;
   
   container.innerHTML = PROFISSIONAIS.map(prof => {
-    const fotoClass = prof.fotoClass || '';
     return `
     <div class="profissional-card">
-      <div class="profissional-imagem ${fotoClass}">
+      <div class="profissional-imagem">
         <img src="${prof.foto || 'img/profissionais/default.jpg'}" alt="${prof.nome}" loading="lazy" />
         <div class="profissional-overlay">
           <span class="profissional-area">${prof.area}</span>
@@ -432,7 +462,10 @@ function renderizarServicosDestaque() {
   container.innerHTML = destaques.slice(0, 6).map(s => `
     <div class="servico-card">
       <div class="servico-image">
-        <img src="${s.imagem || 'img/servicos/default.jpg'}" alt="${s.nome}" loading="lazy" />
+        <div class="servico-placeholder">
+          <span class="servico-emoji">✦</span>
+          <span class="servico-placeholder-text">${s.categoria}</span>
+        </div>
         <span class="servico-tag-categoria">✦ ${s.categoria}</span>
       </div>
       <div class="servico-content">
@@ -448,14 +481,14 @@ function renderizarServicosDestaque() {
   `).join('');
   
   document.querySelectorAll('.btn-detalhes').forEach(btn => {
-    btn.addEventListener('click', () => {
-      abrirModalServico(btn.getAttribute('data-profissional'), btn.getAttribute('data-servico'));
+    btn.addEventListener('click', function() {
+      abrirModalServico(this.getAttribute('data-profissional'), this.getAttribute('data-servico'));
     });
   });
 }
 
 // ============================================
-// 7. PÁGINA DA PROFISSIONAL (sem preços)
+// 7. PÁGINA DA PROFISSIONAL
 // ============================================
 function renderizarPaginaProfissional() {
   const params = new URLSearchParams(window.location.search);
@@ -469,9 +502,6 @@ function renderizarPaginaProfissional() {
   
   document.title = `${prof.nome} | Centro Odontológico e Estético`;
   
-  const fotoClass = prof.fotoClass || '';
-  
-  // Hero
   const hero = document.getElementById('heroProfissional');
   if (hero) {
     hero.innerHTML = `
@@ -484,7 +514,7 @@ function renderizarPaginaProfissional() {
           <p class="hero-sub">${prof.descricao}</p>
           <div class="hero-profissional-meta">
             <span class="meta-item">✦ ${prof.titulo}</span>
-            ${prof.diferenciais.map(d => `<span class="meta-item">✦ ${d}</span>`).join('')}
+            ${prof.formacao.map(f => `<span class="meta-item">✦ ${f}</span>`).join('')}
           </div>
           <div class="hero-buttons">
             <a href="#agendamento" class="btn btn-primary btn-hero-cta">
@@ -496,7 +526,7 @@ function renderizarPaginaProfissional() {
           </div>
         </div>
         <div class="hero-profissional-image">
-          <div class="hero-image-wrap ${fotoClass}">
+          <div class="hero-image-wrap">
             <img src="${prof.foto || 'img/profissionais/default.jpg'}" alt="${prof.nome}" loading="eager" />
             <div class="hero-image-overlay"></div>
           </div>
@@ -507,37 +537,24 @@ function renderizarPaginaProfissional() {
     `;
   }
   
-  // Sobre
   const sobre = document.getElementById('sobreProfissional');
   if (sobre) {
     sobre.innerHTML = `
       <div class="container sobre-profissional-grid" style="display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start;">
         <div class="sobre-profissional-texto">
-          <span class="section-tag">✦ Sobre</span>
+          <span class="section-tag">✦ Formação</span>
           <h2>Conheça a <span class="section-highlight">${prof.nome}</span></h2>
-          <p>${prof.descricao}</p>
           <div class="sobre-profissional-info">
             <div class="info-item">
               <strong>Formação</strong>
               ${prof.formacao.map(f => `<span>${f}</span>`).join('')}
             </div>
-            <div class="info-item">
-              <strong>Especializações</strong>
-              ${prof.especializacoes.map(e => `<span>${e}</span>`).join('')}
-            </div>
-            <div class="info-item">
-              <strong>Experiência</strong>
-              <span>${prof.experiencia}</span>
-            </div>
-          </div>
-          <div class="sobre-profissional-diferenciais">
-            ${prof.diferenciais.map(d => `<span class="diferencial">✦ ${d}</span>`).join('')}
           </div>
         </div>
         <div class="sobre-profissional-citacao">
           <div class="citacao-box">
             <span class="citacao-quote">"</span>
-            <p>${prof.citacao}</p>
+            <p>Excelência e cuidado em cada atendimento.</p>
             <span class="citacao-author">— ${prof.nome}</span>
           </div>
         </div>
@@ -545,7 +562,6 @@ function renderizarPaginaProfissional() {
     `;
   }
   
-  // Serviços
   const servicosContainer = document.getElementById('servicosProfissionalGrid');
   if (servicosContainer) {
     servicosContainer.innerHTML = prof.servicos.map(s => `
@@ -564,8 +580,8 @@ function renderizarPaginaProfissional() {
     `).join('');
     
     servicosContainer.querySelectorAll('.btn-agendar-servico-profissional').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const servId = btn.getAttribute('data-servico');
+      btn.addEventListener('click', function() {
+        const servId = this.getAttribute('data-servico');
         const serv = getServico(prof.id, servId);
         if (serv) {
           const select = document.getElementById('agendaServico');
@@ -574,7 +590,10 @@ function renderizarPaginaProfissional() {
             const event = new Event('change');
             select.dispatchEvent(event);
           }
-          document.getElementById('agendamento').scrollIntoView({ behavior: 'smooth' });
+          const agendamentoSection = document.getElementById('agendamento');
+          if (agendamentoSection) {
+            agendamentoSection.scrollIntoView({ behavior: 'smooth' });
+          }
         }
       });
     });
@@ -584,7 +603,7 @@ function renderizarPaginaProfissional() {
 }
 
 // ============================================
-// 8. CONFIGURAR AGENDAMENTO (sem preços)
+// 8. CONFIGURAR AGENDAMENTO
 // ============================================
 function configurarAgendamentoProfissional(prof) {
   const form = document.getElementById('formAgendamento');
@@ -623,10 +642,16 @@ function configurarAgendamentoProfissional(prof) {
     }
   });
   
+  const today = new Date().toISOString().split('T')[0];
+  if (dataInput) {
+    dataInput.setAttribute('min', today);
+  }
+  
   dataInput.addEventListener('change', function() {
     const data = this.value;
     horarioSelect.innerHTML = '<option value="">Selecione um horário</option>';
     if (!data) return;
+    
     const horarios = getHorariosDisponiveis(prof.id, data);
     if (horarios && horarios.length > 0) {
       horarios.forEach(h => {
@@ -653,11 +678,31 @@ function configurarAgendamentoProfissional(prof) {
     const whatsapp = whatsappInput.value.trim();
     const observacao = obsInput ? obsInput.value.trim() : '';
     
-    if (!servicoId) { alert('Por favor, selecione um serviço.'); return; }
-    if (!data) { alert('Por favor, selecione uma data.'); return; }
-    if (!horario) { alert('Por favor, selecione um horário.'); return; }
-    if (!nome) { alert('Por favor, informe seu nome completo.'); return; }
-    if (!whatsapp) { alert('Por favor, informe seu WhatsApp.'); return; }
+    if (!servicoId) { 
+      alert('Por favor, selecione um serviço.'); 
+      servSelect.focus();
+      return; 
+    }
+    if (!data) { 
+      alert('Por favor, selecione uma data.'); 
+      dataInput.focus();
+      return; 
+    }
+    if (!horario) { 
+      alert('Por favor, selecione um horário.'); 
+      horarioSelect.focus();
+      return; 
+    }
+    if (!nome) { 
+      alert('Por favor, informe seu nome completo.'); 
+      nomeInput.focus();
+      return; 
+    }
+    if (!whatsapp) { 
+      alert('Por favor, informe seu WhatsApp.'); 
+      whatsappInput.focus();
+      return; 
+    }
     
     processarAgendamento({
       profissionalId: prof.id,
@@ -672,7 +717,7 @@ function configurarAgendamentoProfissional(prof) {
 }
 
 // ============================================
-// 9. MODAL DE SERVIÇO (sem preços)
+// 9. MODAL DE SERVIÇO
 // ============================================
 function abrirModalServico(profissionalId, servicoId) {
   const servico = getServico(profissionalId, servicoId);
@@ -680,26 +725,32 @@ function abrirModalServico(profissionalId, servicoId) {
   if (!servico || !profissional) return;
   
   const modal = document.getElementById('modalServico');
-  document.getElementById('modalTitle').textContent = servico.nome;
-  document.getElementById('modalDesc').textContent = servico.descricao;
-  document.getElementById('modalDetalhes').innerHTML = servico.detalhes.map(d => `<span>✓ ${d}</span>`).join('');
-  document.getElementById('modalPreco').textContent = 'Consultar valor';
-  document.getElementById('modalProfissionalNome').textContent = profissional.nome;
+  if (!modal) return;
+  
+  const title = document.getElementById('modalTitle');
+  const desc = document.getElementById('modalDesc');
+  const detalhes = document.getElementById('modalDetalhes');
+  const preco = document.getElementById('modalPreco');
+  const profNome = document.getElementById('modalProfissionalNome');
+  
+  if (title) title.textContent = servico.nome;
+  if (desc) desc.textContent = servico.descricao;
+  if (detalhes) detalhes.innerHTML = servico.detalhes.map(d => `<span>✓ ${d}</span>`).join('');
+  if (preco) preco.textContent = 'Consultar valor';
+  if (profNome) profNome.textContent = profissional.nome;
   
   const agendarBtn = document.querySelector('.btn-modal-agendar');
-  agendarBtn.setAttribute('data-profissional', profissionalId);
-  agendarBtn.setAttribute('data-servico', servicoId);
-  
-  agendarBtn.onclick = function(e) {
-    e.preventDefault();
-    const profId = this.getAttribute('data-profissional');
-    const prof = getProfissional(profId);
-    if (prof) {
+  if (agendarBtn) {
+    agendarBtn.setAttribute('data-profissional', profissionalId);
+    agendarBtn.setAttribute('data-servico', servicoId);
+    
+    agendarBtn.onclick = function(e) {
+      e.preventDefault();
       modal.classList.remove('open');
       document.body.classList.remove('no-scroll');
-      window.location.href = `profissional.html?id=${profId}`;
-    }
-  };
+      window.location.href = `profissional.html?id=${profissionalId}`;
+    };
+  }
   
   modal.classList.add('open');
   document.body.classList.add('no-scroll');
@@ -711,12 +762,18 @@ function abrirModalServico(profissionalId, servicoId) {
 function configurarFormularioContato() {
   const form = document.getElementById('formContato');
   if (!form) return;
+  
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const nome = document.getElementById('contatoNome').value.trim();
-    const whatsapp = document.getElementById('contatoWhatsapp').value.trim();
-    const mensagem = document.getElementById('contatoMensagem').value.trim();
-    if (!nome || !whatsapp) { alert('Preencha os campos obrigatórios.'); return; }
+    const nome = document.getElementById('contatoNome')?.value.trim() || '';
+    const whatsapp = document.getElementById('contatoWhatsapp')?.value.trim() || '';
+    const mensagem = document.getElementById('contatoMensagem')?.value.trim() || '';
+    
+    if (!nome || !whatsapp) { 
+      alert('Preencha os campos obrigatórios.'); 
+      return; 
+    }
+    
     const texto = `Olá! Meu nome é ${nome}.%0A%0AWhatsApp: ${whatsapp}%0A%0AMensagem: ${mensagem || 'Gostaria de agendar um atendimento.'}`;
     abrirWhatsApp(CONFIG.whatsapp, texto);
   });
@@ -725,13 +782,14 @@ function configurarFormularioContato() {
 function headerScroll() {
   const header = document.querySelector('.header');
   if (!header) return;
+  
   window.addEventListener('scroll', () => {
     if (window.pageYOffset > 50) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
-  });
+  }, { passive: true });
 }
 
 function menuMobile() {
@@ -741,12 +799,30 @@ function menuMobile() {
   const closeBtn = document.querySelector('.menu-mobile-close');
   const links = document.querySelectorAll('.nav-link-mobile');
   const body = document.body;
+  
   if (!hamburger || !menu || !overlay) return;
   
-  function openMenu() { menu.classList.add('open'); overlay.classList.add('open'); hamburger.classList.add('active'); hamburger.setAttribute('aria-expanded', 'true'); body.classList.add('no-scroll'); }
-  function closeMenu() { menu.classList.remove('open'); overlay.classList.remove('open'); hamburger.classList.remove('active'); hamburger.setAttribute('aria-expanded', 'false'); body.classList.remove('no-scroll'); hamburger.focus(); }
+  function openMenu() { 
+    menu.classList.add('open'); 
+    overlay.classList.add('open'); 
+    hamburger.classList.add('active'); 
+    hamburger.setAttribute('aria-expanded', 'true'); 
+    body.classList.add('no-scroll'); 
+  }
   
-  hamburger.addEventListener('click', () => { menu.classList.contains('open') ? closeMenu() : openMenu(); });
+  function closeMenu() { 
+    menu.classList.remove('open'); 
+    overlay.classList.remove('open'); 
+    hamburger.classList.remove('active'); 
+    hamburger.setAttribute('aria-expanded', 'false'); 
+    body.classList.remove('no-scroll'); 
+    hamburger.focus(); 
+  }
+  
+  hamburger.addEventListener('click', () => { 
+    menu.classList.contains('open') ? closeMenu() : openMenu(); 
+  });
+  
   if (closeBtn) closeBtn.addEventListener('click', closeMenu);
   overlay.addEventListener('click', closeMenu);
   links.forEach(link => link.addEventListener('click', closeMenu));
@@ -760,6 +836,7 @@ function scrollSuave() {
       const target = document.querySelector(targetId);
       if (!target) return;
       e.preventDefault();
+      
       const menu = document.querySelector('.menu-mobile');
       if (menu && menu.classList.contains('open')) {
         menu.classList.remove('open');
@@ -767,6 +844,7 @@ function scrollSuave() {
         document.querySelector('.menu-hamburger')?.classList.remove('active');
         document.body.classList.remove('no-scroll');
       }
+      
       const headerHeight = document.querySelector('.header')?.offsetHeight || 80;
       const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
       window.scrollTo({ top: targetPosition, behavior: 'smooth' });
@@ -777,11 +855,20 @@ function scrollSuave() {
 function preloader() {
   const preloader = document.getElementById('preloader');
   if (!preloader) return;
+  
+  const hidePreloader = () => {
+    preloader.classList.add('hidden');
+    document.body.style.overflow = '';
+  };
+  
   window.addEventListener('load', () => {
-    setTimeout(() => { preloader.classList.add('hidden'); document.body.style.overflow = ''; }, 600);
+    setTimeout(hidePreloader, 600);
   });
+  
   setTimeout(() => {
-    if (!preloader.classList.contains('hidden')) { preloader.classList.add('hidden'); document.body.style.overflow = ''; }
+    if (!preloader.classList.contains('hidden')) {
+      hidePreloader();
+    }
   }, 3000);
 }
 
@@ -790,8 +877,10 @@ function animacoesScroll() {
     document.querySelectorAll('.fade-up, .fade-in').forEach(el => el.classList.add('visible'));
     return;
   }
+  
   const elements = document.querySelectorAll('.fade-up, .fade-in');
   if (!elements.length) return;
+  
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
@@ -800,6 +889,7 @@ function animacoesScroll() {
       }
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  
   elements.forEach(el => observer.observe(el));
 }
 
@@ -814,18 +904,24 @@ function adicionarClassesAnimacao() {
     { selector: '.contato-grid', class: 'fade-up' },
     { selector: '.cta-inner', class: 'fade-up' }
   ];
+  
   animations.forEach(({ selector, class: className }) => {
     const el = document.querySelector(selector);
     if (el && !el.classList.contains(className)) el.classList.add(className);
   });
+  
   document.querySelectorAll('.profissional-card, .servico-card, .diferencial-card').forEach((el, i) => {
-    if (!el.classList.contains('fade-up')) { el.classList.add('fade-up'); el.style.transitionDelay = `${Math.min(i * 60, 400)}ms`; }
+    if (!el.classList.contains('fade-up')) { 
+      el.classList.add('fade-up'); 
+      el.style.transitionDelay = `${Math.min(i * 60, 400)}ms`; 
+    }
   });
 }
 
 function animarNumeros() {
   const numbers = document.querySelectorAll('.trust-number');
   if (!numbers.length) return;
+  
   let animated = false;
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -835,11 +931,16 @@ function animarNumeros() {
           const target = parseFloat(num.getAttribute('data-target') || num.textContent);
           if (!isNaN(target) && target > 0) {
             let current = 0;
-            const steps = 40, increment = target / steps;
+            const steps = 40;
+            const increment = target / steps;
             const timer = setInterval(() => {
               current += increment;
-              if (current >= target) { num.textContent = target.toString(); clearInterval(timer); } 
-              else { num.textContent = Math.round(current); }
+              if (current >= target) { 
+                num.textContent = target.toString(); 
+                clearInterval(timer); 
+              } else { 
+                num.textContent = Math.round(current); 
+              }
             }, 30);
           }
         });
@@ -847,6 +948,7 @@ function animarNumeros() {
       }
     });
   }, { threshold: 0.5 });
+  
   const trustContainer = document.querySelector('.hero-trust');
   if (trustContainer) observer.observe(trustContainer);
 }
@@ -854,65 +956,55 @@ function animarNumeros() {
 function configurarMobileBottomBar() {
   const bottomBar = document.getElementById('mobileBottomBar');
   if (!bottomBar) return;
-  const checkMobile = () => { bottomBar.style.display = window.innerWidth < 768 ? 'flex' : 'none'; };
+  
+  const checkMobile = () => { 
+    bottomBar.style.display = window.innerWidth < 768 ? 'flex' : 'none'; 
+  };
+  
   checkMobile();
   window.addEventListener('resize', checkMobile);
 }
 
 function acessibilidadeFoco() {
-  document.addEventListener('keydown', (e) => { if (e.key === 'Tab') document.body.classList.add('keyboard-navigation'); });
+  document.addEventListener('keydown', (e) => { 
+    if (e.key === 'Tab') document.body.classList.add('keyboard-navigation'); 
+  });
   document.addEventListener('mousedown', () => document.body.classList.remove('keyboard-navigation'));
 }
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.modal.open').forEach(modal => {
-      modal.classList.remove('open');
-      document.body.classList.remove('no-scroll');
-    });
-    const reciboModal = document.getElementById('reciboModal');
-    if (reciboModal) {
-      reciboModal.remove();
-      document.body.classList.remove('no-scroll');
-    }
-  }
-});
-
-document.querySelectorAll('.modal-overlay').forEach(overlay => {
-  overlay.addEventListener('click', function() {
-    const modal = this.closest('.modal');
-    if (modal) { modal.classList.remove('open'); document.body.classList.remove('no-scroll'); }
-  });
-});
 
 // ============================================
 // 11. INICIALIZAÇÃO
 // ============================================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('🚀 Inicializando site...');
+  
   preloader();
   
-  if (window.location.pathname.includes('profissional.html')) {
-    renderizarPaginaProfissional();
-  } else {
-    renderizarProfissionais();
-    renderizarServicosDestaque();
-    configurarFormularioContato();
-    adicionarClassesAnimacao();
-    animacoesScroll();
-    animarNumeros();
+  const isProfissionalPage = window.location.pathname.includes('profissional.html');
+  
+  try {
+    if (isProfissionalPage) {
+      renderizarPaginaProfissional();
+    } else {
+      renderizarProfissionais();
+      renderizarServicosDestaque();
+      configurarFormularioContato();
+      adicionarClassesAnimacao();
+      animacoesScroll();
+      animarNumeros();
+    }
+    
+    headerScroll();
+    menuMobile();
+    scrollSuave();
+    configurarMobileBottomBar();
+    acessibilidadeFoco();
+    
+    console.log('✅ Site inicializado com sucesso!');
+    
+  } catch (error) {
+    console.error('❌ Erro ao inicializar o site:', error);
   }
-  
-  headerScroll();
-  menuMobile();
-  scrollSuave();
-  configurarMobileBottomBar();
-  acessibilidadeFoco();
-  
-  console.log('🦷 Centro Odontológico e Estético - Site inicializado');
-  console.log('📱 WhatsApp Dra. Erica Lima: (86) 99317-7410');
-  console.log('📱 WhatsApp Sabrina Ribeiro: (61) 93226-6041');
-  console.log('📱 WhatsApp Adriana: (86) 99317-7410');
-  console.log('📋 Sistema de Comprovante ativo - Sem preços');
 });
 
 // EXPORTAÇÕES
