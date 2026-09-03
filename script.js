@@ -18,7 +18,7 @@ const CONFIG = {
 };
 
 // ============================================
-// 2. PROFISSIONAIS E SERVIÇOS - SEM IMAGENS
+// 2. PROFISSIONAIS E SERVIÇOS
 // ============================================
 const PROFISSIONAIS = [
   {
@@ -56,7 +56,7 @@ const PROFISSIONAIS = [
     nome: "Dra. Sabrina Ribeiro",
     area: "Farmacêutica Esteta",
     titulo: "Farmacêutica Esteta",
-    foto: "img/profissionais/doutorasabrina.jpeg",
+    foto: "img/profissionais/doutorasab.png",
     descricao: "Especialista em estética facial e corporal com tratamentos avançados e abordagem integrativa.",
     formacao: [
       "Farmácia pelo UNIFSA",
@@ -194,14 +194,17 @@ function gerarComprovanteHTML(dados) {
       </div>
       
       <div class="recibo-corpo">
-        <!-- FOTO DA PROFISSIONAL - PRIMEIRO -->
         <div class="recibo-foto">
           <img src="${profissional.foto || 'img/profissionais/default.jpg'}" alt="${profissional.nome}" />
         </div>
         
-        <!-- DADOS DO CLIENTE - SEGUNDO -->
-        <div class="recibo-dados-cliente">
-          <h3>👤 Dados do Cliente</h3>
+        <div class="recibo-foto-nome">
+          <h3>${profissional.nome}</h3>
+          <span class="recibo-especialidade">${profissional.area}</span>
+        </div>
+        
+        <div class="recibo-info-section">
+          <h4>👤 Dados do Cliente</h4>
           <div class="recibo-info-linha">
             <span class="recibo-info-label">Nome:</span>
             <span class="recibo-info-valor">${nome}</span>
@@ -216,9 +219,8 @@ function gerarComprovanteHTML(dados) {
           </div>
         </div>
         
-        <!-- DADOS DO ATENDIMENTO - TERCEIRO -->
-        <div class="recibo-dados-atendimento">
-          <h3>💆 Dados do Atendimento</h3>
+        <div class="recibo-info-section">
+          <h4>💆 Dados do Atendimento</h4>
           <div class="recibo-info-linha">
             <span class="recibo-info-label">Profissional:</span>
             <span class="recibo-info-valor">${profissional.nome}</span>
@@ -249,15 +251,13 @@ function gerarComprovanteHTML(dados) {
           </div>
         </div>
         
-        <!-- DETALHES DO SERVIÇO -->
         <div class="recibo-detalhes-servico">
-          <h3>📋 Detalhes do Serviço</h3>
+          <h4>📋 Detalhes do Serviço</h4>
           <ul class="recibo-detalhes-lista">
             ${servico.detalhes.map(d => `<li>✓ ${d}</li>`).join('')}
           </ul>
         </div>
         
-        <!-- OBSERVAÇÃO -->
         ${observacao ? `
         <div class="recibo-observacao">
           <p><strong>📝 Observação:</strong> ${observacao}</p>
@@ -270,7 +270,6 @@ function gerarComprovanteHTML(dados) {
           <p><strong>${CONFIG.nome}</strong></p>
           <p>📍 ${CONFIG.endereco}</p>
           <p>📱 ${CONFIG.telefone}</p>
-          <p>📧 ${CONFIG.email}</p>
           <p>📷 @centroodontologicoeestetico</p>
         </div>
         
@@ -505,10 +504,11 @@ function renderizarPaginaProfissional() {
   const hero = document.getElementById('heroProfissional');
   if (hero) {
     hero.innerHTML = `
-      <div class="container hero-profissional-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div class="container hero-profissional-grid">
         <div class="hero-profissional-content">
-          <div class="hero-badge-wrap">
-            <span class="hero-badge">✦ ${prof.area}</span>
+          <div class="hero-badge">
+            <span class="hero-badge-line"></span>
+            ${prof.area}
           </div>
           <h1 class="hero-title">${prof.nome}</h1>
           <p class="hero-sub">${prof.descricao}</p>
@@ -517,21 +517,20 @@ function renderizarPaginaProfissional() {
             ${prof.formacao.map(f => `<span class="meta-item">✦ ${f}</span>`).join('')}
           </div>
           <div class="hero-buttons">
-            <a href="#agendamento" class="btn btn-primary btn-hero-cta">
+            <a href="#agendamento" class="btn btn-primary">
               <span class="btn-icon">✦</span> Agendar com ${prof.nome.split(' ')[0]}
             </a>
-            <a href="#servicos" class="btn btn-outline btn-hero-secondary">
+            <a href="#servicos" class="btn btn-outline">
               Ver serviços <span class="btn-arrow">→</span>
             </a>
           </div>
         </div>
         <div class="hero-profissional-image">
-          <div class="hero-image-wrap">
-            <img src="${prof.foto || 'img/profissionais/default.jpg'}" alt="${prof.nome}" loading="eager" />
-            <div class="hero-image-overlay"></div>
+          <div class="hero-profissional-image-frame">
+            <div class="hero-profissional-image-frame-inner">
+              <img src="${prof.foto || 'img/profissionais/default.jpg'}" alt="${prof.nome}" loading="eager" />
+            </div>
           </div>
-          <div class="hero-deco deco-1"></div>
-          <div class="hero-deco deco-2"></div>
         </div>
       </div>
     `;
@@ -540,7 +539,7 @@ function renderizarPaginaProfissional() {
   const sobre = document.getElementById('sobreProfissional');
   if (sobre) {
     sobre.innerHTML = `
-      <div class="container sobre-profissional-grid" style="display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start;">
+      <div class="container sobre-profissional-grid">
         <div class="sobre-profissional-texto">
           <span class="section-tag">✦ Formação</span>
           <h2>Conheça a <span class="section-highlight">${prof.nome}</span></h2>
@@ -897,7 +896,7 @@ function adicionarClassesAnimacao() {
   const animations = [
     { selector: '.hero-content', class: 'fade-up' },
     { selector: '.hero-image', class: 'fade-in' },
-    { selector: '.apresentacao-inner', class: 'fade-up' },
+    { selector: '.apresentacao-grid', class: 'fade-up' },
     { selector: '.profissionais-grid', class: 'fade-up' },
     { selector: '.servicos-grid', class: 'fade-up' },
     { selector: '.diferenciais-grid', class: 'fade-up' },

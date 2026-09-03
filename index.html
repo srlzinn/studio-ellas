@@ -44,6 +44,7 @@
   <div class="preloader" id="preloader" aria-hidden="true">
     <div class="preloader-content">
       <div class="preloader-ring"></div>
+      <div class="preloader-bar"></div>
       <span class="preloader-name">Centro Odontológico</span>
       <span class="preloader-sub">e Estético</span>
     </div>
@@ -55,8 +56,8 @@
 
       <div class="logo">
         <a href="index.html" aria-label="Centro Odontológico e Estético - Página inicial">
-          <span class="logo-name">Centro Odontológico e Estético</span>
-          <span class="logo-sub">Erica Lima</span>
+          <span class="logo-name">Centro <span>Odontológico</span></span>
+          <span class="logo-sub">e Estético</span>
         </a>
       </div>
 
@@ -72,7 +73,7 @@
 
       <div class="header-actions">
         <a href="#profissionais" class="btn btn-primary btn-whatsapp-header">
-          <span class="btn-icon">✦</span> Agendar avaliação
+          <span class="btn-icon">✦</span> Agendar
         </a>
 
         <button class="menu-hamburger" aria-label="Abrir menu mobile" aria-expanded="false">
@@ -90,7 +91,7 @@
 
   <nav class="menu-mobile" aria-label="Menu mobile">
     <div class="menu-mobile-header">
-      <span class="menu-mobile-brand">Centro Odontológico</span>
+      <span class="menu-mobile-brand">Centro <span>Odontológico</span></span>
       <button class="menu-mobile-close" aria-label="Fechar menu">✕</button>
     </div>
 
@@ -103,7 +104,7 @@
     </ul>
 
     <div class="menu-mobile-footer">
-      <a href="#profissionais" class="btn btn-primary btn-whatsapp-mobile">Agendar avaliação</a>
+      <a href="#profissionais" class="btn btn-primary btn-whatsapp-mobile">Agendar</a>
     </div>
   </nav>
 
@@ -111,12 +112,14 @@
 
     <!-- HERO -->
     <section id="inicio" class="hero">
-      <div class="hero-bg-pattern"></div>
+      <div class="hero-bg-line"></div>
+      <div class="hero-bg-line-bottom"></div>
 
-      <div class="container hero-inner">
+      <div class="container hero-grid">
         <div class="hero-content">
-          <div class="hero-badge-wrap">
-            <span class="hero-badge">✦ Centro Odontológico</span>
+          <div class="hero-badge">
+            <span class="hero-badge-line"></span>
+            Centro Odontológico
           </div>
 
           <h1 class="hero-title">
@@ -131,20 +134,15 @@
           </p>
 
           <div class="hero-buttons">
-            <a href="#profissionais" class="btn btn-primary btn-hero-cta">
+            <a href="#profissionais" class="btn btn-primary">
               <span class="btn-icon">✦</span> Agendar avaliação
             </a>
-            <a href="#sobre" class="btn btn-outline btn-hero-secondary">
+            <a href="#sobre" class="btn btn-outline">
               Conhecer a clínica <span class="btn-arrow">→</span>
             </a>
           </div>
 
           <div class="hero-trust">
-            <div class="trust-item">
-              <span class="trust-stars">★★★★★</span>
-              <span class="trust-text">4,9 no Google</span>
-            </div>
-            <div class="trust-divider"></div>
             <div class="trust-item">
               <span class="trust-number" data-target="500">0</span>
               <span class="trust-text">+ pacientes</span>
@@ -154,23 +152,29 @@
               <span class="trust-number" data-target="10">0</span>
               <span class="trust-text">+ anos de experiência</span>
             </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+              <span class="trust-stars">★★★★★</span>
+              <span class="trust-text">4,9 no Google</span>
+            </div>
           </div>
         </div>
 
         <div class="hero-image">
-          <div class="hero-image-wrap">
-            <img src="img/clinica/frente.png" alt="Centro Odontológico e Estético - Clínica moderna" loading="eager" />
-            <div class="hero-image-overlay"></div>
+          <div class="hero-image-frame">
+            <div class="hero-image-frame-inner">
+              <img src="img/clinica/200c7919-49eb-457a-be7c-e21023440a74.png" alt="Centro Odontológico e Estético - Clínica moderna" loading="eager" />
+            </div>
           </div>
-          <div class="hero-deco deco-1"></div>
-          <div class="hero-deco deco-2"></div>
+          <div class="hero-image-glow"></div>
+          <div class="hero-image-glow-2"></div>
         </div>
       </div>
     </section>
 
     <!-- SOBRE -->
     <section class="apresentacao" id="sobre">
-      <div class="container apresentacao-inner">
+      <div class="container apresentacao-grid">
         <div class="apresentacao-texto">
           <span class="section-tag">✦ Sobre a clínica</span>
 
@@ -198,32 +202,22 @@
           <div class="apresentacao-features">
             <div class="apresentacao-feature">
               <span class="feature-icon">✦</span>
-              <div>
-                <strong>Equipe qualificada</strong>
-                <span>Profissionais especializadas em odontologia, estética, massoterapia e beleza</span>
-              </div>
+              <span>Equipe qualificada</span>
             </div>
-
             <div class="apresentacao-feature">
               <span class="feature-icon">✦</span>
-              <div>
-                <strong>Atendimento personalizado</strong>
-                <span>Planos de tratamento exclusivos para cada paciente</span>
-              </div>
+              <span>Atendimento personalizado</span>
             </div>
-
             <div class="apresentacao-feature">
               <span class="feature-icon">✦</span>
-              <div>
-                <strong>Tecnologia e conforto</strong>
-                <span>Equipamentos modernos e ambiente acolhedor</span>
-              </div>
+              <span>Tecnologia e conforto</span>
             </div>
           </div>
         </div>
 
         <div class="apresentacao-imagem">
-          <img src="img/clinica/200c7919-49eb-457a-be7c-e21023440a74.png" alt="Consultório do Centro Odontológico e Estético" loading="lazy" />
+          <img src="img/clinica/frente.png" alt="Consultório do Centro Odontológico e Estético" loading="lazy" />
+          <div class="apresentacao-imagem-frame"></div>
         </div>
       </div>
     </section>
@@ -233,6 +227,7 @@
       <div class="container">
         <div class="section-header">
           <span class="section-tag">✦ Profissionais</span>
+          <div class="section-divider"></div>
           <h2>
             Conheça nossas
             <span class="section-highlight">especialistas</span>
@@ -251,6 +246,7 @@
       <div class="container">
         <div class="section-header">
           <span class="section-tag">✦ Serviços</span>
+          <div class="section-divider"></div>
           <h2>
             Tratamentos
             <span class="section-highlight">em destaque</span>
@@ -275,6 +271,7 @@
       <div class="container">
         <div class="section-header">
           <span class="section-tag">✦ Diferenciais</span>
+          <div class="section-divider"></div>
           <h2>
             Por que escolher
             <span class="section-highlight">nosso centro</span>
@@ -314,6 +311,7 @@
       <div class="container">
         <div class="section-header">
           <span class="section-tag">✦ Contato</span>
+          <div class="section-divider"></div>
           <h2>
             Fale <span class="section-highlight">conosco</span>
           </h2>
@@ -364,6 +362,7 @@
           <div class="contato-form">
             <div class="form-card">
               <h3>Envie uma mensagem</h3>
+              <p>Responderemos em até 24h pelo WhatsApp.</p>
 
               <form id="formContato" novalidate>
                 <div class="form-group">
@@ -393,6 +392,7 @@
 
     <!-- CTA FINAL -->
     <section class="cta-final" id="cta">
+      <div class="cta-final-line"></div>
       <div class="container cta-inner">
         <span class="cta-tag">✦ Agende sua avaliação</span>
 
@@ -403,7 +403,7 @@
 
         <p>Clique abaixo e conheça nossas profissionais para agendar seu atendimento.</p>
 
-        <a href="#profissionais" class="btn btn-primary btn-grande">
+        <a href="#profissionais" class="btn btn-primary btn-large">
           <span class="btn-icon">✦</span> Conhecer profissionais
         </a>
       </div>
@@ -413,9 +413,9 @@
 
   <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
-    <div class="container footer-inner">
+    <div class="container footer-grid">
       <div class="footer-brand">
-        <span class="logo-name">Centro Odontológico</span>
+        <span class="logo-name">Centro <span>Odontológico</span></span>
         <span class="logo-sub">e Estético</span>
         <p>Excelência, tecnologia e cuidado em cada atendimento.</p>
 
@@ -431,25 +431,23 @@
         </div>
       </div>
 
-      <div class="footer-links-wrap">
-        <div class="footer-links-group">
-          <h4>Navegação</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#profissionais">Profissionais</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#contato">Contato</a></li>
-          </ul>
-        </div>
+      <div class="footer-links-group">
+        <h4>Navegação</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#profissionais">Profissionais</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
 
-        <div class="footer-links-group">
-          <h4>Contato</h4>
-          <ul class="footer-links">
-            <li><a href="https://wa.me/5586993177410" target="_blank" class="footer-wa">WhatsApp</a></li>
-            <li><a href="https://www.instagram.com/centroodontologicoeestetico/" target="_blank">Instagram</a></li>
-          </ul>
-        </div>
+      <div class="footer-links-group">
+        <h4>Redes Sociais</h4>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/centroodontologicoeestetico/" target="_blank">Instagram</a></li>
+          <li><a href="https://wa.me/5586993177410" target="_blank" class="footer-wa">WhatsApp</a></li>
+        </ul>
       </div>
 
       <div class="footer-contact">
