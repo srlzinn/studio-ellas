@@ -74,6 +74,93 @@ const PROFISSIONAIS = [
       sexta: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]
     },
     servicos: [
+      // === NOVOS PROCEDIMENTOS ADICIONADOS ===
+      {
+        id: "microagulhamento",
+        nome: "Microagulhamento",
+        categoria: "Estética Facial",
+        descricao: "Procedimento que estimula a produção de colágeno e elastina para rejuvenescimento da pele.",
+        detalhes: [
+          "Limpeza de pele",
+          "Aplicação de Ghk-cu (rejuvenescimento e redução de rugas)",
+          "Aplicação de Exossomos (rejuvenescimento e redução de rugas)"
+        ],
+        duracao: 90
+      },
+      {
+        id: "massagem-relaxante",
+        nome: "Massagem Relaxante",
+        categoria: "Massoterapia",
+        descricao: "Técnica que alivia tensões musculares, reduz o estresse e promove bem-estar físico e mental.",
+        detalhes: [
+          "Técnicas suaves e profundas",
+          "Alívio de tensões musculares",
+          "Redução do estresse",
+          "Promoção do relaxamento profundo"
+        ],
+        duracao: 60
+      },
+      {
+        id: "hydra-gloss",
+        nome: "Hydra Gloss / Hydra Color",
+        categoria: "Estética Facial",
+        descricao: "Tratamento facial que promove hidratação profunda e rejuvenescimento da pele.",
+        detalhes: [
+          "Higienização",
+          "Esfoliação",
+          "Microagulhamento",
+          "Sérum com ativos hidratantes",
+          "Lábios levemente rosados (Hydra Color)"
+        ],
+        duracao: 90
+      },
+      {
+        id: "dermaplaning",
+        nome: "Dermaplaning",
+        categoria: "Estética Facial",
+        descricao: "Procedimento que remove células mortas e pelos finos, promovendo renovação celular e glow imediato.",
+        detalhes: [
+          "Limpeza de pele",
+          "Remoção de pele morta",
+          "Renovação celular",
+          "Remove pelinhos finos do rosto",
+          "Glow imediato"
+        ],
+        duracao: 60
+      },
+      {
+        id: "limpeza-pele",
+        nome: "Limpeza de Pele (Hidráulicivos)",
+        categoria: "Estética Facial",
+        descricao: "Procedimento completo de limpeza e revitalização da pele facial.",
+        detalhes: [
+          "Limpeza de pele",
+          "Higienização",
+          "Esfoliação",
+          "Emoliencia",
+          "Vapor de ozônio",
+          "Extração",
+          "Tonificação",
+          "Aromaterapia",
+          "Massagem facial e LED terapia"
+        ],
+        duracao: 90
+      },
+      {
+        id: "ventosoterapia",
+        nome: "Ventosoterapia",
+        categoria: "Massoterapia",
+        descricao: "Terapia com ventosas que estimula a circulação, promove relaxamento e alivia dores musculares.",
+        detalhes: [
+          "Massagem com ventosas",
+          "Aromaterapia",
+          "Cromoterapia (terapia das cores)",
+          "Estimulação da circulação sanguínea",
+          "Alívio de dores musculares"
+        ],
+        duracao: 60
+      },
+      // === PROCEDIMENTOS ANTERIORES MANTIDOS ===
       { id: "botox", nome: "Botox", categoria: "Estética Facial", descricao: "Tratamento para suavizar rugas e linhas de expressão.", detalhes: ["Procedimento seguro", "Resultados naturais", "Efeito duradouro"], duracao: 60 },
       { id: "skinbooster", nome: "Skinbooster", categoria: "Estética Facial", descricao: "Tratamento para hidratação e rejuvenescimento da pele.", detalhes: ["Hidratação profunda", "Rejuvenescimento"], duracao: 60 },
       { id: "enzimas-emagrecedoras", nome: "Enzimas Emagrecedoras", categoria: "Estética Corporal", descricao: "Tratamento para redução de gordura localizada.", detalhes: ["Redução de medidas", "Resultados progressivos"], duracao: 90 },
