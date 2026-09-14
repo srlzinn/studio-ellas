@@ -9,8 +9,8 @@
 // ============================================
 const CONFIG = {
   nome: "Centro Odontológico e Estético",
-  whatsapp: "5586993177410",
-  telefone: "(86) 99317-7410",
+  whatsapp: "5586981607614",
+  telefone: "(86) 98160-7614",
   endereco: "Parnaíba - PI",
   instagram: "https://www.instagram.com/centroodontologicoeestetico/",
   mensagemPadrao: "Olá! Vim pelo site do Centro Odontológico e Estético e gostaria de agendar um horário.",
@@ -137,7 +137,7 @@ const PROFISSIONAIS = [
     foto: "img/profissionais/adriana.png",
     descricao: "Especialista em cuidados capilares e estética das unhas, com técnicas modernas para realçar sua beleza.",
     formacao: ["Curso de Especialização em Beleza","Técnicas Avançadas em Cabelos e Unhas"],
-    whatsapp: "5586993177410",
+    whatsapp: "5586981607614",
     disponibilidade: {
       segunda: ["08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00"],
       terca:   ["08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00"],
@@ -475,7 +475,6 @@ function renderizarServicosDestaque() {
   const container = document.getElementById('servicosGrid');
   if (!container) return;
 
-  // Procedimentos da Dra. Sabrina que aparecem primeiro na home
   const PROCEDIMENTOS_DESTAQUE_SABRINA = [
     "limpeza-de-pele",
     "dermaplaning",
@@ -485,7 +484,6 @@ function renderizarServicosDestaque() {
 
   const destaques = [];
 
-  // 1) Adicionar primeiro os procedimentos da Dra. Sabrina
   const sabrina = getProfissional("sabrina-ribeiro");
   if (sabrina) {
     sabrina.servicos
@@ -499,7 +497,6 @@ function renderizarServicosDestaque() {
       });
   }
 
-  // 2) Completar com 2 serviços de cada outra profissional
   PROFISSIONAIS.forEach(prof => {
     if (prof.id === "sabrina-ribeiro") return;
     prof.servicos.slice(0, 2).forEach(s => {
@@ -507,7 +504,6 @@ function renderizarServicosDestaque() {
     });
   });
 
-  // 3) Limitar a 6 cards
   container.innerHTML = destaques.slice(0, 6).map(s => `
     <article class="servico-card">
       <div class="servico-card-glow"></div>
@@ -776,15 +772,42 @@ function abrirModalServico(profissionalId, servicoId) {
     agendarBtn.setAttribute('data-servico', servicoId);
     agendarBtn.onclick = function(e) {
       e.preventDefault();
-      modal.classList.remove('open');
-      document.body.classList.remove('no-scroll');
+      fecharModalServico();
       window.location.href = `profissional.html?id=${profissionalId}`;
     };
   }
 
   modal.classList.add('open');
   document.body.classList.add('no-scroll');
+
+  const closeBtn = modal.querySelector('.modal-close');
+  const overlay = modal.querySelector('.modal-overlay');
+
+  if (closeBtn) closeBtn.onclick = fecharModalServico;
+  if (overlay) overlay.onclick = fecharModalServico;
+
+  if (!modal.dataset.escBound) {
+    modal.dataset.escBound = 'true';
+    document.addEventListener('keydown', function escHandler(e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        fecharModalServico();
+      }
+      if (!modal.classList.contains('open')) {
+        document.removeEventListener('keydown', escHandler);
+        delete modal.dataset.escBound;
+      }
+    });
+  }
 }
+
+function fecharModalServico() {
+  const modal = document.getElementById('modalServico');
+  if (!modal) return;
+  modal.classList.remove('open');
+  document.body.classList.remove('no-scroll');
+}
+
+window.fecharModalServico = fecharModalServico;
 
 // ============================================
 // 10. INTERAÇÕES GERAIS
@@ -1132,6 +1155,7 @@ window.getServico = getServico;
 window.formatPreco = formatPreco;
 window.abrirWhatsApp = abrirWhatsApp;
 window.abrirModalServico = abrirModalServico;
+window.fecharModalServico = fecharModalServico;
 window.processarAgendamento = processarAgendamento;
 window.exibirComprovante = exibirComprovante;
 window.gerarComprovanteHTML = gerarComprovanteHTML;
