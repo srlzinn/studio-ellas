@@ -2,10 +2,10 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Centro Odontológico e Estético | Profissional</title>
-  <meta name="description" content="Centro Odontológico e Estético - Conheça nossa equipe de profissionais especializadas." />
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1A0808" />
+  <title>Profissional | Centro Odontológico e Estético</title>
+  <meta name="description" content="Conheça nossa profissional e agende seu atendimento." />
   <link rel="icon" href="favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- PRELOADER -->
   <div class="preloader" id="preloader">
     <div class="preloader-content">
       <div class="preloader-ring"></div>
@@ -22,12 +21,11 @@
     </div>
   </div>
 
-  <!-- HEADER -->
   <header class="header" role="banner">
     <div class="container header-inner">
       <div class="logo">
         <a href="index.html">
-          <span class="logo-name">Centro Odontológico</span>
+          <span class="logo-name">Centro <span>Odontológico</span></span>
           <span class="logo-sub">e Estético</span>
         </a>
       </div>
@@ -43,18 +41,17 @@
         <a href="#agendamento" class="btn btn-primary btn-whatsapp-header">
           <span class="btn-icon">✦</span> Agendar
         </a>
-        <button class="menu-hamburger" aria-label="Abrir menu mobile">
+        <button class="menu-hamburger" aria-label="Abrir menu">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- MENU MOBILE -->
   <div class="menu-mobile-overlay" aria-hidden="true"></div>
   <nav class="menu-mobile">
     <div class="menu-mobile-header">
-      <span class="menu-mobile-brand">Centro Odontológico</span>
+      <span class="menu-mobile-brand">Centro <span>Odontológico</span></span>
       <button class="menu-mobile-close">✕</button>
     </div>
     <ul class="menu-mobile-list">
@@ -69,45 +66,32 @@
   </nav>
 
   <main>
-    <!-- HERO DA PROFISSIONAL -->
-    <section class="hero-profissional" id="heroProfissional">
-      <!-- Preenchido pelo JavaScript -->
-    </section>
+    <section class="hero-profissional" id="heroProfissional"></section>
+    <section class="sobre-profissional" id="sobreProfissional"></section>
 
-    <!-- SOBRE -->
-    <section class="sobre-profissional" id="sobreProfissional">
-      <!-- Preenchido pelo JavaScript -->
-    </section>
-
-    <!-- SERVIÇOS -->
     <section class="servicos-profissional" id="servicos">
       <div class="container">
         <div class="section-header">
           <span class="section-tag">✦ Serviços</span>
           <h2>Tratamentos <span class="section-highlight">realizados</span></h2>
         </div>
-        <div class="servicos-profissional-grid" id="servicosProfissionalGrid">
-          <!-- Preenchido pelo JavaScript -->
-        </div>
+        <div class="servicos-profissional-grid" id="servicosProfissionalGrid"></div>
       </div>
     </section>
 
-    <!-- AGENDAMENTO -->
     <section id="agendamento" class="agendamento">
       <div class="container">
         <div class="section-header">
           <span class="section-tag">✦ Agendamento</span>
           <h2>Agende seu <span class="section-highlight">atendimento</span></h2>
-          <p>Preencha o formulário abaixo e receba a confirmação no WhatsApp da profissional.</p>
+          <p>Preencha o formulário e receba a confirmação no WhatsApp.</p>
         </div>
         <div class="agendamento-container">
           <form id="formAgendamento" novalidate>
             <div class="form-row">
               <div class="form-group">
                 <label for="agendaServico">Serviço <span class="required">*</span></label>
-                <select id="agendaServico" required>
-                  <option value="">Selecione um serviço</option>
-                </select>
+                <select id="agendaServico" required><option value="">Selecione um serviço</option></select>
               </div>
               <div class="form-group">
                 <label for="agendaData">Data <span class="required">*</span></label>
@@ -117,19 +101,17 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="agendaHorario">Horário <span class="required">*</span></label>
-                <select id="agendaHorario" required>
-                  <option value="">Selecione um horário</option>
-                </select>
+                <select id="agendaHorario" required><option value="">Selecione um horário</option></select>
               </div>
               <div class="form-group">
                 <label for="agendaNome">Nome completo <span class="required">*</span></label>
-                <input type="text" id="agendaNome" placeholder="Seu nome completo" required />
+                <input type="text" id="agendaNome" placeholder="Seu nome" required autocomplete="name" />
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="agendaWhatsapp">WhatsApp <span class="required">*</span></label>
-                <input type="tel" id="agendaWhatsapp" placeholder="(00) 00000-0000" required />
+                <input type="tel" id="agendaWhatsapp" placeholder="(00) 00000-0000" required autocomplete="tel" inputmode="numeric" />
               </div>
               <div class="form-group">
                 <label for="agendaObs">Observação</label>
@@ -145,24 +127,22 @@
       </div>
     </section>
 
-    <!-- CTA -->
     <section class="cta-profissional">
       <div class="container cta-inner">
         <span class="cta-tag">✦ Agende sua avaliação</span>
         <h2>Transforme sua <span class="cta-highlight">saúde e beleza</span></h2>
         <p>Agende sua avaliação e descubra como podemos cuidar de você.</p>
-        <a href="#agendamento" class="btn btn-primary btn-grande">
+        <a href="#agendamento" class="btn btn-primary btn-large">
           <span class="btn-icon">✦</span> Agendar avaliação
         </a>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer-inner">
+    <div class="container footer-grid">
       <div class="footer-brand">
-        <span class="logo-name">Centro Odontológico</span>
+        <span class="logo-name">Centro <span>Odontológico</span></span>
         <span class="logo-sub">e Estético</span>
         <p>Excelência, tecnologia e cuidado em cada atendimento.</p>
         <div class="footer-social">
@@ -172,16 +152,27 @@
           <a href="https://wa.me/5586993177410" target="_blank" rel="noopener" class="footer-wa" aria-label="WhatsApp">📱</a>
         </div>
       </div>
-      <div class="footer-links-wrap">
-        <div class="footer-links-group">
-          <h4>Navegação</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="index.html#profissionais">Profissionais</a></li>
-            <li><a href="index.html#servicos">Serviços</a></li>
-            <li><a href="index.html#contato">Contato</a></li>
-          </ul>
-        </div>
+      <div class="footer-links-group">
+        <h4>Navegação</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="index.html#profissionais">Profissionais</a></li>
+          <li><a href="index.html#servicos">Serviços</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h4>Redes Sociais</h4>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/centroodontologicoeestetico/" target="_blank">Instagram</a></li>
+          <li><a href="https://wa.me/5586993177410" target="_blank" class="footer-wa">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Atendimento</h4>
+        <p>📱 (86) 99317-7410</p>
+        <p>📍 Parnaíba - PI</p>
+        <p>🕐 Seg-Sex: 08h-18h | Sáb: 08h-14h</p>
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">© 2026 Centro Odontológico e Estético. Todos os direitos reservados.</p>
@@ -190,7 +181,6 @@
     </div>
   </footer>
 
-  <!-- WHATSAPP FLOAT -->
   <a href="https://wa.me/5586993177410" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
       <path d="M12.032 21.965c-1.902 0-3.74-.513-5.318-1.477l-4.076 1.334 1.356-4.038c-1.048-1.683-1.643-3.614-1.643-5.653 0-6.025 4.896-10.92 10.922-10.92 2.916 0 5.657 1.137 7.72 3.2 2.064 2.063 3.2 4.804 3.2 7.72 0 6.026-4.895 10.922-10.921 10.922zm0-19.722c-4.868 0-8.828 3.959-8.828 8.828 0 1.753.515 3.465 1.493 4.93l-.971 2.893 2.983-.975c1.416.858 3.044 1.335 4.727 1.335 4.868 0 8.828-3.959 8.828-8.828 0-2.36-.919-4.579-2.588-6.248-1.67-1.67-3.888-2.589-6.249-2.589z"/>
@@ -198,7 +188,6 @@
     </svg>
   </a>
 
-  <!-- MOBILE BOTTOM BAR -->
   <div class="mobile-bottom-bar">
     <a href="https://wa.me/5586993177410" target="_blank" rel="noopener" class="btn btn-primary btn-bottom-wa">
       <span class="btn-icon">📱</span> WhatsApp
