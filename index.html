@@ -6,34 +6,42 @@
   <meta name="theme-color" content="#1A0808" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  
+
   <title>Centro Odontológico e Estético | Parnaíba - PI</title>
   <meta name="description" content="Centro Odontológico e Estético em Parnaíba - PI. Odontologia, estética facial, harmonização, massoterapia e beleza em um só lugar." />
-  
-  <!-- Open Graph -->
+
   <meta property="og:title" content="Centro Odontológico e Estético | Parnaíba - PI" />
   <meta property="og:description" content="Odontologia, estética facial, harmonização e beleza em um só lugar." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://studioellasbr.vercel.app/" />
   <meta property="og:image" content="https://studioellasbr.vercel.app/img/og-image.jpg" />
-  
-  <!-- Favicon -->
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link rel="icon" href="favicon.ico" />
   <link rel="apple-touch-icon" href="favicon.ico" />
-  
-  <!-- Preconnect -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  
+
   <link rel="stylesheet" href="style.css" />
-  
+
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
 </head>
 
 <body>
+
+  <noscript>
+    <div style="padding:40px 20px;text-align:center;background:#1A0808;color:#F0D060;font-family:sans-serif;">
+      <h2>JavaScript desativado</h2>
+      <p>Para uma melhor experiência, ative o JavaScript no seu navegador.</p>
+      <p>📱 WhatsApp: <a href="https://wa.me/5586981607614" style="color:#F0D060;">(86) 98160-7614</a></p>
+    </div>
+  </noscript>
 
   <!-- PRELOADER -->
   <div class="preloader" id="preloader" aria-hidden="true">
@@ -49,7 +57,7 @@
   <header class="header" role="banner">
     <div class="container header-inner">
       <div class="logo">
-        <a href="index.html" aria-label="Página inicial">
+        <a href="#" data-page="home" aria-label="Página inicial">
           <span class="logo-name">Centro <span>Odontológico</span></span>
           <span class="logo-sub">e Estético</span>
         </a>
@@ -57,17 +65,17 @@
 
       <nav class="nav-desktop" aria-label="Menu principal">
         <ul class="nav-list">
-          <li><a href="index.html" class="nav-link active">Início</a></li>
-          <li><a href="#sobre" class="nav-link">Sobre</a></li>
-          <li><a href="#profissionais" class="nav-link">Profissionais</a></li>
-          <li><a href="#servicos" class="nav-link">Serviços</a></li>
-          <li><a href="#contato" class="nav-link">Contato</a></li>
+          <li><a href="#" data-page="home" class="nav-link active">Início</a></li>
+          <li><a href="#home-sobre" class="nav-link" data-scroll="home-sobre">Sobre</a></li>
+          <li><a href="#home-profissionais" class="nav-link" data-scroll="home-profissionais">Profissionais</a></li>
+          <li><a href="#home-servicos" class="nav-link" data-scroll="home-servicos">Serviços</a></li>
+          <li><a href="#home-contato" class="nav-link" data-scroll="home-contato">Contato</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <a href="#profissionais" class="btn btn-primary btn-whatsapp-header">
-          <span class="btn-icon">✦</span> Agendar
+        <a href="#home-profissionais" class="btn btn-primary btn-whatsapp-header" data-scroll="home-profissionais">
+          <span class="btn-icon" aria-hidden="true">✦</span> Agendar
         </a>
         <button class="menu-hamburger" aria-label="Abrir menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -84,232 +92,379 @@
       <button class="menu-mobile-close" aria-label="Fechar menu">✕</button>
     </div>
     <ul class="menu-mobile-list">
-      <li><a href="index.html" class="active">Início</a></li>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#profissionais">Profissionais</a></li>
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#contato">Contato</a></li>
+      <li><a href="#" data-page="home" class="active">Início</a></li>
+      <li><a href="#home-sobre" data-scroll="home-sobre">Sobre</a></li>
+      <li><a href="#home-profissionais" data-scroll="home-profissionais">Profissionais</a></li>
+      <li><a href="#home-servicos" data-scroll="home-servicos">Serviços</a></li>
+      <li><a href="#home-contato" data-scroll="home-contato">Contato</a></li>
     </ul>
     <div class="menu-mobile-footer">
-      <a href="#profissionais" class="btn btn-primary btn-whatsapp-mobile">Agendar</a>
+      <a href="#home-profissionais" class="btn btn-primary btn-whatsapp-mobile" data-scroll="home-profissionais">Agendar</a>
     </div>
   </nav>
 
   <main>
-    <!-- HERO -->
-    <section id="inicio" class="hero">
-      <div class="hero-bg-line"></div>
-      <div class="hero-bg-line-bottom"></div>
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <span class="hero-badge-line"></span>
-            Centro Odontológico
+
+    <!-- ============================================================
+         VIEW: HOME
+         ============================================================ -->
+    <div class="page-view" id="page-home">
+
+      <section id="home-inicio" class="hero">
+        <div class="hero-bg-line"></div>
+        <div class="hero-bg-line-bottom"></div>
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="hero-badge-line"></span>
+              Centro Odontológico
+            </div>
+            <h1 class="hero-title">
+              Cuidado com seu
+              <span class="hero-title-highlight">sorriso e bem-estar</span>
+            </h1>
+            <p class="hero-sub">
+              Odontologia, estética facial, harmonização, massoterapia e beleza em um só lugar. Atendimento humanizado e tecnologia de ponta.
+            </p>
+            <div class="hero-buttons">
+              <a href="#home-profissionais" class="btn btn-primary" data-scroll="home-profissionais">
+                <span class="btn-icon" aria-hidden="true">✦</span> Agendar avaliação
+              </a>
+              <a href="#home-sobre" class="btn btn-outline" data-scroll="home-sobre">
+                Conhecer <span class="btn-arrow">→</span>
+              </a>
+            </div>
+            <div class="hero-trust">
+              <div class="trust-item">
+                <span class="trust-number" data-target="500">0</span>
+                <span class="trust-text">+ pacientes</span>
+              </div>
+              <div class="trust-divider"></div>
+              <div class="trust-item">
+                <span class="trust-number" data-target="10">0</span>
+                <span class="trust-text">+ anos</span>
+              </div>
+              <div class="trust-divider"></div>
+              <div class="trust-item">
+                <span class="trust-stars">★★★★★</span>
+                <span class="trust-text">4,9 Google</span>
+              </div>
+            </div>
           </div>
-          <h1 class="hero-title">
-            Cuidado com seu
-            <span class="hero-title-highlight">sorriso e bem-estar</span>
-          </h1>
-          <p class="hero-sub">
-            Odontologia, estética facial, harmonização, massoterapia e beleza em um só lugar. Atendimento humanizado e tecnologia de ponta.
-          </p>
-          <div class="hero-buttons">
-            <a href="#profissionais" class="btn btn-primary">
-              <span class="btn-icon">✦</span> Agendar avaliação
+          <div class="hero-image">
+            <div class="hero-image-frame">
+              <div class="hero-image-frame-inner">
+                <img src="img/clinica/200c7919-49eb-457a-be7c-e21023440a74.png" alt="Clínica moderna" loading="eager" onerror="this.style.display='none'" />
+              </div>
+            </div>
+            <div class="hero-image-glow"></div>
+            <div class="hero-image-glow-2"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="apresentacao" id="home-sobre">
+        <div class="container apresentacao-grid">
+          <div class="apresentacao-texto">
+            <span class="section-tag">✦ Sobre a clínica</span>
+            <h2>Excelência e cuidado <span class="section-highlight">em cada detalhe</span></h2>
+            <p>
+              O Centro Odontológico e Estético reúne profissionais especializadas para oferecer um atendimento completo e humanizado. Com estrutura moderna e tecnologia de ponta, cuidamos da sua saúde bucal, estética e bem-estar.
+            </p>
+            <p>
+              Nossa missão é devolver autoestima e bem-estar aos nossos pacientes, com tratamentos personalizados e resultados que transformam vidas.
+            </p>
+            <div class="apresentacao-features">
+              <div class="apresentacao-feature"><span class="feature-icon">✦</span><span>Equipe qualificada</span></div>
+              <div class="apresentacao-feature"><span class="feature-icon">✦</span><span>Atendimento personalizado</span></div>
+              <div class="apresentacao-feature"><span class="feature-icon">✦</span><span>Tecnologia e conforto</span></div>
+            </div>
+          </div>
+          <div class="apresentacao-imagem">
+            <img src="img/clinica/frente.png" alt="Consultório" loading="lazy" onerror="this.style.display='none'" />
+            <div class="apresentacao-imagem-frame"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="home-profissionais" class="profissionais">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">✦ Profissionais</span>
+            <div class="section-divider"></div>
+            <h2>Conheça nossas <span class="section-highlight">especialistas</span></h2>
+            <p>Profissionais dedicadas a cuidar da sua saúde, beleza e bem-estar.</p>
+          </div>
+          <div class="profissionais-grid" id="profissionaisGrid"></div>
+        </div>
+      </section>
+
+      <section id="home-servicos" class="servicos-destaque">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">✦ Serviços</span>
+            <div class="section-divider"></div>
+            <h2>Tratamentos <span class="section-highlight">em destaque</span></h2>
+            <p>Procedimentos que transformam sorrisos e elevam a autoestima.</p>
+          </div>
+          <div class="servicos-grid" id="servicosGrid"></div>
+          <div class="servicos-cta">
+            <a href="#home-profissionais" class="btn btn-outline" data-scroll="home-profissionais">
+              Conhecer profissionais <span class="btn-arrow">→</span>
             </a>
-            <a href="#sobre" class="btn btn-outline">
-              Conhecer <span class="btn-arrow">→</span>
-            </a>
-          </div>
-          <div class="hero-trust">
-            <div class="trust-item">
-              <span class="trust-number" data-target="500">0</span>
-              <span class="trust-text">+ pacientes</span>
-            </div>
-            <div class="trust-divider"></div>
-            <div class="trust-item">
-              <span class="trust-number" data-target="10">0</span>
-              <span class="trust-text">+ anos</span>
-            </div>
-            <div class="trust-divider"></div>
-            <div class="trust-item">
-              <span class="trust-stars">★★★★★</span>
-              <span class="trust-text">4,9 Google</span>
-            </div>
           </div>
         </div>
-        <div class="hero-image">
-          <div class="hero-image-frame">
-            <div class="hero-image-frame-inner">
-              <img src="img/clinica/200c7919-49eb-457a-be7c-e21023440a74.png" alt="Clínica moderna" loading="eager" />
-            </div>
-          </div>
-          <div class="hero-image-glow"></div>
-          <div class="hero-image-glow-2"></div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- SOBRE -->
-    <section class="apresentacao" id="sobre">
-      <div class="container apresentacao-grid">
-        <div class="apresentacao-texto">
-          <span class="section-tag">✦ Sobre a clínica</span>
-          <h2>Excelência e cuidado <span class="section-highlight">em cada detalhe</span></h2>
-          <p>
-            O Centro Odontológico e Estético reúne profissionais especializadas para oferecer um atendimento completo e humanizado. Com estrutura moderna e tecnologia de ponta, cuidamos da sua saúde bucal, estética e bem-estar.
-          </p>
-          <p>
-            Nossa missão é devolver autoestima e bem-estar aos nossos pacientes, com tratamentos personalizados e resultados que transformam vidas.
-          </p>
-          <div class="apresentacao-features">
-            <div class="apresentacao-feature"><span class="feature-icon">✦</span><span>Equipe qualificada</span></div>
-            <div class="apresentacao-feature"><span class="feature-icon">✦</span><span>Atendimento personalizado</span></div>
-            <div class="apresentacao-feature"><span class="feature-icon">✦</span><span>Tecnologia e conforto</span></div>
+      <section class="diferenciais" id="home-diferenciais">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">✦ Diferenciais</span>
+            <div class="section-divider"></div>
+            <h2>Por que escolher <span class="section-highlight">nosso centro</span></h2>
+          </div>
+          <div class="diferenciais-grid">
+            <div class="diferencial-card">
+              <div class="diferencial-icon" aria-hidden="true">🦷</div>
+              <h3>Atendimento Humanizado</h3>
+              <p>Escuta ativa e cuidado personalizado em cada etapa.</p>
+            </div>
+            <div class="diferencial-card">
+              <div class="diferencial-icon" aria-hidden="true">✨</div>
+              <h3>Tecnologia Avançada</h3>
+              <p>Equipamentos modernos e técnicas atualizadas.</p>
+            </div>
+            <div class="diferencial-card">
+              <div class="diferencial-icon" aria-hidden="true">👩‍⚕️</div>
+              <h3>Equipe Multidisciplinar</h3>
+              <p>Odontologia, estética, massoterapia e beleza integradas.</p>
+            </div>
+            <div class="diferencial-card">
+              <div class="diferencial-icon" aria-hidden="true">🏆</div>
+              <h3>Excelência Comprovada</h3>
+              <p>Nota 4,9 no Google e pacientes satisfeitos.</p>
+            </div>
           </div>
         </div>
-        <div class="apresentacao-imagem">
-          <img src="img/clinica/frente.png" alt="Consultório" loading="lazy" />
-          <div class="apresentacao-imagem-frame"></div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- PROFISSIONAIS -->
-    <section id="profissionais" class="profissionais">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">✦ Profissionais</span>
-          <div class="section-divider"></div>
-          <h2>Conheça nossas <span class="section-highlight">especialistas</span></h2>
-          <p>Profissionais dedicadas a cuidar da sua saúde, beleza e bem-estar.</p>
+      <section id="home-contato" class="contato">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">✦ Contato</span>
+            <div class="section-divider"></div>
+            <h2>Fale <span class="section-highlight">conosco</span></h2>
+          </div>
+          <div class="contato-grid">
+            <div class="contato-info">
+              <div class="contato-card">
+                <h3>Informações</h3>
+                <div class="contato-item">
+                  <span class="contato-icon" aria-hidden="true">📱</span>
+                  <div><strong>WhatsApp</strong><p class="contato-wa">(86) 98160-7614</p></div>
+                </div>
+                <div class="contato-item">
+                  <span class="contato-icon" aria-hidden="true">📍</span>
+                  <div><strong>Endereço</strong><p>Parnaíba - PI</p></div>
+                </div>
+                <div class="contato-item">
+                  <span class="contato-icon" aria-hidden="true">🕐</span>
+                  <div><strong>Horário</strong><p>Seg-Sex: 08h-18h | Sáb: 08h-14h</p></div>
+                </div>
+                <div class="contato-social">
+                  <a href="https://www.instagram.com/centroodontologicoeestetico/" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                  </a>
+                  <a href="https://wa.me/5586981607614" target="_blank" rel="noopener" class="footer-wa" aria-label="WhatsApp">📱</a>
+                </div>
+              </div>
+            </div>
+            <div class="contato-form">
+              <div class="form-card">
+                <h3>Envie uma mensagem</h3>
+                <p>Responderemos em até 24h pelo WhatsApp.</p>
+                <form id="formContato" novalidate>
+                  <div class="form-group">
+                    <label for="contatoNome">Nome <span class="required">*</span></label>
+                    <input type="text" id="contatoNome" placeholder="Seu nome" required autocomplete="name" />
+                  </div>
+                  <div class="form-group">
+                    <label for="contatoWhatsapp">WhatsApp <span class="required">*</span></label>
+                    <input type="tel" id="contatoWhatsapp" placeholder="(00) 00000-0000" required autocomplete="tel" inputmode="numeric" />
+                  </div>
+                  <div class="form-group">
+                    <label for="contatoMensagem">Mensagem</label>
+                    <textarea id="contatoMensagem" placeholder="Como podemos ajudar?" rows="3"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-form">
+                    <span class="btn-icon" aria-hidden="true">✦</span> Enviar mensagem
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="profissionais-grid" id="profissionaisGrid"></div>
-      </div>
-    </section>
+      </section>
 
-    <!-- SERVIÇOS -->
-    <section id="servicos" class="servicos-destaque">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">✦ Serviços</span>
-          <div class="section-divider"></div>
-          <h2>Tratamentos <span class="section-highlight">em destaque</span></h2>
-          <p>Procedimentos que transformam sorrisos e elevam a autoestima.</p>
-        </div>
-        <div class="servicos-grid" id="servicosGrid"></div>
-        <div class="servicos-cta">
-          <a href="#profissionais" class="btn btn-outline">
-            Conhecer profissionais <span class="btn-arrow">→</span>
+      <section class="cta-final" id="home-cta">
+        <div class="cta-final-line"></div>
+        <div class="container cta-inner">
+          <span class="cta-tag">✦ Agende sua avaliação</span>
+          <h2>Transforme seu <span class="cta-highlight">sorriso e bem-estar</span></h2>
+          <p>Clique abaixo e conheça nossas profissionais para agendar seu atendimento.</p>
+          <a href="#home-profissionais" class="btn btn-primary btn-large" data-scroll="home-profissionais">
+            <span class="btn-icon" aria-hidden="true">✦</span> Conhecer profissionais
           </a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- DIFERENCIAIS -->
-    <section class="diferenciais" id="diferenciais">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">✦ Diferenciais</span>
-          <div class="section-divider"></div>
-          <h2>Por que escolher <span class="section-highlight">nosso centro</span></h2>
-        </div>
-        <div class="diferenciais-grid">
-          <div class="diferencial-card">
-            <div class="diferencial-icon">🦷</div>
-            <h3>Atendimento Humanizado</h3>
-            <p>Escuta ativa e cuidado personalizado em cada etapa.</p>
-          </div>
-          <div class="diferencial-card">
-            <div class="diferencial-icon">✨</div>
-            <h3>Tecnologia Avançada</h3>
-            <p>Equipamentos modernos e técnicas atualizadas.</p>
-          </div>
-          <div class="diferencial-card">
-            <div class="diferencial-icon">👩‍⚕️</div>
-            <h3>Equipe Multidisciplinar</h3>
-            <p>Odontologia, estética, massoterapia e beleza integradas.</p>
-          </div>
-          <div class="diferencial-card">
-            <div class="diferencial-icon">🏆</div>
-            <h3>Excelência Comprovada</h3>
-            <p>Nota 4,9 no Google e pacientes satisfeitos.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div><!-- /page-home -->
 
-    <!-- CONTATO -->
-    <section id="contato" class="contato">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">✦ Contato</span>
-          <div class="section-divider"></div>
-          <h2>Fale <span class="section-highlight">conosco</span></h2>
-        </div>
-        <div class="contato-grid">
-          <div class="contato-info">
-            <div class="contato-card">
-              <h3>Informações</h3>
-              <div class="contato-item">
-                <span class="contato-icon">📱</span>
-                <div><strong>WhatsApp</strong><p class="contato-wa">(86) 98160-7614</p></div>
-              </div>
-              <div class="contato-item">
-                <span class="contato-icon">📍</span>
-                <div><strong>Endereço</strong><p>Parnaíba - PI</p></div>
-              </div>
-              <div class="contato-item">
-                <span class="contato-icon">🕐</span>
-                <div><strong>Horário</strong><p>Seg-Sex: 08h-18h | Sáb: 08h-14h</p></div>
-              </div>
-              <div class="contato-social">
-                <a href="https://www.instagram.com/centroodontologicoeestetico/" target="_blank" rel="noopener" aria-label="Instagram">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                </a>
-                <a href="https://wa.me/5586981607614" target="_blank" rel="noopener" class="footer-wa" aria-label="WhatsApp">📱</a>
-              </div>
-            </div>
+
+    <!-- ============================================================
+         VIEW: PROFISSIONAL
+         ============================================================ -->
+    <div class="page-view" id="page-profissional" style="display:none;">
+
+      <section class="hero-profissional" id="heroProfissional"></section>
+      <section class="sobre-profissional" id="sobreProfissional"></section>
+
+      <section class="servicos-profissional" id="prof-servicos">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">✦ Serviços</span>
+            <h2>Tratamentos <span class="section-highlight">realizados</span></h2>
           </div>
-          <div class="contato-form">
-            <div class="form-card">
-              <h3>Envie uma mensagem</h3>
-              <p>Responderemos em até 24h pelo WhatsApp.</p>
-              <form id="formContato" novalidate>
+          <div class="servicos-profissional-grid" id="servicosProfissionalGrid"></div>
+        </div>
+      </section>
+
+      <section id="prof-agendamento" class="agendamento">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">✦ Agendamento</span>
+            <h2>Agende seu <span class="section-highlight">atendimento</span></h2>
+            <p>Preencha o formulário e receba a confirmação no WhatsApp.</p>
+          </div>
+          <div class="agendamento-container">
+            <form id="formAgendamento" novalidate>
+              <div class="form-row">
                 <div class="form-group">
-                  <label for="contatoNome">Nome <span class="required">*</span></label>
-                  <input type="text" id="contatoNome" placeholder="Seu nome" required autocomplete="name" />
+                  <label for="agendaServico">Serviço <span class="required">*</span></label>
+                  <select id="agendaServico" required><option value="">Selecione um serviço</option></select>
                 </div>
                 <div class="form-group">
-                  <label for="contatoWhatsapp">WhatsApp <span class="required">*</span></label>
-                  <input type="tel" id="contatoWhatsapp" placeholder="(00) 00000-0000" required autocomplete="tel" inputmode="numeric" />
+                  <label for="agendaData">Data <span class="required">*</span></label>
+                  <input type="date" id="agendaData" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="agendaHorario">Horário <span class="required">*</span></label>
+                  <select id="agendaHorario" required><option value="">Selecione um horário</option></select>
                 </div>
                 <div class="form-group">
-                  <label for="contatoMensagem">Mensagem</label>
-                  <textarea id="contatoMensagem" placeholder="Como podemos ajudar?" rows="3"></textarea>
+                  <label for="agendaNome">Nome completo <span class="required">*</span></label>
+                  <input type="text" id="agendaNome" placeholder="Seu nome" required autocomplete="name" />
                 </div>
-                <button type="submit" class="btn btn-primary btn-form">
-                  <span class="btn-icon">✦</span> Enviar mensagem
-                </button>
-              </form>
-            </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="agendaWhatsapp">WhatsApp <span class="required">*</span></label>
+                  <input type="tel" id="agendaWhatsapp" placeholder="(00) 00000-0000" required autocomplete="tel" inputmode="numeric" />
+                </div>
+                <div class="form-group">
+                  <label for="agendaObs">Observação</label>
+                  <input type="text" id="agendaObs" placeholder="Alguma observação?" />
+                </div>
+              </div>
+              <div id="agendaServicoDetalhes"></div>
+              <button type="submit" class="btn btn-primary btn-agendamento">
+                <span class="btn-icon" aria-hidden="true">✦</span> Confirmar agendamento
+              </button>
+            </form>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- CTA FINAL -->
-    <section class="cta-final" id="cta">
-      <div class="cta-final-line"></div>
-      <div class="container cta-inner">
-        <span class="cta-tag">✦ Agende sua avaliação</span>
-        <h2>Transforme seu <span class="cta-highlight">sorriso e bem-estar</span></h2>
-        <p>Clique abaixo e conheça nossas profissionais para agendar seu atendimento.</p>
-        <a href="#profissionais" class="btn btn-primary btn-large">
-          <span class="btn-icon">✦</span> Conhecer profissionais
-        </a>
-      </div>
-    </section>
+      <section class="cta-profissional">
+        <div class="container cta-inner">
+          <span class="cta-tag">✦ Agende sua avaliação</span>
+          <h2>Transforme sua <span class="cta-highlight">saúde e beleza</span></h2>
+          <p>Agende sua avaliação e descubra como podemos cuidar de você.</p>
+          <a href="#prof-agendamento" class="btn btn-primary btn-large" data-scroll-prof="prof-agendamento">
+            <span class="btn-icon" aria-hidden="true">✦</span> Agendar avaliação
+          </a>
+        </div>
+      </section>
+
+    </div><!-- /page-profissional -->
+
+
+    <!-- ============================================================
+         VIEW: PRIVACIDADE
+         ============================================================ -->
+    <div class="page-view" id="page-privacidade" style="display:none;">
+      <main class="privacidade-page">
+        <div class="container">
+          <span class="section-tag">✦ Documento Legal</span>
+          <h1>Política de Privacidade</h1>
+          <p class="privacidade-update">Última atualização: Janeiro de 2026</p>
+
+          <div class="privacidade-content">
+            <h2>1. Informações que Coletamos</h2>
+            <p>Coletamos informações fornecidas voluntariamente por você através dos nossos formulários de contato e agendamento, incluindo:</p>
+            <ul>
+              <li>Nome completo</li>
+              <li>Número de WhatsApp</li>
+              <li>Serviço de interesse</li>
+              <li>Data e horário preferencial</li>
+              <li>Observações adicionais</li>
+            </ul>
+
+            <h2>2. Como Utilizamos suas Informações</h2>
+            <p>Utilizamos suas informações exclusivamente para:</p>
+            <ul>
+              <li>Agendar e confirmar atendimentos</li>
+              <li>Entrar em contato via WhatsApp</li>
+              <li>Melhorar nossos serviços</li>
+              <li>Enviar comunicações relacionadas aos seus agendamentos</li>
+            </ul>
+
+            <h2>3. Compartilhamento de Dados</h2>
+            <p>Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros. Seus dados são acessados apenas pela equipe do Centro Odontológico e Estético.</p>
+
+            <h2>4. Segurança</h2>
+            <p>Adotamos medidas técnicas e organizacionais para proteger suas informações contra acesso não autorizado, alteração, divulgação ou destruição.</p>
+
+            <h2>5. Seus Direitos (LGPD)</h2>
+            <p>De acordo com a Lei Geral de Proteção de Dados (LGPD), você tem direito a:</p>
+            <ul>
+              <li>Confirmar a existência de tratamento de dados</li>
+              <li>Acessar seus dados</li>
+              <li>Corrigir dados incompletos ou desatualizados</li>
+              <li>Solicitar anonimização ou eliminação</li>
+              <li>Revogar o consentimento</li>
+            </ul>
+
+            <h2>6. Contato</h2>
+            <p>Para exercer seus direitos ou esclarecer dúvidas, entre em contato:</p>
+            <p>📱 WhatsApp: <a href="https://wa.me/5586981607614" target="_blank" rel="noopener">(86) 98160-7614</a></p>
+            <p>📷 Instagram: <a href="https://www.instagram.com/centroodontologicoeestetico/" target="_blank" rel="noopener">@centroodontologicoeestetico</a></p>
+
+            <h2>7. Alterações</h2>
+            <p>Esta política pode ser atualizada periodicamente. Recomendamos revisá-la regularmente.</p>
+          </div>
+
+          <div class="privacidade-footer">
+            <a href="#" class="btn btn-primary" data-page="home">
+              <span class="btn-icon" aria-hidden="true">✦</span> Voltar ao site
+            </a>
+          </div>
+        </div>
+      </main>
+    </div><!-- /page-privacidade -->
+
   </main>
 
   <!-- FOOTER -->
@@ -329,18 +484,18 @@
       <div class="footer-links-group">
         <h4>Navegação</h4>
         <ul class="footer-links">
-          <li><a href="index.html">Início</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#profissionais">Profissionais</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#contato">Contato</a></li>
+          <li><a href="#" data-page="home">Início</a></li>
+          <li><a href="#home-sobre" data-scroll="home-sobre">Sobre</a></li>
+          <li><a href="#home-profissionais" data-scroll="home-profissionais">Profissionais</a></li>
+          <li><a href="#home-servicos" data-scroll="home-servicos">Serviços</a></li>
+          <li><a href="#home-contato" data-scroll="home-contato">Contato</a></li>
         </ul>
       </div>
       <div class="footer-links-group">
         <h4>Redes Sociais</h4>
         <ul class="footer-links">
-          <li><a href="https://www.instagram.com/centroodontologicoeestetico/" target="_blank">Instagram</a></li>
-          <li><a href="https://wa.me/5586981607614" target="_blank" class="footer-wa">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/centroodontologicoeestetico/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://wa.me/5586981607614" target="_blank" rel="noopener" class="footer-wa">WhatsApp</a></li>
         </ul>
       </div>
       <div class="footer-contact">
@@ -351,7 +506,7 @@
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">© 2026 Centro Odontológico e Estético. Todos os direitos reservados.</p>
-        <a href="privacidade.html" class="footer-credit">Política de Privacidade</a>
+        <a href="#" class="footer-credit" data-page="privacidade">Política de Privacidade</a>
       </div>
     </div>
   </footer>
@@ -367,15 +522,15 @@
   <!-- MOBILE BOTTOM BAR -->
   <div class="mobile-bottom-bar" id="mobileBottomBar">
     <a href="https://wa.me/5586981607614" target="_blank" rel="noopener" class="btn btn-primary btn-bottom-wa">
-      <span class="btn-icon">📱</span> WhatsApp
+      <span class="btn-icon" aria-hidden="true">📱</span> WhatsApp
     </a>
-    <a href="#profissionais" class="btn btn-primary btn-bottom-agendar">
-      <span class="btn-icon">✦</span> Agendar
+    <a href="#home-profissionais" class="btn btn-primary btn-bottom-agendar" data-scroll="home-profissionais">
+      <span class="btn-icon" aria-hidden="true">✦</span> Agendar
     </a>
   </div>
 
   <!-- MODAL SERVIÇO -->
-  <div class="modal" id="modalServico" role="dialog" aria-modal="true">
+  <div class="modal" id="modalServico" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-overlay"></div>
     <div class="modal-content">
       <button class="modal-close" aria-label="Fechar">✕</button>
@@ -387,9 +542,9 @@
         <div class="modal-profissional" id="modalProfissional">
           <strong>Profissional:</strong> <span id="modalProfissionalNome"></span>
         </div>
-        <a href="#profissionais" class="btn btn-primary btn-modal-agendar">
-          <span class="btn-icon">✦</span> Agendar este serviço
-        </a>
+        <button type="button" class="btn btn-primary btn-modal-agendar">
+          <span class="btn-icon" aria-hidden="true">✦</span> Agendar este serviço
+        </button>
       </div>
     </div>
   </div>

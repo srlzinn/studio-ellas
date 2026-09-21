@@ -2466,3 +2466,26 @@
   ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
   
   ::-webkit-scrollbar-thumb:hover { background: var(--gold-light); }
+  /* ==========================================
+   CORREÇÃO DO MENU DE SERVIÇOS
+   ========================================== */
+
+.form-group select {
+  color: var(--text-white);
+  background-color: #241010;
+}
+
+.form-group select option {
+  color: #1A0E0E !important;
+  background-color: #FFFFFF !important;
+}
+
+.form-group select option:checked {
+  color: #1A0E0E !important;
+  background-color: #F0D060 !important;
+}
+
+.form-group select option[value=""] {
+  color: #666666 !important;
+  background-color: #FFFFFF !important;
+}

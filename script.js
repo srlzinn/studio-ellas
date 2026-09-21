@@ -1,6 +1,6 @@
 /**
  * script.js - Centro Odontológico e Estético
- * Sistema de Agendamento com Comprovante e WhatsApp
+ * SPA estável - versão final corrigida
  * =====================================================
  */
 
@@ -74,54 +74,12 @@ const PROFISSIONAIS = [
       sexta:   ["08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00"]
     },
     servicos: [
-      {
-        id: "limpeza-de-pele",
-        nome: "Limpeza de Pele",
-        categoria: "Estética Facial",
-        descricao: "Limpeza profunda com protocolo completo de cuidado facial.",
-        detalhes: ["Higienização","Esfoliação","Emoliência","Vapor de ozônio","Extração","Tonificação","Aromaterapia","Massagem facial","LEDterapia","Cromoterapia","Sons binaurais"],
-        duracao: 90
-      },
-      {
-        id: "massagem-relaxante",
-        nome: "Massagem Relaxante",
-        categoria: "Bem-estar",
-        descricao: "Experiência sensorial de relaxamento profundo e bem-estar.",
-        detalhes: ["Massagem relaxante","Aromaterapia","Cromoterapia","Sons binaurais"],
-        duracao: 60
-      },
-      {
-        id: "dermaplaning",
-        nome: "Dermaplaning",
-        categoria: "Estética Facial",
-        descricao: "Renovação celular com glow imediato e pele lisa.",
-        detalhes: ["Remoção de células mortas","Renovação celular","Remoção dos pelos finos do rosto","Glow imediato"],
-        duracao: 60
-      },
-      {
-        id: "hydra-gloss",
-        nome: "Hydra Gloss / Hydra Color",
-        categoria: "Estética Facial",
-        descricao: "Hidratação intensa com toque de cor e brilho natural.",
-        detalhes: ["Higienização","Esfoliação","Microagulhamento","Sérum com ativos hidratantes","Lábios levemente rosados"],
-        duracao: 75
-      },
-      {
-        id: "ventosaterapia",
-        nome: "Ventosaterapia",
-        categoria: "Bem-estar",
-        descricao: "Técnica terapêutica que estimula a circulação e relaxa.",
-        detalhes: ["Massagem","Aromaterapia","Cromoterapia"],
-        duracao: 60
-      },
-      {
-        id: "microagulhamento",
-        nome: "Microagulhamento",
-        categoria: "Estética Avançada",
-        descricao: "Estímulo de colágeno com ativos de alta performance.",
-        detalhes: ["Limpeza de pele","Microagulhamento","GHK-Cu e exossomos","Rejuvenescimento","Redução da aparência de rugas","Cromoterapia"],
-        duracao: 90
-      },
+      { id: "limpeza-de-pele", nome: "Limpeza de Pele", categoria: "Estética Facial", descricao: "Limpeza profunda com protocolo completo de cuidado facial.", detalhes: ["Higienização","Esfoliação","Emoliência","Vapor de ozônio","Extração","Tonificação","Aromaterapia","Massagem facial","LEDterapia","Cromoterapia","Sons binaurais"], duracao: 90 },
+      { id: "massagem-relaxante", nome: "Massagem Relaxante", categoria: "Bem-estar", descricao: "Experiência sensorial de relaxamento profundo e bem-estar.", detalhes: ["Massagem relaxante","Aromaterapia","Cromoterapia","Sons binaurais"], duracao: 60 },
+      { id: "dermaplaning", nome: "Dermaplaning", categoria: "Estética Facial", descricao: "Renovação celular com glow imediato e pele lisa.", detalhes: ["Remoção de células mortas","Renovação celular","Remoção dos pelos finos do rosto","Glow imediato"], duracao: 60 },
+      { id: "hydra-gloss", nome: "Hydra Gloss / Hydra Color", categoria: "Estética Facial", descricao: "Hidratação intensa com toque de cor e brilho natural.", detalhes: ["Higienização","Esfoliação","Microagulhamento","Sérum com ativos hidratantes","Lábios levemente rosados"], duracao: 75 },
+      { id: "ventosaterapia", nome: "Ventosaterapia", categoria: "Bem-estar", descricao: "Técnica terapêutica que estimula a circulação e relaxa.", detalhes: ["Massagem","Aromaterapia","Cromoterapia"], duracao: 60 },
+      { id: "microagulhamento", nome: "Microagulhamento", categoria: "Estética Avançada", descricao: "Estímulo de colágeno com ativos de alta performance.", detalhes: ["Limpeza de pele","Microagulhamento","GHK-Cu e exossomos","Rejuvenescimento","Redução da aparência de rugas","Cromoterapia"], duracao: 90 },
       { id: "botox", nome: "Botox", categoria: "Estética Facial", descricao: "Tratamento para suavizar rugas e linhas de expressão.", detalhes: ["Procedimento seguro","Resultados naturais","Efeito duradouro"], duracao: 60 },
       { id: "skinbooster", nome: "Skinbooster", categoria: "Estética Facial", descricao: "Tratamento para hidratação e rejuvenescimento da pele.", detalhes: ["Hidratação profunda","Rejuvenescimento"], duracao: 60 },
       { id: "enzimas-emagrecedoras", nome: "Enzimas Emagrecedoras", categoria: "Estética Corporal", descricao: "Tratamento para redução de gordura localizada.", detalhes: ["Redução de medidas","Resultados progressivos"], duracao: 90 },
@@ -159,7 +117,7 @@ const PROFISSIONAIS = [
 ];
 
 // ============================================
-// 3. FUNÇÕES AUXILIARES
+// 3. AUXILIARES
 // ============================================
 function getProfissional(id) {
   return PROFISSIONAIS.find(p => p.id === id);
@@ -170,25 +128,19 @@ function getServico(profissionalId, servicoId) {
   return prof ? prof.servicos.find(s => s.id === servicoId) : null;
 }
 
-function formatPreco() {
-  return 'Consultar valor';
-}
+function formatPreco() { return 'Consultar valor'; }
 
 function getHorariosDisponiveis(profissionalId, data) {
   const prof = getProfissional(profissionalId);
   if (!prof) return [];
   const dias = ['domingo','segunda','terca','quarta','quinta','sexta','sabado'];
-  const dataObj = new Date(data);
+  const dataObj = new Date(data + 'T00:00:00');
   const diaSemana = dias[dataObj.getDay()];
   return prof.disponibilidade[diaSemana] || [];
 }
 
 function abrirWhatsApp(numero, mensagem) {
-  if (!numero) {
-    console.error('Número de WhatsApp não configurado.');
-    alert('⚠️ Número de WhatsApp não configurado.');
-    return;
-  }
+  if (!numero) { alert('⚠️ Número de WhatsApp não configurado.'); return; }
   const numeroLimpo = numero.replace(/\D/g, '');
   const texto = encodeURIComponent(mensagem || CONFIG.mensagemPadrao);
   window.open(`https://wa.me/${numeroLimpo}?text=${texto}`, '_blank');
@@ -206,26 +158,21 @@ function gerarNumeroRecibo() {
 }
 
 function formatarData(data) {
-  return new Date(data).toLocaleDateString('pt-BR', {
+  return new Date(data + 'T00:00:00').toLocaleDateString('pt-BR', {
     weekday: 'long', day: '2-digit', month: 'long', year: 'numeric'
   });
 }
 
 function getIconeCategoria(categoria) {
   const icones = {
-    'Odontologia': '🦷',
-    'Estética Facial': '✨',
-    'Estética Corporal': '💆',
-    'Estética Avançada': '🔬',
-    'Estética': '🌟',
-    'Bem-estar': '🌿',
-    'Beleza': '💅'
+    'Odontologia': '🦷', 'Estética Facial': '✨', 'Estética Corporal': '💆',
+    'Estética Avançada': '🔬', 'Estética': '🌟', 'Bem-estar': '🌿', 'Beleza': '💅'
   };
   return icones[categoria] || '✦';
 }
 
 // ============================================
-// 4. GERADOR DE COMPROVANTE
+// 4. COMPROVANTE
 // ============================================
 function gerarComprovanteHTML(dados) {
   const { profissional, servico, data, horario, nome, whatsapp, observacao, numeroRecibo } = dados;
@@ -243,38 +190,24 @@ function gerarComprovanteHTML(dados) {
           <span class="recibo-numero-valor">${numeroRecibo}</span>
         </div>
       </div>
-
       <div class="recibo-titulo">
         <h2>✅ COMPROVANTE DE AGENDAMENTO</h2>
         <p>Este documento confirma o agendamento do seu atendimento</p>
       </div>
-
       <div class="recibo-corpo">
         <div class="recibo-foto">
-          <img src="${profissional.foto || 'img/profissionais/default.jpg'}" alt="${profissional.nome}" />
+          <img src="${profissional.foto || 'img/profissionais/default.jpg'}" alt="${profissional.nome}" onerror="this.style.display='none'" />
         </div>
-
         <div class="recibo-foto-nome">
           <h3>${profissional.nome}</h3>
           <span class="recibo-especialidade">${profissional.area}</span>
         </div>
-
         <div class="recibo-info-section">
           <h4>👤 Dados do Cliente</h4>
-          <div class="recibo-info-linha">
-            <span class="recibo-info-label">Nome:</span>
-            <span class="recibo-info-valor">${nome}</span>
-          </div>
-          <div class="recibo-info-linha">
-            <span class="recibo-info-label">WhatsApp:</span>
-            <span class="recibo-info-valor">${whatsapp}</span>
-          </div>
-          <div class="recibo-info-linha">
-            <span class="recibo-info-label">Emissão:</span>
-            <span class="recibo-info-valor">${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}</span>
-          </div>
+          <div class="recibo-info-linha"><span class="recibo-info-label">Nome:</span><span class="recibo-info-valor">${nome}</span></div>
+          <div class="recibo-info-linha"><span class="recibo-info-label">WhatsApp:</span><span class="recibo-info-valor">${whatsapp}</span></div>
+          <div class="recibo-info-linha"><span class="recibo-info-label">Emissão:</span><span class="recibo-info-valor">${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}</span></div>
         </div>
-
         <div class="recibo-info-section">
           <h4>💆 Dados do Atendimento</h4>
           <div class="recibo-info-linha"><span class="recibo-info-label">Profissional:</span><span class="recibo-info-valor">${profissional.nome}</span></div>
@@ -285,17 +218,12 @@ function gerarComprovanteHTML(dados) {
           <div class="recibo-info-linha"><span class="recibo-info-label">Horário:</span><span class="recibo-info-valor">${horario}</span></div>
           <div class="recibo-info-linha"><span class="recibo-info-label">Duração:</span><span class="recibo-info-valor">${servico.duracao} minutos</span></div>
         </div>
-
         <div class="recibo-detalhes-servico">
           <h4>📋 Detalhes do Serviço</h4>
-          <ul class="recibo-detalhes-lista">
-            ${servico.detalhes.map(d => `<li>✓ ${d}</li>`).join('')}
-          </ul>
+          <ul class="recibo-detalhes-lista">${servico.detalhes.map(d => `<li>✓ ${d}</li>`).join('')}</ul>
         </div>
-
         ${observacao ? `<div class="recibo-observacao"><p><strong>📝 Observação:</strong> ${observacao}</p></div>` : ''}
       </div>
-
       <div class="recibo-rodape">
         <div class="recibo-info-contato">
           <p><strong>${CONFIG.nome}</strong></p>
@@ -303,18 +231,10 @@ function gerarComprovanteHTML(dados) {
           <p>📱 ${CONFIG.telefone}</p>
           <p>📷 @centroodontologicoeestetico</p>
         </div>
-
         <div class="recibo-assinatura">
-          <div class="recibo-linha-assinatura">
-            <span>______________________________</span>
-            <span>Assinatura do Cliente</span>
-          </div>
-          <div class="recibo-linha-assinatura">
-            <span>______________________________</span>
-            <span>Assinatura do Profissional</span>
-          </div>
+          <div class="recibo-linha-assinatura"><span>______________________________</span><span>Assinatura do Cliente</span></div>
+          <div class="recibo-linha-assinatura"><span>______________________________</span><span>Assinatura do Profissional</span></div>
         </div>
-
         <div class="recibo-data-emissao">
           <p class="recibo-aviso">* Este documento é um comprovante de agendamento.</p>
         </div>
@@ -325,54 +245,35 @@ function gerarComprovanteHTML(dados) {
 
 function exibirComprovante(dados) {
   const html = gerarComprovanteHTML(dados);
-
   const existingModal = document.getElementById('reciboModal');
-  if (existingModal) {
-    existingModal.remove();
-    document.body.classList.remove('no-scroll');
-  }
+  if (existingModal) { existingModal.remove(); document.body.classList.remove('no-scroll'); }
 
   const modal = document.createElement('div');
   modal.className = 'recibo-modal';
   modal.id = 'reciboModal';
-
   modal.innerHTML = `
     <div class="recibo-content">
       <button class="recibo-close" aria-label="Fechar comprovante">✕</button>
       ${html}
       <div class="recibo-acoes">
-        <button onclick="window.print()" class="btn btn-primary">
-          <span class="btn-icon">🖨️</span> Imprimir
-        </button>
+        <button onclick="window.print()" class="btn btn-primary"><span class="btn-icon">🖨️</span> Imprimir</button>
         <button onclick="fecharComprovante()" class="btn btn-outline">Fechar</button>
       </div>
     </div>
   `;
-
   document.body.appendChild(modal);
   document.body.classList.add('no-scroll');
 
-  modal.addEventListener('click', function(e) {
-    if (e.target === this) fecharComprovante();
-  });
-
-  document.addEventListener('keydown', function closeRecibo(e) {
-    if (e.key === 'Escape') {
-      fecharComprovante();
-      document.removeEventListener('keydown', closeRecibo);
-    }
-  });
-
+  modal.addEventListener('click', function(e) { if (e.target === this) fecharComprovante(); });
+  const escHandler = function(e) { if (e.key === 'Escape') { fecharComprovante(); document.removeEventListener('keydown', escHandler); } };
+  document.addEventListener('keydown', escHandler);
   const closeBtn = modal.querySelector('.recibo-close');
   if (closeBtn) closeBtn.addEventListener('click', fecharComprovante);
 }
 
 window.fecharComprovante = function() {
   const modal = document.getElementById('reciboModal');
-  if (modal) {
-    modal.remove();
-    document.body.classList.remove('no-scroll');
-  }
+  if (modal) { modal.remove(); document.body.classList.remove('no-scroll'); }
 };
 
 // ============================================
@@ -380,38 +281,24 @@ window.fecharComprovante = function() {
 // ============================================
 function processarAgendamento(dados) {
   const { profissionalId, servicoId, data, horario, nome, whatsapp, observacao } = dados;
-
   const profissional = getProfissional(profissionalId);
   const servico = getServico(profissionalId, servicoId);
 
-  if (!profissional || !servico) {
-    alert('Erro: Profissional ou serviço não encontrado.');
-    return;
-  }
-
-  if (!nome || !whatsapp || !data || !horario) {
-    alert('Por favor, preencha todos os campos obrigatórios.');
-    return;
-  }
+  if (!profissional || !servico) { alert('Erro: Profissional ou serviço não encontrado.'); return; }
+  if (!nome || !whatsapp || !data || !horario) { alert('Por favor, preencha todos os campos obrigatórios.'); return; }
 
   const whatsappLimpo = whatsapp.replace(/\D/g, '');
-  if (whatsappLimpo.length < 10) {
-    alert('Por favor, informe um número de WhatsApp válido (com DDD).');
-    return;
-  }
+  if (whatsappLimpo.length < 10) { alert('Por favor, informe um número de WhatsApp válido (com DDD).'); return; }
 
   const numeroRecibo = gerarNumeroRecibo();
   const dataFormatada = formatarData(data);
   const numeroWhatsApp = profissional.whatsapp || CONFIG.whatsapp;
 
-  const dadosAgendamento = { profissional, servico, data, horario, nome, whatsapp, observacao, numeroRecibo };
-
-  exibirComprovante(dadosAgendamento);
+  exibirComprovante({ profissional, servico, data, horario, nome, whatsapp, observacao, numeroRecibo });
 
   const mensagem = `✅ *CONFIRMAÇÃO DE AGENDAMENTO - ${CONFIG.nome}*
 
 📋 *Nº do Recibo:* ${numeroRecibo}
-
 👤 *Cliente:* ${nome}
 📱 *WhatsApp:* ${whatsapp}
 
@@ -435,25 +322,67 @@ ${observacao ? `📝 *Observação:* ${observacao}` : ''}
 
 *${CONFIG.nome}* ✨`;
 
-  setTimeout(() => {
-    abrirWhatsApp(numeroWhatsApp, mensagem);
-  }, 500);
+  setTimeout(() => abrirWhatsApp(numeroWhatsApp, mensagem), 500);
 }
 
 // ============================================
-// 6. RENDERIZAÇÃO DA PÁGINA INICIAL
+// 6. ROUTER
+// ============================================
+const PageRouter = {
+  current: 'home',
+  views: {},
+  init() {
+    this.views = {
+      home: document.getElementById('page-home'),
+      profissional: document.getElementById('page-profissional'),
+      privacidade: document.getElementById('page-privacidade')
+    };
+  },
+  goTo(page, options = {}) {
+    if (!this.views[page]) { console.warn(`View "${page}" não encontrada.`); return; }
+    Object.values(this.views).forEach(v => v && (v.style.display = 'none'));
+    this.views[page].style.display = 'block';
+    this.current = page;
+
+    if (options.scrollTo) {
+      setTimeout(() => {
+        const target = document.getElementById(options.scrollTo);
+        if (target) {
+          const headerH = document.querySelector('.header')?.offsetHeight || 80;
+          const pos = target.getBoundingClientRect().top + window.pageYOffset - headerH;
+          window.scrollTo({ top: pos, behavior: 'auto' });
+        }
+      }, 150);
+    } else {
+      window.scrollTo(0, 0);
+    }
+
+    const titles = {
+      home: 'Centro Odontológico e Estético | Parnaíba - PI',
+      profissional: 'Profissional | Centro Odontológico e Estético',
+      privacidade: 'Política de Privacidade | Centro Odontológico e Estético'
+    };
+    document.title = titles[page] || titles.home;
+
+    document.querySelector('.menu-mobile')?.classList.remove('open');
+    document.querySelector('.menu-mobile-overlay')?.classList.remove('open');
+    document.querySelector('.menu-hamburger')?.classList.remove('active');
+    document.querySelector('.menu-hamburger')?.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('no-scroll');
+  }
+};
+
+// ============================================
+// 7. RENDER HOME
 // ============================================
 function renderizarProfissionais() {
   const container = document.getElementById('profissionaisGrid');
   if (!container) return;
-
   container.innerHTML = PROFISSIONAIS.map(prof => `
     <article class="profissional-card">
       <div class="profissional-imagem">
-        <img src="${prof.foto || 'img/profissionais/default.jpg'}" alt="${prof.nome}" loading="lazy" />
-        <div class="profissional-overlay">
-          <span class="profissional-area">${prof.area}</span>
-        </div>
+        <img src="${prof.foto || 'img/profissionais/default.jpg'}" alt="${prof.nome}" loading="lazy" onerror="this.style.display='none'" />
+        <div class="profissional-overlay"><span class="profissional-area">${prof.area}</span></div>
       </div>
       <div class="profissional-content">
         <h3>${prof.nome}</h3>
@@ -463,112 +392,117 @@ function renderizarProfissionais() {
           ${prof.servicos.slice(0, 4).map(s => `<span class="servico-tag">${s.nome}</span>`).join('')}
           ${prof.servicos.length > 4 ? `<span class="servico-tag">+${prof.servicos.length - 4}</span>` : ''}
         </div>
-        <a href="profissional.html?id=${prof.id}" class="btn btn-primary btn-ver-perfil">
+        <button type="button" class="btn btn-primary btn-ver-perfil" data-profissional="${prof.id}">
           <span class="btn-icon">✦</span> Ver perfil
-        </a>
+        </button>
       </div>
     </article>
   `).join('');
+
+  container.querySelectorAll('.btn-ver-perfil').forEach(btn => {
+    btn.addEventListener('click', function() {
+      abrirPaginaProfissional(this.getAttribute('data-profissional'));
+    });
+  });
 }
 
 function renderizarServicosDestaque() {
   const container = document.getElementById('servicosGrid');
   if (!container) return;
 
-  const PROCEDIMENTOS_DESTAQUE_SABRINA = [
-    "limpeza-de-pele",
-    "dermaplaning",
-    "hydra-gloss",
-    "microagulhamento"
-  ];
-
+  const DESTAQUE_SABRINA = ["limpeza-de-pele","dermaplaning","hydra-gloss","microagulhamento"];
   const destaques = [];
 
   const sabrina = getProfissional("sabrina-ribeiro");
   if (sabrina) {
-    sabrina.servicos
-      .filter(s => PROCEDIMENTOS_DESTAQUE_SABRINA.includes(s.id))
-      .forEach(s => {
-        destaques.push({
-          ...s,
-          profissionalId: sabrina.id,
-          profissionalNome: sabrina.nome
-        });
-      });
+    sabrina.servicos.filter(s => DESTAQUE_SABRINA.includes(s.id))
+      .forEach(s => destaques.push({ ...s, profissionalId: sabrina.id, profissionalNome: sabrina.nome }));
   }
-
   PROFISSIONAIS.forEach(prof => {
     if (prof.id === "sabrina-ribeiro") return;
-    prof.servicos.slice(0, 2).forEach(s => {
-      destaques.push({ ...s, profissionalId: prof.id, profissionalNome: prof.nome });
-    });
+    prof.servicos.slice(0, 2).forEach(s => destaques.push({ ...s, profissionalId: prof.id, profissionalNome: prof.nome }));
   });
 
   container.innerHTML = destaques.slice(0, 6).map(s => `
     <article class="servico-card">
       <div class="servico-card-glow"></div>
-      
       <div class="servico-card-top">
-        <div class="servico-icon-wrap">
-          <span class="servico-icon">${getIconeCategoria(s.categoria)}</span>
-        </div>
+        <div class="servico-icon-wrap"><span class="servico-icon">${getIconeCategoria(s.categoria)}</span></div>
         <span class="servico-categoria">${s.categoria}</span>
       </div>
-
       <div class="servico-card-body">
         <h3 class="servico-titulo">${s.nome}</h3>
         <p class="servico-descricao">${s.descricao}</p>
-        
         <div class="servico-meta">
           <span class="servico-meta-label">Profissional</span>
           <span class="servico-meta-value">${s.profissionalNome}</span>
         </div>
       </div>
-
       <div class="servico-card-footer">
-        <button class="servico-btn servico-btn-ghost btn-detalhes" 
-                data-profissional="${s.profissionalId}" 
-                data-servico="${s.id}">
-          Detalhes
-        </button>
-        <a href="profissional.html?id=${s.profissionalId}" class="servico-btn servico-btn-primary">
-          Agendar <span>→</span>
-        </a>
+        <button type="button" class="servico-btn servico-btn-ghost btn-detalhes" data-profissional="${s.profissionalId}" data-servico="${s.id}">Detalhes</button>
+        <button type="button" class="servico-btn servico-btn-primary btn-agendar-destaque" data-profissional="${s.profissionalId}">Agendar <span>→</span></button>
       </div>
     </article>
   `).join('');
 
-  document.querySelectorAll('.btn-detalhes').forEach(btn => {
+  container.querySelectorAll('.btn-detalhes').forEach(btn => {
     btn.addEventListener('click', function() {
       abrirModalServico(this.getAttribute('data-profissional'), this.getAttribute('data-servico'));
+    });
+  });
+  container.querySelectorAll('.btn-agendar-destaque').forEach(btn => {
+    btn.addEventListener('click', function() {
+      abrirPaginaProfissional(this.getAttribute('data-profissional'));
     });
   });
 }
 
 // ============================================
-// 7. PÁGINA DA PROFISSIONAL
+// 8. PÁGINA DA PROFISSIONAL
 // ============================================
-function renderizarPaginaProfissional() {
-  const params = new URLSearchParams(window.location.search);
-  const profId = params.get('id');
+function abrirPaginaProfissional(profId) {
   const prof = getProfissional(profId);
+  if (!prof) { console.warn('Profissional não encontrada:', profId); PageRouter.goTo('home'); return; }
 
-  if (!prof) {
-    document.body.innerHTML = '<div style="padding:100px 20px;text-align:center;color:#fff;"><h2>Profissional não encontrada</h2><a href="index.html" style="color:#F0D060;">Voltar para página inicial</a></div>';
-    return;
-  }
+  // 1) Renderiza TUDO primeiro
+  renderizarPaginaProfissional(prof);
+
+  // 2) Troca a view SEM scroll suave
+  const views = {
+    home: document.getElementById('page-home'),
+    profissional: document.getElementById('page-profissional'),
+    privacidade: document.getElementById('page-privacidade')
+  };
+  Object.values(views).forEach(v => v && (v.style.display = 'none'));
+  if (views.profissional) views.profissional.style.display = 'block';
+  PageRouter.current = 'profissional';
 
   document.title = `${prof.nome} | Centro Odontológico e Estético`;
 
+  // 3) Scroll instantâneo pro topo
+  window.scrollTo(0, 0);
+
+  // 4) Fecha menu mobile
+  document.querySelector('.menu-mobile')?.classList.remove('open');
+  document.querySelector('.menu-mobile-overlay')?.classList.remove('open');
+  document.querySelector('.menu-hamburger')?.classList.remove('active');
+  document.body.classList.remove('no-scroll');
+
+  // 5) Atualiza URL
+  try { history.pushState({ page: 'profissional', id: profId }, '', `#profissional?id=${profId}`); } catch (e) {}
+}
+window.abrirPaginaProfissional = abrirPaginaProfissional;
+
+function renderizarPaginaProfissional(prof) {
+  document.title = `${prof.nome} | Centro Odontológico e Estético`;
+
+  // HERO
   const hero = document.getElementById('heroProfissional');
   if (hero) {
     hero.innerHTML = `
       <div class="container hero-profissional-grid">
         <div class="hero-profissional-content">
-          <div class="hero-badge">
-            <span class="hero-badge-line"></span>
-            ${prof.area}
-          </div>
+          <div class="hero-badge"><span class="hero-badge-line"></span>${prof.area}</div>
           <h1 class="hero-title">${prof.nome}</h1>
           <p class="hero-sub">${prof.descricao}</p>
           <div class="hero-profissional-meta">
@@ -576,18 +510,18 @@ function renderizarPaginaProfissional() {
             ${prof.formacao.map(f => `<span class="meta-item">✦ ${f}</span>`).join('')}
           </div>
           <div class="hero-buttons">
-            <a href="#agendamento" class="btn btn-primary">
+            <button type="button" class="btn btn-primary" data-scroll-prof="prof-agendamento">
               <span class="btn-icon">✦</span> Agendar com ${prof.nome.split(' ')[0]}
-            </a>
-            <a href="#servicos" class="btn btn-outline">
+            </button>
+            <button type="button" class="btn btn-outline" data-scroll-prof="prof-servicos">
               Ver serviços <span class="btn-arrow">→</span>
-            </a>
+            </button>
           </div>
         </div>
         <div class="hero-profissional-image">
           <div class="hero-profissional-image-frame">
             <div class="hero-profissional-image-frame-inner">
-              <img src="${prof.foto || 'img/profissionais/default.jpg'}" alt="${prof.nome}" loading="eager" />
+              <img src="${prof.foto || 'img/profissionais/default.jpg'}" alt="${prof.nome}" loading="eager" onerror="this.style.display='none'" />
             </div>
           </div>
         </div>
@@ -595,6 +529,7 @@ function renderizarPaginaProfissional() {
     `;
   }
 
+  // SOBRE
   const sobre = document.getElementById('sobreProfissional');
   if (sobre) {
     sobre.innerHTML = `
@@ -620,17 +555,16 @@ function renderizarPaginaProfissional() {
     `;
   }
 
+  // SERVIÇOS
   const servicosContainer = document.getElementById('servicosProfissionalGrid');
   if (servicosContainer) {
     servicosContainer.innerHTML = prof.servicos.map(s => `
       <div class="servico-profissional-card">
         <h4>${s.nome}</h4>
         <p>${s.descricao}</p>
-        <div class="servico-detalhes">
-          ${s.detalhes.map(d => `<span>✓ ${d}</span>`).join('')}
-        </div>
+        <div class="servico-detalhes">${s.detalhes.map(d => `<span>✓ ${d}</span>`).join('')}</div>
         <div class="servico-actions">
-          <button class="btn btn-small btn-primary btn-agendar-servico-profissional" data-servico="${s.id}">
+          <button type="button" class="btn btn-small btn-primary btn-agendar-servico-profissional" data-servico="${s.id}">
             <span class="btn-icon">✦</span> Agendar
           </button>
         </div>
@@ -640,111 +574,128 @@ function renderizarPaginaProfissional() {
     servicosContainer.querySelectorAll('.btn-agendar-servico-profissional').forEach(btn => {
       btn.addEventListener('click', function() {
         const servId = this.getAttribute('data-servico');
-        const serv = getServico(prof.id, servId);
-        if (serv) {
-          const select = document.getElementById('agendaServico');
-          if (select) {
-            select.value = servId;
-            select.dispatchEvent(new Event('change'));
-          }
-          document.getElementById('agendamento')?.scrollIntoView({ behavior: 'smooth' });
+        const select = document.getElementById('agendaServico');
+        if (select) {
+          select.value = servId;
+          select.dispatchEvent(new Event('change'));
+        }
+        const agenda = document.getElementById('prof-agendamento');
+        if (agenda) {
+          const headerH = document.querySelector('.header')?.offsetHeight || 80;
+          const pos = agenda.getBoundingClientRect().top + window.pageYOffset - headerH;
+          window.scrollTo({ top: pos, behavior: 'smooth' });
         }
       });
     });
   }
 
+  // Botões data-scroll-prof
+  document.querySelectorAll('#page-profissional [data-scroll-prof]').forEach(btn => {
+    btn.onclick = function() {
+      const targetId = this.getAttribute('data-scroll-prof');
+      const target = document.getElementById(targetId);
+      if (target) {
+        const headerH = document.querySelector('.header')?.offsetHeight || 80;
+        const pos = target.getBoundingClientRect().top + window.pageYOffset - headerH;
+        window.scrollTo({ top: pos, behavior: 'smooth' });
+      }
+    };
+  });
+
   configurarAgendamentoProfissional(prof);
 }
 
 // ============================================
-// 8. CONFIGURAR AGENDAMENTO
+// 9. FORM DE AGENDAMENTO
 // ============================================
 function configurarAgendamentoProfissional(prof) {
   const form = document.getElementById('formAgendamento');
-  const servSelect = document.getElementById('agendaServico');
-  const dataInput = document.getElementById('agendaData');
-  const horarioSelect = document.getElementById('agendaHorario');
-  const nomeInput = document.getElementById('agendaNome');
-  const whatsappInput = document.getElementById('agendaWhatsapp');
-  const obsInput = document.getElementById('agendaObs');
-
   if (!form) return;
 
-  servSelect.innerHTML = '<option value="">Selecione um serviço</option>';
+  const sSelect = document.getElementById('agendaServico');
+  const dInput = document.getElementById('agendaData');
+  const hSelect = document.getElementById('agendaHorario');
+  const nInput = document.getElementById('agendaNome');
+  const wInput = document.getElementById('agendaWhatsapp');
+  const oInput = document.getElementById('agendaObs');
+  const detalhesDiv = document.getElementById('agendaServicoDetalhes');
+
+  form.reset();
+  if (detalhesDiv) detalhesDiv.innerHTML = '';
+  hSelect.innerHTML = '<option value="">Selecione um horário</option>';
+
+  sSelect.innerHTML = '<option value="">Selecione um serviço</option>';
   prof.servicos.forEach(s => {
     const option = document.createElement('option');
     option.value = s.id;
     option.textContent = s.nome;
-    servSelect.appendChild(option);
+    sSelect.appendChild(option);
   });
 
-  servSelect.addEventListener('change', function() {
+  sSelect.onchange = function() {
     const servId = this.value;
     const serv = getServico(prof.id, servId);
-    const detalhesDiv = document.getElementById('agendaServicoDetalhes');
     if (detalhesDiv && serv) {
       detalhesDiv.innerHTML = `
         <div class="servico-preview">
           <p><strong>Duração:</strong> ${serv.duracao} minutos</p>
-          <div class="servico-preview-tags">
-            ${serv.detalhes.map(d => `<span>✓ ${d}</span>`).join('')}
-          </div>
+          <div class="servico-preview-tags">${serv.detalhes.map(d => `<span>✓ ${d}</span>`).join('')}</div>
         </div>
       `;
     } else if (detalhesDiv) {
       detalhesDiv.innerHTML = '';
     }
-  });
+  };
 
   const today = new Date().toISOString().split('T')[0];
-  if (dataInput) dataInput.setAttribute('min', today);
+  if (dInput) dInput.setAttribute('min', today);
 
-  dataInput.addEventListener('change', function() {
+  dInput.onchange = function() {
     const data = this.value;
-    horarioSelect.innerHTML = '<option value="">Selecione um horário</option>';
+    hSelect.innerHTML = '<option value="">Selecione um horário</option>';
     if (!data) return;
-
     const horarios = getHorariosDisponiveis(prof.id, data);
     if (horarios && horarios.length > 0) {
       horarios.forEach(h => {
         const option = document.createElement('option');
         option.value = h;
         option.textContent = h;
-        horarioSelect.appendChild(option);
+        hSelect.appendChild(option);
       });
     } else {
       const option = document.createElement('option');
       option.value = '';
       option.textContent = 'Nenhum horário disponível';
-      horarioSelect.appendChild(option);
+      hSelect.appendChild(option);
     }
-  });
+  };
 
-  form.addEventListener('submit', function(e) {
+  form.onsubmit = function(e) {
     e.preventDefault();
+    const servicoId = sSelect.value;
+    const data = dInput.value;
+    const horario = hSelect.value;
+    const nome = nInput.value.trim();
+    const whatsapp = wInput.value.trim();
+    const observacao = oInput ? oInput.value.trim() : '';
 
-    const servicoId = servSelect.value;
-    const data = dataInput.value;
-    const horario = horarioSelect.value;
-    const nome = nomeInput.value.trim();
-    const whatsapp = whatsappInput.value.trim();
-    const observacao = obsInput ? obsInput.value.trim() : '';
+    if (!servicoId) { alert('Por favor, selecione um serviço.'); sSelect.focus(); return; }
+    if (!data) { alert('Por favor, selecione uma data.'); dInput.focus(); return; }
+    if (!horario) { alert('Por favor, selecione um horário.'); hSelect.focus(); return; }
+    if (!nome) { alert('Por favor, informe seu nome completo.'); nInput.focus(); return; }
+    if (!whatsapp) { alert('Por favor, informe seu WhatsApp.'); wInput.focus(); return; }
 
-    if (!servicoId) { alert('Por favor, selecione um serviço.'); servSelect.focus(); return; }
-    if (!data) { alert('Por favor, selecione uma data.'); dataInput.focus(); return; }
-    if (!horario) { alert('Por favor, selecione um horário.'); horarioSelect.focus(); return; }
-    if (!nome) { alert('Por favor, informe seu nome completo.'); nomeInput.focus(); return; }
-    if (!whatsapp) { alert('Por favor, informe seu WhatsApp.'); whatsappInput.focus(); return; }
+    processarAgendamento({ profissionalId: prof.id, servicoId, data, horario, nome, whatsapp, observacao });
+  };
 
-    processarAgendamento({
-      profissionalId: prof.id,
-      servicoId, data, horario, nome, whatsapp, observacao
-    });
-  });
+  if (!wInput.dataset.maskApplied) {
+    mascaraTelefone(wInput);
+    wInput.dataset.maskApplied = 'true';
+  }
 }
 
 // ============================================
-// 9. MODAL DE SERVIÇO
+// 10. MODAL
 // ============================================
 function abrirModalServico(profissionalId, servicoId) {
   const servico = getServico(profissionalId, servicoId);
@@ -754,26 +705,18 @@ function abrirModalServico(profissionalId, servicoId) {
   const modal = document.getElementById('modalServico');
   if (!modal) return;
 
-  const title = document.getElementById('modalTitle');
-  const desc = document.getElementById('modalDesc');
-  const detalhes = document.getElementById('modalDetalhes');
-  const preco = document.getElementById('modalPreco');
-  const profNome = document.getElementById('modalProfissionalNome');
+  document.getElementById('modalTitle').textContent = servico.nome;
+  document.getElementById('modalDesc').textContent = servico.descricao;
+  document.getElementById('modalDetalhes').innerHTML = servico.detalhes.map(d => `<span>✓ ${d}</span>`).join('');
+  document.getElementById('modalPreco').textContent = 'Consultar valor';
+  document.getElementById('modalProfissionalNome').textContent = profissional.nome;
 
-  if (title) title.textContent = servico.nome;
-  if (desc) desc.textContent = servico.descricao;
-  if (detalhes) detalhes.innerHTML = servico.detalhes.map(d => `<span>✓ ${d}</span>`).join('');
-  if (preco) preco.textContent = 'Consultar valor';
-  if (profNome) profNome.textContent = profissional.nome;
-
-  const agendarBtn = document.querySelector('.btn-modal-agendar');
+  const agendarBtn = modal.querySelector('.btn-modal-agendar');
   if (agendarBtn) {
-    agendarBtn.setAttribute('data-profissional', profissionalId);
-    agendarBtn.setAttribute('data-servico', servicoId);
     agendarBtn.onclick = function(e) {
       e.preventDefault();
       fecharModalServico();
-      window.location.href = `profissional.html?id=${profissionalId}`;
+      abrirPaginaProfissional(profissionalId);
     };
   }
 
@@ -782,22 +725,8 @@ function abrirModalServico(profissionalId, servicoId) {
 
   const closeBtn = modal.querySelector('.modal-close');
   const overlay = modal.querySelector('.modal-overlay');
-
   if (closeBtn) closeBtn.onclick = fecharModalServico;
   if (overlay) overlay.onclick = fecharModalServico;
-
-  if (!modal.dataset.escBound) {
-    modal.dataset.escBound = 'true';
-    document.addEventListener('keydown', function escHandler(e) {
-      if (e.key === 'Escape' && modal.classList.contains('open')) {
-        fecharModalServico();
-      }
-      if (!modal.classList.contains('open')) {
-        document.removeEventListener('keydown', escHandler);
-        delete modal.dataset.escBound;
-      }
-    });
-  }
 }
 
 function fecharModalServico() {
@@ -806,35 +735,31 @@ function fecharModalServico() {
   modal.classList.remove('open');
   document.body.classList.remove('no-scroll');
 }
-
 window.fecharModalServico = fecharModalServico;
 
 // ============================================
-// 10. INTERAÇÕES GERAIS
+// 11. INTERAÇÕES
 // ============================================
 function configurarFormularioContato() {
   const form = document.getElementById('formContato');
   if (!form) return;
-
-  form.addEventListener('submit', (e) => {
+  form.onsubmit = function(e) {
     e.preventDefault();
-    const nome = document.getElementById('contatoNome')?.value.trim() || '';
-    const whatsapp = document.getElementById('contatoWhatsapp')?.value.trim() || '';
-    const mensagem = document.getElementById('contatoMensagem')?.value.trim() || '';
-
+    const nome = document.getElementById('contatoNome').value.trim();
+    const whatsapp = document.getElementById('contatoWhatsapp').value.trim();
+    const mensagem = document.getElementById('contatoMensagem').value.trim();
     if (!nome || !whatsapp) { alert('Preencha os campos obrigatórios.'); return; }
-
     const texto = `Olá! Meu nome é ${nome}.%0A%0AWhatsApp: ${whatsapp}%0A%0AMensagem: ${mensagem || 'Gostaria de agendar um atendimento.'}`;
     abrirWhatsApp(CONFIG.whatsapp, texto);
-  });
+    form.reset();
+  };
 }
 
 function headerScroll() {
   const header = document.querySelector('.header');
   if (!header) return;
   window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 50) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
+    header.classList.toggle('scrolled', window.pageYOffset > 50);
   }, { passive: true });
 }
 
@@ -843,56 +768,53 @@ function menuMobile() {
   const menu = document.querySelector('.menu-mobile');
   const overlay = document.querySelector('.menu-mobile-overlay');
   const closeBtn = document.querySelector('.menu-mobile-close');
-  const links = document.querySelectorAll('.nav-link-mobile, .menu-mobile-list a');
-  const body = document.body;
-
   if (!hamburger || !menu || !overlay) return;
 
-  function openMenu() {
-    menu.classList.add('open');
-    overlay.classList.add('open');
-    hamburger.classList.add('active');
-    hamburger.setAttribute('aria-expanded', 'true');
-    body.classList.add('no-scroll');
-  }
-  function closeMenu() {
-    menu.classList.remove('open');
-    overlay.classList.remove('open');
-    hamburger.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', 'false');
-    body.classList.remove('no-scroll');
-    hamburger.focus();
-  }
+  const openMenu = () => {
+    menu.classList.add('open'); overlay.classList.add('open');
+    hamburger.classList.add('active'); hamburger.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('no-scroll');
+  };
+  const closeMenu = () => {
+    menu.classList.remove('open'); overlay.classList.remove('open');
+    hamburger.classList.remove('active'); hamburger.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('no-scroll');
+  };
 
-  hamburger.addEventListener('click', () => {
-    menu.classList.contains('open') ? closeMenu() : openMenu();
-  });
-
-  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-  overlay.addEventListener('click', closeMenu);
-  links.forEach(link => link.addEventListener('click', closeMenu));
+  hamburger.onclick = () => menu.classList.contains('open') ? closeMenu() : openMenu();
+  if (closeBtn) closeBtn.onclick = closeMenu;
+  overlay.onclick = closeMenu;
+  document.querySelectorAll('.menu-mobile-list a').forEach(a => a.addEventListener('click', closeMenu));
 }
 
-function scrollSuave() {
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
+function configurarNavegacao() {
+  document.querySelectorAll('[data-page]').forEach(link => {
     link.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      const target = document.querySelector(targetId);
-      if (!target) return;
       e.preventDefault();
+      const page = this.getAttribute('data-page');
+      if (page === 'home') { try { history.pushState({ page: 'home' }, '', window.location.pathname); } catch (err) {} }
+      PageRouter.goTo(page);
+    });
+  });
 
-      const menu = document.querySelector('.menu-mobile');
-      if (menu && menu.classList.contains('open')) {
-        menu.classList.remove('open');
-        document.querySelector('.menu-mobile-overlay')?.classList.remove('open');
-        document.querySelector('.menu-hamburger')?.classList.remove('active');
-        document.body.classList.remove('no-scroll');
+  document.querySelectorAll('[data-scroll]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('data-scroll');
+      if (PageRouter.current !== 'home') {
+        PageRouter.goTo('home', { scrollTo: targetId });
+      } else {
+        const target = document.getElementById(targetId);
+        if (target) {
+          const headerHeight = document.querySelector('.header')?.offsetHeight || 80;
+          const pos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          window.scrollTo({ top: pos, behavior: 'smooth' });
+        }
       }
-
-      const headerHeight = document.querySelector('.header')?.offsetHeight || 80;
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      document.querySelector('.menu-mobile')?.classList.remove('open');
+      document.querySelector('.menu-mobile-overlay')?.classList.remove('open');
+      document.querySelector('.menu-hamburger')?.classList.remove('active');
+      document.body.classList.remove('no-scroll');
     });
   });
 }
@@ -900,16 +822,9 @@ function scrollSuave() {
 function preloader() {
   const preloader = document.getElementById('preloader');
   if (!preloader) return;
-
-  const hidePreloader = () => {
-    preloader.classList.add('hidden');
-    document.body.style.overflow = '';
-  };
-
-  window.addEventListener('load', () => setTimeout(hidePreloader, 600));
-  setTimeout(() => {
-    if (!preloader.classList.contains('hidden')) hidePreloader();
-  }, 3000);
+  const hide = () => { preloader.classList.add('hidden'); document.body.style.overflow = ''; };
+  window.addEventListener('load', () => setTimeout(hide, 600));
+  setTimeout(() => { if (!preloader.classList.contains('hidden')) hide(); }, 3000);
 }
 
 function animacoesScroll() {
@@ -919,7 +834,6 @@ function animacoesScroll() {
   }
   const elements = document.querySelectorAll('.fade-up, .fade-in');
   if (!elements.length) return;
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
@@ -928,7 +842,6 @@ function animacoesScroll() {
       }
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
   elements.forEach(el => observer.observe(el));
 }
 
@@ -947,7 +860,6 @@ function adicionarClassesAnimacao() {
     const el = document.querySelector(selector);
     if (el && !el.classList.contains(className)) el.classList.add(className);
   });
-
   document.querySelectorAll('.profissional-card, .servico-card, .diferencial-card').forEach((el, i) => {
     if (!el.classList.contains('fade-up')) {
       el.classList.add('fade-up');
@@ -959,7 +871,6 @@ function adicionarClassesAnimacao() {
 function animarNumeros() {
   const numbers = document.querySelectorAll('.trust-number');
   if (!numbers.length) return;
-
   let animated = false;
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -969,8 +880,7 @@ function animarNumeros() {
           const target = parseFloat(num.getAttribute('data-target') || num.textContent);
           if (!isNaN(target) && target > 0) {
             let current = 0;
-            const steps = 40;
-            const increment = target / steps;
+            const increment = target / 40;
             const timer = setInterval(() => {
               current += increment;
               if (current >= target) { num.textContent = target.toString(); clearInterval(timer); }
@@ -982,7 +892,6 @@ function animarNumeros() {
       }
     });
   }, { threshold: 0.5 });
-
   const trustContainer = document.querySelector('.hero-trust');
   if (trustContainer) observer.observe(trustContainer);
 }
@@ -990,9 +899,9 @@ function animarNumeros() {
 function configurarMobileBottomBar() {
   const bottomBar = document.getElementById('mobileBottomBar');
   if (!bottomBar) return;
-  const checkMobile = () => { bottomBar.style.display = window.innerWidth < 768 ? 'flex' : 'none'; };
-  checkMobile();
-  window.addEventListener('resize', checkMobile);
+  const check = () => { bottomBar.style.display = window.innerWidth < 768 ? 'flex' : 'none'; };
+  check();
+  window.addEventListener('resize', check);
 }
 
 function acessibilidadeFoco() {
@@ -1000,9 +909,6 @@ function acessibilidadeFoco() {
   document.addEventListener('mousedown', () => document.body.classList.remove('keyboard-navigation'));
 }
 
-// ============================================
-// 11. MELHORIAS MOBILE
-// ============================================
 function mascaraTelefone(input) {
   if (!input) return;
   input.addEventListener('input', function(e) {
@@ -1019,9 +925,8 @@ function configurarBackToTop() {
   btn.className = 'back-to-top';
   btn.innerHTML = '↑';
   btn.setAttribute('aria-label', 'Voltar ao topo');
-  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
   document.body.appendChild(btn);
-
   window.addEventListener('scroll', () => {
     btn.classList.toggle('visible', window.pageYOffset > 400);
   }, { passive: true });
@@ -1036,27 +941,18 @@ function adicionarScrollIndicator() {
   hero.appendChild(indicator);
 }
 
-function configurarLazyLoading() {
-  if ('loading' in HTMLImageElement.prototype) {
-    document.querySelectorAll('img[loading="lazy"]').forEach(img => { img.loading = 'lazy'; });
-  }
-}
-
 function melhorarFormularioContato() {
   const whatsappInput = document.getElementById('contatoWhatsapp');
-  if (whatsappInput) mascaraTelefone(whatsappInput);
-}
-
-function melhorarFormularioAgendamento() {
-  const whatsappInput = document.getElementById('agendaWhatsapp');
-  if (whatsappInput) mascaraTelefone(whatsappInput);
+  if (whatsappInput && !whatsappInput.dataset.maskApplied) {
+    mascaraTelefone(whatsappInput);
+    whatsappInput.dataset.maskApplied = 'true';
+  }
 }
 
 function configurarGestosMenuMobile() {
   const menu = document.querySelector('.menu-mobile');
   const overlay = document.querySelector('.menu-mobile-overlay');
   if (!menu || !overlay) return;
-
   let startX = 0, currentX = 0;
   menu.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
   menu.addEventListener('touchmove', (e) => {
@@ -1080,17 +976,6 @@ function melhorarAcessibilidade() {
   document.querySelectorAll('.btn-icon').forEach(icon => {
     if (!icon.getAttribute('aria-hidden')) icon.setAttribute('aria-hidden', 'true');
   });
-
-  const menuLinks = document.querySelectorAll('.menu-mobile-list a');
-  menuLinks.forEach((link, index) => {
-    link.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowDown' && index < menuLinks.length - 1) {
-        e.preventDefault(); menuLinks[index + 1].focus();
-      } else if (e.key === 'ArrowUp' && index > 0) {
-        e.preventDefault(); menuLinks[index - 1].focus();
-      }
-    });
-  });
 }
 
 function configurarOrientacao() {
@@ -1103,59 +988,81 @@ function configurarOrientacao() {
 }
 
 // ============================================
-// 12. INICIALIZAÇÃO
+// 12. POPSTATE
+// ============================================
+window.addEventListener('popstate', () => {
+  const hash = window.location.hash;
+  if (hash.startsWith('#profissional')) {
+    const params = new URLSearchParams(hash.split('?')[1] || '');
+    const id = params.get('id');
+    if (id) { abrirPaginaProfissional(id); return; }
+  }
+  if (hash.startsWith('#privacidade')) { PageRouter.goTo('privacidade'); return; }
+  PageRouter.goTo('home');
+});
+
+// ============================================
+// 13. INICIALIZAÇÃO
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
   console.log('🚀 Inicializando site...');
 
+  PageRouter.init();
   preloader();
 
-  const isProfissionalPage = window.location.pathname.includes('profissional.html');
-
   try {
-    if (isProfissionalPage) {
-      renderizarPaginaProfissional();
+    renderizarProfissionais();
+    renderizarServicosDestaque();
+    configurarFormularioContato();
+    adicionarClassesAnimacao();
+    animacoesScroll();
+    animarNumeros();
+    configurarNavegacao();
+
+    const hash = window.location.hash;
+    const hashParams = new URLSearchParams(hash.split('?')[1] || '');
+    const profIdFromHash = hashParams.get('id');
+
+    if (hash.startsWith('#profissional') && profIdFromHash) {
+      abrirPaginaProfissional(profIdFromHash);
+    } else if (hash.startsWith('#privacidade')) {
+      PageRouter.goTo('privacidade');
     } else {
-      renderizarProfissionais();
-      renderizarServicosDestaque();
-      configurarFormularioContato();
-      adicionarClassesAnimacao();
-      animacoesScroll();
-      animarNumeros();
+      PageRouter.goTo('home');
     }
 
     headerScroll();
     menuMobile();
-    scrollSuave();
     configurarMobileBottomBar();
     acessibilidadeFoco();
 
     setTimeout(() => {
       configurarBackToTop();
       adicionarScrollIndicator();
-      configurarLazyLoading();
       melhorarFormularioContato();
-      melhorarFormularioAgendamento();
       configurarGestosMenuMobile();
       melhorarAcessibilidade();
       configurarOrientacao();
     }, 150);
 
-    console.log('✅ Site inicializado com sucesso!');
+    console.log('✅ Site inicializado!');
   } catch (error) {
-    console.error('❌ Erro ao inicializar o site:', error);
+    console.error('❌ Erro:', error);
   }
 });
 
-// EXPORTAÇÕES
+// ============================================
+// 14. GLOBAIS
+// ============================================
 window.CONFIG = CONFIG;
 window.PROFISSIONAIS = PROFISSIONAIS;
+window.PageRouter = PageRouter;
 window.getProfissional = getProfissional;
 window.getServico = getServico;
-window.formatPreco = formatPreco;
 window.abrirWhatsApp = abrirWhatsApp;
 window.abrirModalServico = abrirModalServico;
 window.fecharModalServico = fecharModalServico;
+window.abrirPaginaProfissional = abrirPaginaProfissional;
 window.processarAgendamento = processarAgendamento;
 window.exibirComprovante = exibirComprovante;
 window.gerarComprovanteHTML = gerarComprovanteHTML;
