@@ -139,6 +139,18 @@ function getHorariosDisponiveis(profissionalId, data) {
   return prof.disponibilidade[diaSemana] || [];
 }
 
+// Escapa texto digitado pelo usuário antes de inserir via innerHTML,
+// evitando que HTML/tags quebrem o layout do comprovante ou do modal.
+function escapeHTML(str) {
+  if (str === null || str === undefined) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 function abrirWhatsApp(numero, mensagem) {
   if (!numero) { alert('⚠️ Número de WhatsApp não configurado.'); return; }
   const numeroLimpo = numero.replace(/\D/g, '');
@@ -171,12 +183,35 @@ function getIconeCategoria(categoria) {
   return icones[categoria] || '✦';
 }
 
+// Fecha o menu mobile (usado em vários fluxos: navegação, troca de página, etc.)
+function fecharMenuMobile() {
+  document.querySelector('.menu-mobile')?.classList.remove('open');
+  document.querySelector('.menu-mobile-overlay')?.classList.remove('open');
+  const hamburger = document.querySelector('.menu-hamburger');
+  hamburger?.classList.remove('active');
+  hamburger?.setAttribute('aria-expanded', 'false');
+  document.body.classList.remove('no-scroll');
+}
+
+// Debounce simples para handlers de resize/scroll que não precisam rodar a cada pixel.
+function debounce(fn, wait = 150) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => fn.apply(this, args), wait);
+  };
+}
+
 // ============================================
 // 4. COMPROVANTE
 // ============================================
 function gerarComprovanteHTML(dados) {
   const { profissional, servico, data, horario, nome, whatsapp, observacao, numeroRecibo } = dados;
   const dataFormatada = formatarData(data);
+
+  const nomeSeguro = escapeHTML(nome);
+  const whatsappSeguro = escapeHTML(whatsapp);
+  const observacaoSegura = escapeHTML(observacao);
 
   return `
     <div class="recibo-container">
@@ -196,7 +231,7 @@ function gerarComprovanteHTML(dados) {
       </div>
       <div class="recibo-corpo">
         <div class="recibo-foto">
-          <img src="${profissional.foto || 'img/profissionais/default.jpg'}" alt="${profissional.nome}" onerror="this.style.display='none'" />
+          <img src="${profissional.foto || 'img/profissionais/default.jpg'}" alt="${escapeHTML(profissional.nome)}" onerror="this.style.display='none'" />
         </div>
         <div class="recibo-foto-nome">
           <h3>${profissional.nome}</h3>
@@ -204,8 +239,8 @@ function gerarComprovanteHTML(dados) {
         </div>
         <div class="recibo-info-section">
           <h4>👤 Dados do Cliente</h4>
-          <div class="recibo-info-linha"><span class="recibo-info-label">Nome:</span><span class="recibo-info-valor">${nome}</span></div>
-          <div class="recibo-info-linha"><span class="recibo-info-label">WhatsApp:</span><span class="recibo-info-valor">${whatsapp}</span></div>
+          <div class="recibo-info-linha"><span class="recibo-info-label">Nome:</span><span class="recibo-info-valor">${nomeSeguro}</span></div>
+          <div class="recibo-info-linha"><span class="recibo-info-label">WhatsApp:</span><span class="recibo-info-valor">${whatsappSeguro}</span></div>
           <div class="recibo-info-linha"><span class="recibo-info-label">Emissão:</span><span class="recibo-info-valor">${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}</span></div>
         </div>
         <div class="recibo-info-section">
@@ -222,7 +257,7 @@ function gerarComprovanteHTML(dados) {
           <h4>📋 Detalhes do Serviço</h4>
           <ul class="recibo-detalhes-lista">${servico.detalhes.map(d => `<li>✓ ${d}</li>`).join('')}</ul>
         </div>
-        ${observacao ? `<div class="recibo-observacao"><p><strong>📝 Observação:</strong> ${observacao}</p></div>` : ''}
+        ${observacaoSegura ? `<div class="recibo-observacao"><p><strong>📝 Observação:</strong> ${observacaoSegura}</p></div>` : ''}
       </div>
       <div class="recibo-rodape">
         <div class="recibo-info-contato">
@@ -364,11 +399,7 @@ const PageRouter = {
     };
     document.title = titles[page] || titles.home;
 
-    document.querySelector('.menu-mobile')?.classList.remove('open');
-    document.querySelector('.menu-mobile-overlay')?.classList.remove('open');
-    document.querySelector('.menu-hamburger')?.classList.remove('active');
-    document.querySelector('.menu-hamburger')?.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('no-scroll');
+    fecharMenuMobile();
   }
 };
 
@@ -483,10 +514,7 @@ function abrirPaginaProfissional(profId) {
   window.scrollTo(0, 0);
 
   // 4) Fecha menu mobile
-  document.querySelector('.menu-mobile')?.classList.remove('open');
-  document.querySelector('.menu-mobile-overlay')?.classList.remove('open');
-  document.querySelector('.menu-hamburger')?.classList.remove('active');
-  document.body.classList.remove('no-scroll');
+  fecharMenuMobile();
 
   // 5) Atualiza URL
   try { history.pushState({ page: 'profissional', id: profId }, '', `#profissional?id=${profId}`); } catch (e) {}
@@ -620,6 +648,12 @@ function configurarAgendamentoProfissional(prof) {
   const oInput = document.getElementById('agendaObs');
   const detalhesDiv = document.getElementById('agendaServicoDetalhes');
 
+  // Se algum campo essencial não existir no HTML, não prossegue (evita erro silencioso no console).
+  if (!sSelect || !dInput || !hSelect || !nInput || !wInput) {
+    console.warn('Formulário de agendamento incompleto: um ou mais campos não foram encontrados.');
+    return;
+  }
+
   form.reset();
   if (detalhesDiv) detalhesDiv.innerHTML = '';
   hSelect.innerHTML = '<option value="">Selecione um horário</option>';
@@ -648,7 +682,7 @@ function configurarAgendamentoProfissional(prof) {
   };
 
   const today = new Date().toISOString().split('T')[0];
-  if (dInput) dInput.setAttribute('min', today);
+  dInput.setAttribute('min', today);
 
   dInput.onchange = function() {
     const data = this.value;
@@ -775,16 +809,11 @@ function menuMobile() {
     hamburger.classList.add('active'); hamburger.setAttribute('aria-expanded', 'true');
     document.body.classList.add('no-scroll');
   };
-  const closeMenu = () => {
-    menu.classList.remove('open'); overlay.classList.remove('open');
-    hamburger.classList.remove('active'); hamburger.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('no-scroll');
-  };
 
-  hamburger.onclick = () => menu.classList.contains('open') ? closeMenu() : openMenu();
-  if (closeBtn) closeBtn.onclick = closeMenu;
-  overlay.onclick = closeMenu;
-  document.querySelectorAll('.menu-mobile-list a').forEach(a => a.addEventListener('click', closeMenu));
+  hamburger.onclick = () => menu.classList.contains('open') ? fecharMenuMobile() : openMenu();
+  if (closeBtn) closeBtn.onclick = fecharMenuMobile;
+  overlay.onclick = fecharMenuMobile;
+  document.querySelectorAll('.menu-mobile-list a').forEach(a => a.addEventListener('click', fecharMenuMobile));
 }
 
 function configurarNavegacao() {
@@ -811,10 +840,7 @@ function configurarNavegacao() {
           window.scrollTo({ top: pos, behavior: 'smooth' });
         }
       }
-      document.querySelector('.menu-mobile')?.classList.remove('open');
-      document.querySelector('.menu-mobile-overlay')?.classList.remove('open');
-      document.querySelector('.menu-hamburger')?.classList.remove('active');
-      document.body.classList.remove('no-scroll');
+      fecharMenuMobile();
     });
   });
 }
@@ -901,7 +927,7 @@ function configurarMobileBottomBar() {
   if (!bottomBar) return;
   const check = () => { bottomBar.style.display = window.innerWidth < 768 ? 'flex' : 'none'; };
   check();
-  window.addEventListener('resize', check);
+  window.addEventListener('resize', debounce(check, 150));
 }
 
 function acessibilidadeFoco() {
@@ -909,13 +935,24 @@ function acessibilidadeFoco() {
   document.addEventListener('mousedown', () => document.body.classList.remove('keyboard-navigation'));
 }
 
+// Máscara de telefone (86) 98160-7614, sem deixar hífen/parênteses sobrando
+// enquanto o usuário ainda está digitando.
 function mascaraTelefone(input) {
   if (!input) return;
   input.addEventListener('input', function(e) {
-    let value = e.target.value.replace(/\D/g, '');
-    if (value.length <= 10) value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
-    else value = value.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
-    e.target.value = value;
+    let value = e.target.value.replace(/\D/g, '').slice(0, 11);
+
+    if (value.length === 0) {
+      e.target.value = '';
+    } else if (value.length <= 2) {
+      e.target.value = `(${value}`;
+    } else if (value.length <= 6) {
+      e.target.value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+    } else if (value.length <= 10) {
+      e.target.value = `(${value.slice(0, 2)}) ${value.slice(2, 6)}-${value.slice(6)}`;
+    } else {
+      e.target.value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
+    }
   });
 }
 
@@ -962,12 +999,7 @@ function configurarGestosMenuMobile() {
   }, { passive: true });
   menu.addEventListener('touchend', () => {
     const diff = currentX - startX;
-    if (diff > 80) {
-      menu.classList.remove('open');
-      overlay.classList.remove('open');
-      document.querySelector('.menu-hamburger')?.classList.remove('active');
-      document.body.classList.remove('no-scroll');
-    }
+    if (diff > 80) fecharMenuMobile();
     menu.style.transform = '';
   });
 }

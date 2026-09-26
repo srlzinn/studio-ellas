@@ -10,6 +10,10 @@
   <title>Centro Odontológico e Estético | Parnaíba - PI</title>
   <meta name="description" content="Centro Odontológico e Estético em Parnaíba - PI. Odontologia, estética facial, harmonização, massoterapia e beleza em um só lugar." />
 
+  <!-- ATENÇÃO: og:url e og:image ainda apontam para "studioellasbr.vercel.app",
+       que parece ser o domínio de outro projeto. Troque pelos dados reais
+       deste site antes de publicar, ou o preview do link no WhatsApp/Instagram
+       vai mostrar a marca errada. -->
   <meta property="og:title" content="Centro Odontológico e Estético | Parnaíba - PI" />
   <meta property="og:description" content="Odontologia, estética facial, harmonização e beleza em um só lugar." />
   <meta property="og:type" content="website" />
@@ -75,7 +79,7 @@
 
       <div class="header-actions">
         <a href="#home-profissionais" class="btn btn-primary btn-whatsapp-header" data-scroll="home-profissionais">
-          <span class="btn-icon" aria-hidden="true">✦</span> Agendar
+          Agendar
         </a>
         <button class="menu-hamburger" aria-label="Abrir menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -128,7 +132,7 @@
             </p>
             <div class="hero-buttons">
               <a href="#home-profissionais" class="btn btn-primary" data-scroll="home-profissionais">
-                <span class="btn-icon" aria-hidden="true">✦</span> Agendar avaliação
+                Agendar avaliação
               </a>
               <a href="#home-sobre" class="btn btn-outline" data-scroll="home-sobre">
                 Conhecer <span class="btn-arrow">→</span>
@@ -166,18 +170,33 @@
       <section class="apresentacao" id="home-sobre">
         <div class="container apresentacao-grid">
           <div class="apresentacao-texto">
-            <span class="section-tag">✦ Sobre a clínica</span>
-            <h2>Excelência e cuidado <span class="section-highlight">em cada detalhe</span></h2>
+            <span class="section-tag">Sobre a clínica</span>
+            <h2>Excelência e cuidado em cada detalhe</h2>
             <p>
               O Centro Odontológico e Estético reúne profissionais especializadas para oferecer um atendimento completo e humanizado. Com estrutura moderna e tecnologia de ponta, cuidamos da sua saúde bucal, estética e bem-estar.
             </p>
             <p>
-              Nossa missão é devolver autoestima e bem-estar aos nossos pacientes, com tratamentos personalizados e resultados que transformam vidas.
+              Cada tratamento é pensado para o seu caso, unindo odontologia, estética facial, harmonização, massoterapia e cuidados de beleza em um só endereço, em Parnaíba - PI.
             </p>
             <div class="apresentacao-features">
-              <div class="apresentacao-feature"><span class="feature-icon">✦</span><span>Equipe qualificada</span></div>
-              <div class="apresentacao-feature"><span class="feature-icon">✦</span><span>Atendimento personalizado</span></div>
-              <div class="apresentacao-feature"><span class="feature-icon">✦</span><span>Tecnologia e conforto</span></div>
+              <div class="apresentacao-feature">
+                <span class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>
+                </span>
+                <span>Equipe qualificada</span>
+              </div>
+              <div class="apresentacao-feature">
+                <span class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>
+                </span>
+                <span>Atendimento personalizado</span>
+              </div>
+              <div class="apresentacao-feature">
+                <span class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>
+                </span>
+                <span>Tecnologia e conforto</span>
+              </div>
             </div>
           </div>
           <div class="apresentacao-imagem">
@@ -190,9 +209,9 @@
       <section id="home-profissionais" class="profissionais">
         <div class="container">
           <div class="section-header">
-            <span class="section-tag">✦ Profissionais</span>
+            <span class="section-tag">Profissionais</span>
             <div class="section-divider"></div>
-            <h2>Conheça nossas <span class="section-highlight">especialistas</span></h2>
+            <h2>Conheça nossas especialistas</h2>
             <p>Profissionais dedicadas a cuidar da sua saúde, beleza e bem-estar.</p>
           </div>
           <div class="profissionais-grid" id="profissionaisGrid"></div>
@@ -202,9 +221,9 @@
       <section id="home-servicos" class="servicos-destaque">
         <div class="container">
           <div class="section-header">
-            <span class="section-tag">✦ Serviços</span>
+            <span class="section-tag">Serviços</span>
             <div class="section-divider"></div>
-            <h2>Tratamentos <span class="section-highlight">em destaque</span></h2>
+            <h2>Tratamentos em destaque</h2>
             <p>Procedimentos que transformam sorrisos e elevam a autoestima.</p>
           </div>
           <div class="servicos-grid" id="servicosGrid"></div>
@@ -219,28 +238,53 @@
       <section class="diferenciais" id="home-diferenciais">
         <div class="container">
           <div class="section-header">
-            <span class="section-tag">✦ Diferenciais</span>
+            <span class="section-tag">Diferenciais</span>
             <div class="section-divider"></div>
-            <h2>Por que escolher <span class="section-highlight">nosso centro</span></h2>
+            <h2>Por que escolher o Centro Odontológico e Estético</h2>
           </div>
           <div class="diferenciais-grid">
             <div class="diferencial-card">
-              <div class="diferencial-icon" aria-hidden="true">🦷</div>
+              <div class="diferencial-icon" aria-hidden="true" style="color:var(--gold)">
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3c-2.2 0-3.6 1.1-4.6 1.1C6.2 4.1 5 3.4 5 5.6c0 2.3.6 4.9 1.2 7 .5 1.9 1 4.4 2.3 4.4 1.1 0 1.1-2.6 1.6-4.1.3-.9.6-1.4 1.9-1.4s1.6.5 1.9 1.4c.5 1.5.5 4.1 1.6 4.1 1.3 0 1.8-2.5 2.3-4.4.6-2.1 1.2-4.7 1.2-7 0-2.2-1.2-1.5-2.4-1.5-1 0-2.4-1.1-4.6-1.1z"/>
+                </svg>
+              </div>
               <h3>Atendimento Humanizado</h3>
               <p>Escuta ativa e cuidado personalizado em cada etapa.</p>
             </div>
             <div class="diferencial-card">
-              <div class="diferencial-icon" aria-hidden="true">✨</div>
+              <div class="diferencial-icon" aria-hidden="true" style="color:var(--gold)">
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3l1.2 4.8L18 9l-4.8 1.2L12 15l-1.2-4.8L6 9l4.8-1.2L12 3z"/>
+                  <path d="M19 14l.6 2.4L22 17l-2.4.6L19 20l-.6-2.4L16 17l2.4-.6L19 14z"/>
+                </svg>
+              </div>
               <h3>Tecnologia Avançada</h3>
               <p>Equipamentos modernos e técnicas atualizadas.</p>
             </div>
             <div class="diferencial-card">
-              <div class="diferencial-icon" aria-hidden="true">👩‍⚕️</div>
+              <div class="diferencial-icon" aria-hidden="true" style="color:var(--gold)">
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="8" r="3"/>
+                  <path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/>
+                  <circle cx="17" cy="9" r="2.4"/>
+                  <path d="M14.8 19c.3-2.4 2-4 4.2-4 2.4 0 4.3 1.8 4.5 4.2"/>
+                </svg>
+              </div>
               <h3>Equipe Multidisciplinar</h3>
               <p>Odontologia, estética, massoterapia e beleza integradas.</p>
             </div>
             <div class="diferencial-card">
-              <div class="diferencial-icon" aria-hidden="true">🏆</div>
+              <div class="diferencial-icon" aria-hidden="true" style="color:var(--gold)">
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 4h10v3a5 5 0 0 1-10 0V4z"/>
+                  <path d="M7 5H4a3 3 0 0 0 3 4"/>
+                  <path d="M17 5h3a3 3 0 0 1-3 4"/>
+                  <path d="M12 12v3"/>
+                  <path d="M9 20h6"/>
+                  <path d="M10 17h4v3h-4z"/>
+                </svg>
+              </div>
               <h3>Excelência Comprovada</h3>
               <p>Nota 4,9 no Google e pacientes satisfeitos.</p>
             </div>
@@ -251,31 +295,39 @@
       <section id="home-contato" class="contato">
         <div class="container">
           <div class="section-header">
-            <span class="section-tag">✦ Contato</span>
+            <span class="section-tag">Contato</span>
             <div class="section-divider"></div>
-            <h2>Fale <span class="section-highlight">conosco</span></h2>
+            <h2>Fale conosco</h2>
           </div>
           <div class="contato-grid">
             <div class="contato-info">
               <div class="contato-card">
                 <h3>Informações</h3>
                 <div class="contato-item">
-                  <span class="contato-icon" aria-hidden="true">📱</span>
+                  <span class="contato-icon" aria-hidden="true" style="color:var(--gold)">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+                  </span>
                   <div><strong>WhatsApp</strong><p class="contato-wa">(86) 98160-7614</p></div>
                 </div>
                 <div class="contato-item">
-                  <span class="contato-icon" aria-hidden="true">📍</span>
+                  <span class="contato-icon" aria-hidden="true" style="color:var(--gold)">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.6 7-11.5A7 7 0 0 0 5 9.5C5 14.4 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+                  </span>
                   <div><strong>Endereço</strong><p>Parnaíba - PI</p></div>
                 </div>
                 <div class="contato-item">
-                  <span class="contato-icon" aria-hidden="true">🕐</span>
+                  <span class="contato-icon" aria-hidden="true" style="color:var(--gold)">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+                  </span>
                   <div><strong>Horário</strong><p>Seg-Sex: 08h-18h | Sáb: 08h-14h</p></div>
                 </div>
                 <div class="contato-social">
                   <a href="https://www.instagram.com/centroodontologicoeestetico/" target="_blank" rel="noopener" aria-label="Instagram">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                   </a>
-                  <a href="https://wa.me/5586981607614" target="_blank" rel="noopener" class="footer-wa" aria-label="WhatsApp">📱</a>
+                  <a href="https://wa.me/5586981607614" target="_blank" rel="noopener" class="footer-wa" aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.032 21.965c-1.902 0-3.74-.513-5.318-1.477l-4.076 1.334 1.356-4.038c-1.048-1.683-1.643-3.614-1.643-5.653 0-6.025 4.896-10.92 10.922-10.92 2.916 0 5.657 1.137 7.72 3.2 2.064 2.063 3.2 4.804 3.2 7.72 0 6.026-4.895 10.922-10.921 10.922zm0-19.722c-4.868 0-8.828 3.959-8.828 8.828 0 1.753.515 3.465 1.493 4.93l-.971 2.893 2.983-.975c1.416.858 3.044 1.335 4.727 1.335 4.868 0 8.828-3.959 8.828-8.828 0-2.36-.919-4.579-2.588-6.248-1.67-1.67-3.888-2.589-6.249-2.589z"/><path d="M16.437 13.544c-.237-.118-1.403-.692-1.62-.771-.217-.08-.375-.118-.533.118-.158.237-.611.771-.75.929-.138.158-.276.177-.513.059-.237-.118-1.001-.369-1.906-1.177-.705-.628-1.18-1.403-1.318-1.641-.138-.237-.015-.365.104-.482.107-.106.237-.276.355-.414.118-.138.158-.237.237-.395.079-.158.04-.296-.02-.414-.059-.118-.533-1.285-.731-1.759-.192-.459-.387-.397-.533-.405-.138-.008-.296-.008-.454-.008-.158 0-.414.059-.632.296-.217.237-.829.81-.829 1.976 0 1.166.849 2.292.968 2.451.118.158 1.672 2.553 4.052 3.424 2.38.871 2.38.581 2.808.544.428-.037 1.382-.565 1.576-1.111.194-.546.194-1.014.136-1.111-.059-.099-.217-.158-.454-.276z"/></svg>
+                  </a>
                 </div>
               </div>
             </div>
@@ -297,7 +349,7 @@
                     <textarea id="contatoMensagem" placeholder="Como podemos ajudar?" rows="3"></textarea>
                   </div>
                   <button type="submit" class="btn btn-primary btn-form">
-                    <span class="btn-icon" aria-hidden="true">✦</span> Enviar mensagem
+                    Enviar mensagem
                   </button>
                 </form>
               </div>
@@ -309,11 +361,11 @@
       <section class="cta-final" id="home-cta">
         <div class="cta-final-line"></div>
         <div class="container cta-inner">
-          <span class="cta-tag">✦ Agende sua avaliação</span>
+          <span class="cta-tag">Agende sua avaliação</span>
           <h2>Transforme seu <span class="cta-highlight">sorriso e bem-estar</span></h2>
           <p>Clique abaixo e conheça nossas profissionais para agendar seu atendimento.</p>
           <a href="#home-profissionais" class="btn btn-primary btn-large" data-scroll="home-profissionais">
-            <span class="btn-icon" aria-hidden="true">✦</span> Conhecer profissionais
+            Conhecer profissionais <span class="btn-arrow">→</span>
           </a>
         </div>
       </section>
@@ -332,8 +384,8 @@
       <section class="servicos-profissional" id="prof-servicos">
         <div class="container">
           <div class="section-header">
-            <span class="section-tag">✦ Serviços</span>
-            <h2>Tratamentos <span class="section-highlight">realizados</span></h2>
+            <span class="section-tag">Serviços</span>
+            <h2>Tratamentos realizados</h2>
           </div>
           <div class="servicos-profissional-grid" id="servicosProfissionalGrid"></div>
         </div>
@@ -342,8 +394,8 @@
       <section id="prof-agendamento" class="agendamento">
         <div class="container">
           <div class="section-header">
-            <span class="section-tag">✦ Agendamento</span>
-            <h2>Agende seu <span class="section-highlight">atendimento</span></h2>
+            <span class="section-tag">Agendamento</span>
+            <h2>Agende seu atendimento</h2>
             <p>Preencha o formulário e receba a confirmação no WhatsApp.</p>
           </div>
           <div class="agendamento-container">
@@ -380,7 +432,7 @@
               </div>
               <div id="agendaServicoDetalhes"></div>
               <button type="submit" class="btn btn-primary btn-agendamento">
-                <span class="btn-icon" aria-hidden="true">✦</span> Confirmar agendamento
+                Confirmar agendamento
               </button>
             </form>
           </div>
@@ -389,11 +441,11 @@
 
       <section class="cta-profissional">
         <div class="container cta-inner">
-          <span class="cta-tag">✦ Agende sua avaliação</span>
-          <h2>Transforme sua <span class="cta-highlight">saúde e beleza</span></h2>
+          <span class="cta-tag">Agende sua avaliação</span>
+          <h2>Transforme sua saúde e beleza</h2>
           <p>Agende sua avaliação e descubra como podemos cuidar de você.</p>
           <a href="#prof-agendamento" class="btn btn-primary btn-large" data-scroll-prof="prof-agendamento">
-            <span class="btn-icon" aria-hidden="true">✦</span> Agendar avaliação
+            Agendar avaliação
           </a>
         </div>
       </section>
@@ -407,7 +459,7 @@
     <div class="page-view" id="page-privacidade" style="display:none;">
       <main class="privacidade-page">
         <div class="container">
-          <span class="section-tag">✦ Documento Legal</span>
+          <span class="section-tag">Documento Legal</span>
           <h1>Política de Privacidade</h1>
           <p class="privacidade-update">Última atualização: Janeiro de 2026</p>
 
@@ -458,7 +510,7 @@
 
           <div class="privacidade-footer">
             <a href="#" class="btn btn-primary" data-page="home">
-              <span class="btn-icon" aria-hidden="true">✦</span> Voltar ao site
+              Voltar ao site
             </a>
           </div>
         </div>
@@ -478,7 +530,9 @@
           <a href="https://www.instagram.com/centroodontologicoeestetico/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
-          <a href="https://wa.me/5586981607614" target="_blank" rel="noopener" class="footer-wa" aria-label="WhatsApp">📱</a>
+          <a href="https://wa.me/5586981607614" target="_blank" rel="noopener" class="footer-wa" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.032 21.965c-1.902 0-3.74-.513-5.318-1.477l-4.076 1.334 1.356-4.038c-1.048-1.683-1.643-3.614-1.643-5.653 0-6.025 4.896-10.92 10.922-10.92 2.916 0 5.657 1.137 7.72 3.2 2.064 2.063 3.2 4.804 3.2 7.72 0 6.026-4.895 10.922-10.921 10.922zm0-19.722c-4.868 0-8.828 3.959-8.828 8.828 0 1.753.515 3.465 1.493 4.93l-.971 2.893 2.983-.975c1.416.858 3.044 1.335 4.727 1.335 4.868 0 8.828-3.959 8.828-8.828 0-2.36-.919-4.579-2.588-6.248-1.67-1.67-3.888-2.589-6.249-2.589z"/><path d="M16.437 13.544c-.237-.118-1.403-.692-1.62-.771-.217-.08-.375-.118-.533.118-.158.237-.611.771-.75.929-.138.158-.276.177-.513.059-.237-.118-1.001-.369-1.906-1.177-.705-.628-1.18-1.403-1.318-1.641-.138-.237-.015-.365.104-.482.107-.106.237-.276.355-.414.118-.138.158-.237.237-.395.079-.158.04-.296-.02-.414-.059-.118-.533-1.285-.731-1.759-.192-.459-.387-.397-.533-.405-.138-.008-.296-.008-.454-.008-.158 0-.414.059-.632.296-.217.237-.829.81-.829 1.976 0 1.166.849 2.292.968 2.451.118.158 1.672 2.553 4.052 3.424 2.38.871 2.38.581 2.808.544.428-.037 1.382-.565 1.576-1.111.194-.546.194-1.014.136-1.111-.059-.099-.217-.158-.454-.276z"/></svg>
+          </a>
         </div>
       </div>
       <div class="footer-links-group">
@@ -500,9 +554,18 @@
       </div>
       <div class="footer-contact">
         <h4>Atendimento</h4>
-        <p>📱 (86) 98160-7614</p>
-        <p>📍 Parnaíba - PI</p>
-        <p>🕐 Seg-Sex: 08h-18h | Sáb: 08h-14h</p>
+        <p style="display:inline-flex;align-items:center;gap:8px;color:var(--gold)">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+          <span style="color:var(--text-tertiary)">(86) 98160-7614</span>
+        </p>
+        <p style="display:inline-flex;align-items:center;gap:8px;color:var(--gold)">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.6 7-11.5A7 7 0 0 0 5 9.5C5 14.4 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+          <span style="color:var(--text-tertiary)">Parnaíba - PI</span>
+        </p>
+        <p style="display:inline-flex;align-items:center;gap:8px;color:var(--gold)">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <span style="color:var(--text-tertiary)">Seg-Sex: 08h-18h | Sáb: 08h-14h</span>
+        </p>
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">© 2026 Centro Odontológico e Estético. Todos os direitos reservados.</p>
@@ -522,10 +585,13 @@
   <!-- MOBILE BOTTOM BAR -->
   <div class="mobile-bottom-bar" id="mobileBottomBar">
     <a href="https://wa.me/5586981607614" target="_blank" rel="noopener" class="btn btn-primary btn-bottom-wa">
-      <span class="btn-icon" aria-hidden="true">📱</span> WhatsApp
+      <span class="btn-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.032 21.965c-1.902 0-3.74-.513-5.318-1.477l-4.076 1.334 1.356-4.038c-1.048-1.683-1.643-3.614-1.643-5.653 0-6.025 4.896-10.92 10.922-10.92 2.916 0 5.657 1.137 7.72 3.2 2.064 2.063 3.2 4.804 3.2 7.72 0 6.026-4.895 10.922-10.921 10.922zm0-19.722c-4.868 0-8.828 3.959-8.828 8.828 0 1.753.515 3.465 1.493 4.93l-.971 2.893 2.983-.975c1.416.858 3.044 1.335 4.727 1.335 4.868 0 8.828-3.959 8.828-8.828 0-2.36-.919-4.579-2.588-6.248-1.67-1.67-3.888-2.589-6.249-2.589z"/><path d="M16.437 13.544c-.237-.118-1.403-.692-1.62-.771-.217-.08-.375-.118-.533.118-.158.237-.611.771-.75.929-.138.158-.276.177-.513.059-.237-.118-1.001-.369-1.906-1.177-.705-.628-1.18-1.403-1.318-1.641-.138-.237-.015-.365.104-.482.107-.106.237-.276.355-.414.118-.138.158-.237.237-.395.079-.158.04-.296-.02-.414-.059-.118-.533-1.285-.731-1.759-.192-.459-.387-.397-.533-.405-.138-.008-.296-.008-.454-.008-.158 0-.414.059-.632.296-.217.237-.829.81-.829 1.976 0 1.166.849 2.292.968 2.451.118.158 1.672 2.553 4.052 3.424 2.38.871 2.38.581 2.808.544.428-.037 1.382-.565 1.576-1.111.194-.546.194-1.014.136-1.111-.059-.099-.217-.158-.454-.276z"/></svg>
+      </span>
+      WhatsApp
     </a>
     <a href="#home-profissionais" class="btn btn-primary btn-bottom-agendar" data-scroll="home-profissionais">
-      <span class="btn-icon" aria-hidden="true">✦</span> Agendar
+      Agendar
     </a>
   </div>
 
@@ -543,7 +609,7 @@
           <strong>Profissional:</strong> <span id="modalProfissionalNome"></span>
         </div>
         <button type="button" class="btn btn-primary btn-modal-agendar">
-          <span class="btn-icon" aria-hidden="true">✦</span> Agendar este serviço
+          Agendar este serviço
         </button>
       </div>
     </div>
