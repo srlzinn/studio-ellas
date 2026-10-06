@@ -74,17 +74,22 @@ const PROFISSIONAIS = [
       sexta:   ["08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00"]
     },
     servicos: [
-      { id: "limpeza-de-pele", nome: "Limpeza de Pele", categoria: "Estética Facial", descricao: "Limpeza profunda com protocolo completo de cuidado facial.", detalhes: ["Higienização","Esfoliação","Emoliência","Vapor de ozônio","Extração","Tonificação","Aromaterapia","Massagem facial","LEDterapia","Cromoterapia","Sons binaurais"], duracao: 90 },
-      { id: "massagem-relaxante", nome: "Massagem Relaxante", categoria: "Bem-estar", descricao: "Experiência sensorial de relaxamento profundo e bem-estar.", detalhes: ["Massagem relaxante","Aromaterapia","Cromoterapia","Sons binaurais"], duracao: 60 },
-      { id: "dermaplaning", nome: "Dermaplaning", categoria: "Estética Facial", descricao: "Renovação celular com glow imediato e pele lisa.", detalhes: ["Remoção de células mortas","Renovação celular","Remoção dos pelos finos do rosto","Glow imediato"], duracao: 60 },
-      { id: "hydra-gloss", nome: "Hydra Gloss / Hydra Color", categoria: "Estética Facial", descricao: "Hidratação intensa com toque de cor e brilho natural.", detalhes: ["Higienização","Esfoliação","Microagulhamento","Sérum com ativos hidratantes","Lábios levemente rosados"], duracao: 75 },
-      { id: "ventosaterapia", nome: "Ventosaterapia", categoria: "Bem-estar", descricao: "Técnica terapêutica que estimula a circulação e relaxa.", detalhes: ["Massagem","Aromaterapia","Cromoterapia"], duracao: 60 },
-      { id: "microagulhamento", nome: "Microagulhamento", categoria: "Estética Avançada", descricao: "Estímulo de colágeno com ativos de alta performance.", detalhes: ["Limpeza de pele","Microagulhamento","GHK-Cu e exossomos","Rejuvenescimento","Redução da aparência de rugas","Cromoterapia"], duracao: 90 },
+      // ===== PROCEDIMENTOS AVANÇADOS =====
       { id: "botox", nome: "Botox", categoria: "Estética Facial", descricao: "Tratamento para suavizar rugas e linhas de expressão.", detalhes: ["Procedimento seguro","Resultados naturais","Efeito duradouro"], duracao: 60 },
+      { id: "harmonizacao-corporal", nome: "Harmonização Corporal", categoria: "Estética Corporal", descricao: "Procedimentos para harmonização e modelagem corporal.", detalhes: ["Avaliação corporal","Tratamento personalizado","Resultados naturais"], duracao: 90 },
+      { id: "harmonizacao-glutea", nome: "Harmonização Glútea", categoria: "Estética Corporal", descricao: "Procedimentos para harmonização e valorização dos glúteos.", detalhes: ["Avaliação corporal","Tratamento personalizado","Resultados naturais"], duracao: 90 },
+      { id: "terapia-ortomolecular", nome: "Terapia Ortomolecular", categoria: "Estética", descricao: "Tratamento com vitaminas e minerais para a saúde e beleza.", detalhes: ["Suplementação personalizada","Bem-estar geral"], duracao: 60 },
+      { id: "peim", nome: "PEIM", categoria: "Estética Avançada", descricao: "Procedimento estético injetável para melhora da qualidade da pele.", detalhes: ["Avaliação personalizada","Aplicação segura","Resultados progressivos"], duracao: 60 },
+      { id: "microagulhamento", nome: "Microagulhamento", categoria: "Estética Avançada", descricao: "Estímulo de colágeno com ativos de alta performance.", detalhes: ["Limpeza de pele","Microagulhamento","GHK-Cu e exossomos","Rejuvenescimento","Redução da aparência de rugas","Cromoterapia"], duracao: 90 },
       { id: "skinbooster", nome: "Skinbooster", categoria: "Estética Facial", descricao: "Tratamento para hidratação e rejuvenescimento da pele.", detalhes: ["Hidratação profunda","Rejuvenescimento"], duracao: 60 },
       { id: "enzimas-emagrecedoras", nome: "Enzimas Emagrecedoras", categoria: "Estética Corporal", descricao: "Tratamento para redução de gordura localizada.", detalhes: ["Redução de medidas","Resultados progressivos"], duracao: 90 },
-      { id: "terapia-ortomolecular", nome: "Terapia Ortomolecular", categoria: "Estética", descricao: "Tratamento com vitaminas e minerais para a saúde e beleza.", detalhes: ["Suplementação personalizada","Bem-estar geral"], duracao: 60 },
-      { id: "harmonizacao-corporal", nome: "Harmonização Corporal", categoria: "Estética Corporal", descricao: "Procedimentos para harmonização e modelagem corporal.", detalhes: ["Avaliação corporal","Tratamento personalizado","Resultados naturais"], duracao: 90 }
+
+      // ===== PROCEDIMENTOS MENOS AVANÇADOS =====
+      { id: "limpeza-de-pele", nome: "Limpeza de Pele", categoria: "Estética Facial", descricao: "Limpeza profunda com protocolo completo de cuidado facial.", detalhes: ["Higienização","Esfoliação","Emoliência","Vapor de ozônio","Extração","Tonificação","Aromaterapia","Massagem facial","LEDterapia","Cromoterapia","Sons binaurais"], duracao: 90 },
+      { id: "dermaplaning", nome: "Dermaplaning", categoria: "Estética Facial", descricao: "Renovação celular com glow imediato e pele lisa.", detalhes: ["Remoção de células mortas","Renovação celular","Remoção dos pelos finos do rosto","Glow imediato"], duracao: 60 },
+      { id: "hydra-gloss", nome: "Hydra Gloss / Hydra Color", categoria: "Estética Facial", descricao: "Hidratação intensa com toque de cor e brilho natural.", detalhes: ["Higienização","Esfoliação","Microagulhamento","Sérum com ativos hidratantes","Lábios levemente rosados"], duracao: 75 },
+      { id: "massagem-relaxante", nome: "Massagem Relaxante", categoria: "Bem-estar", descricao: "Experiência sensorial de relaxamento profundo e bem-estar.", detalhes: ["Massagem relaxante","Aromaterapia","Cromoterapia","Sons binaurais"], duracao: 60 },
+      { id: "ventosaterapia", nome: "Ventosaterapia", categoria: "Bem-estar", descricao: "Técnica terapêutica que estimula a circulação e relaxa.", detalhes: ["Massagem","Aromaterapia","Cromoterapia"], duracao: 60 }
     ]
   },
   {
